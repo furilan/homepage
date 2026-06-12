@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社フリラン | AIエージェント開発・SES・自社サービス開発</title>
+<meta name="description" content="株式会社フリランは、AIエージェント開発・SES・自社サービス開発を通じて、テクノロジーの最前線でビジネスの未来を創造します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ローディング画面 -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">FURILAN</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<!-- カーソル追従グロー -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ナビゲーション -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#strengths">Strengths</a>
+      <a href="#works">Flow</a>
+      <a href="#company">Company</a>
+      <a href="recruit.html">Recruit</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero" id="top">
+  <canvas id="particleCanvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>AI AGENT × HUMAN CREATIVITY</p>
+    <h1 class="hero-title">
+      <span class="hero-line"><span class="hero-line-inner">テクノロジーで、</span></span>
+      <span class="hero-line"><span class="hero-line-inner"><span class="gradient-text">未来</span>を実装する。</span></span>
+    </h1>
+    <p class="hero-sub reveal delay-2">
+      株式会社フリランは、AIエージェント開発・SES・自社サービス開発の3つの事業を軸に、<br class="pc-only">
+      企業のDXとビジネスの進化を加速させるテクノロジーカンパニーです。
+    </p>
+    <div class="hero-actions reveal delay-3">
+      <a href="#services" class="btn btn-primary">事業内容を見る<span class="btn-arrow">→</span></a>
+      <a href="#contact" class="btn btn-ghost">お問い合わせ</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+  <div class="hero-marquee">
+    <div class="marquee-track">
+      <span>AI AGENT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;SYSTEM ENGINEERING SERVICE&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;LLM INTEGRATION&nbsp;&nbsp;/&nbsp;&nbsp;DX CONSULTING&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+      <span>AI AGENT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;SYSTEM ENGINEERING SERVICE&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;LLM INTEGRATION&nbsp;&nbsp;/&nbsp;&nbsp;DX CONSULTING&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+    </div>
+  </div>
+</section>
+
+<!-- 事業内容 -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">SERVICES</p>
+      <h2 class="section-title">3つの事業で、<br>ビジネスを<span class="gradient-text">加速</span>させる。</h2>
+    </div>
+    <div class="service-cards">
+      <article class="service-card tilt reveal" data-index="01">
+        <div class="service-card-glow"></div>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="14" r="6"/>
+            <circle cx="10" cy="34" r="5"/>
+            <circle cx="38" cy="34" r="5"/>
+            <path d="M20 19 L12 29 M28 19 L36 29 M15 34 L33 34"/>
+          </svg>
+        </div>
+        <p class="service-num">01</p>
+        <h3 class="service-name">AIエージェント開発</h3>
+        <p class="service-en">AI Agent Development</p>
+        <p class="service-desc">
+          LLMを活用した自律型AIエージェントの設計・開発を行います。業務自動化、カスタマーサポート、データ分析など、貴社の課題に合わせたAIソリューションをフルスクラッチで構築します。
+        </p>
+        <ul class="service-tags">
+          <li>LLM活用</li><li>業務自動化</li><li>RAG構築</li><li>チャットボット</li>
+        </ul>
+        <button class="case-toggle" aria-expanded="false">
+          <span class="case-toggle-label">case</span>
+          <span class="case-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="service-cases">
+          <div class="service-cases-inner">
+            <div class="case-item">
+              <h4>社内問い合わせ対応AIエージェント</h4>
+              <p>社内規程やマニュアルを学習させたRAG型エージェントを構築。バックオフィスへの問い合わせ対応を自動化し、対応工数を大幅に削減。</p>
+            </div>
+            <div class="case-item">
+              <h4>カスタマーサポートの自動応答</h4>
+              <p>FAQと過去の対応履歴をもとに、24時間自動で一次回答するチャットボットを開発。有人対応へのスムーズなエスカレーションも実現。</p>
+            </div>
+            <div class="case-item">
+              <h4>定型業務の自動化エージェント</h4>
+              <p>資料作成・データ集計・メール下書きなどの定型業務をAIエージェントが代行。担当者がコア業務に集中できる体制を構築。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-card tilt reveal delay-1" data-index="02">
+        <div class="service-card-glow"></div>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="16" r="6"/>
+            <circle cx="32" cy="16" r="6"/>
+            <path d="M6 40 C6 31 12 28 16 28 C20 28 22 30 24 30 C26 30 28 28 32 28 C36 28 42 31 42 40"/>
+          </svg>
+        </div>
+        <p class="service-num">02</p>
+        <h3 class="service-name">SES事業</h3>
+        <p class="service-en">System Engineering Service</p>
+        <p class="service-desc">
+          経験豊富なエンジニアが貴社の開発チームに参画し、プロジェクトを強力に推進します。要件定義から設計・開発・運用まで、幅広いフェーズ・技術領域に対応可能です。
+        </p>
+        <ul class="service-tags">
+          <li>エンジニア常駐</li><li>チーム参画</li><li>技術支援</li><li>開発推進</li>
+        </ul>
+        <button class="case-toggle" aria-expanded="false">
+          <span class="case-toggle-label">case</span>
+          <span class="case-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="service-cases">
+          <div class="service-cases-inner">
+            <div class="case-item">
+              <h4>Webサービスの開発支援</h4>
+              <p>事業会社の開発チームにエンジニアが参画。フロントエンドからバックエンドまで、機能追加と改善を継続的に推進。</p>
+            </div>
+            <div class="case-item">
+              <h4>業務システムの刷新プロジェクト</h4>
+              <p>レガシーな社内システムのリプレイスに上流から参加。要件定義・設計・開発まで一貫して支援し、安定稼働まで伴走。</p>
+            </div>
+            <div class="case-item">
+              <h4>開発チームの立ち上げ支援</h4>
+              <p>スタートアップのプロダクト開発初期に参画。開発体制づくりと技術選定を支援し、スピード感のあるリリースに貢献。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-card tilt reveal delay-2" data-index="03">
+        <div class="service-card-glow"></div>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="8" width="32" height="32" rx="4"/>
+            <path d="M8 18 L40 18 M14 13 L14.01 13 M20 13 L20.01 13"/>
+            <path d="M16 28 L21 33 M21 28 L16 33 M27 33 L33 33"/>
+          </svg>
+        </div>
+        <p class="service-num">03</p>
+        <h3 class="service-name">自社サービス開発</h3>
+        <p class="service-en">Product Development</p>
+        <p class="service-desc">
+          現場の課題から生まれたアイデアを、自社プロダクトとして開発・展開しています。スピード感のある開発サイクルで、ユーザーに本当に価値あるサービスを届けます。
+        </p>
+        <ul class="service-tags">
+          <li>SaaS開発</li><li>アジャイル</li><li>UI/UX</li><li>グロース</li>
+        </ul>
+        <button class="case-toggle" aria-expanded="false">
+          <span class="case-toggle-label">case</span>
+          <span class="case-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="service-cases">
+          <div class="service-cases-inner">
+            <div class="case-item">
+              <h4>フリランドットコム</h4>
+              <p>フリーランス・エンジニア向けの情報メディア。働き方やキャリアに役立つコンテンツを発信し、ユーザーの課題解決を支援。</p>
+              <a href="https://furilan.com/" target="_blank" rel="noopener" class="case-link">サイトをみる<span class="media-arrow">↗</span></a>
+            </div>
+            <div class="case-item">
+              <h4>なまらワークス</h4>
+              <p>働き方・仕事に関する情報を届けるWebメディア。自社で企画・開発・運用までを一貫して手がけています。</p>
+              <a href="https://namaraworks.com/" target="_blank" rel="noopener" class="case-link">サイトをみる<span class="media-arrow">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 数字で見るフリラン -->
+<section class="section stats">
+  <div class="stats-bg-text" aria-hidden="true">FURILAN</div>
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <p class="stat-value"><span class="counter" data-target="3">0</span></p>
+        <p class="stat-label">事業領域</p>
+      </div>
+      <div class="stat reveal delay-1">
+        <p class="stat-value"><span class="counter" data-target="100">0</span><span class="stat-unit">%</span></p>
+        <p class="stat-label">顧客に向き合う姿勢</p>
+      </div>
+      <div class="stat reveal delay-2">
+        <p class="stat-value"><span class="counter" data-target="24">0</span><span class="stat-unit">h</span></p>
+        <p class="stat-label">AIエージェント稼働</p>
+      </div>
+      <div class="stat reveal delay-3">
+        <p class="stat-value"><span class="counter" data-target="1">0</span><span class="stat-unit">st</span></p>
+        <p class="stat-label">技術への探究心</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 強み -->
+<section class="section strengths" id="strengths">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">STRENGTHS</p>
+      <h2 class="section-title">フリランが<span class="gradient-text">選ばれる</span>理由</h2>
+    </div>
+    <div class="strength-list">
+      <div class="strength-item reveal">
+        <div class="strength-num">01</div>
+        <div class="strength-body">
+          <h3>最先端AI技術へのキャッチアップ力</h3>
+          <p>進化の速いAI領域において、常に最新の技術動向を追い、実務に落とし込むノウハウを蓄積。机上の空論ではなく「動くAI」を提供します。</p>
+        </div>
+      </div>
+      <div class="strength-item reveal">
+        <div class="strength-num">02</div>
+        <div class="strength-body">
+          <h3>現場を知るエンジニア集団</h3>
+          <p>SES事業で培った多様な現場経験が、AIエージェント開発・自社サービス開発に活きています。現場のリアルな課題を理解した提案が可能です。</p>
+        </div>
+      </div>
+      <div class="strength-item reveal">
+        <div class="strength-num">03</div>
+        <div class="strength-body">
+          <h3>小回りの利くスピード感</h3>
+          <p>意思決定が速く、柔軟な体制だからこそ実現できる開発スピード。PoCから本番運用まで、最短距離で価値を届けます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 開発フロー -->
+<section class="section flow" id="works">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">FLOW</p>
+      <h2 class="section-title">ご依頼から納品までの<span class="gradient-text">流れ</span></h2>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step reveal">
+        <span class="flow-step-num">STEP 1</span>
+        <h3>ヒアリング</h3>
+        <p>課題・ご要望を丁寧にお伺いし、最適なアプローチをご提案します。</p>
+      </div>
+      <div class="flow-connector reveal" aria-hidden="true"></div>
+      <div class="flow-step reveal delay-1">
+        <span class="flow-step-num">STEP 2</span>
+        <h3>要件定義・設計</h3>
+        <p>ゴールを明確化し、技術選定とアーキテクチャ設計を行います。</p>
+      </div>
+      <div class="flow-connector reveal" aria-hidden="true"></div>
+      <div class="flow-step reveal delay-2">
+        <span class="flow-step-num">STEP 3</span>
+        <h3>開発・検証</h3>
+        <p>アジャイルに開発を進め、動くものを早期にお見せしながら磨き込みます。</p>
+      </div>
+      <div class="flow-connector reveal" aria-hidden="true"></div>
+      <div class="flow-step reveal delay-3">
+        <span class="flow-step-num">STEP 4</span>
+        <h3>納品・運用支援</h3>
+        <p>リリース後も継続的な改善・運用サポートで伴走します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 会社概要 -->
+<section class="section company" id="company">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">COMPANY</p>
+      <h2 class="section-title">会社<span class="gradient-text">概要</span></h2>
+    </div>
+    <dl class="company-table reveal">
+      <div class="company-row"><dt>会社名</dt><dd>株式会社フリラン</dd></div>
+      <div class="company-row"><dt>代表取締役</dt><dd>伊藤 恭佳</dd></div>
+      <div class="company-row"><dt>事業内容</dt><dd>AIエージェント開発事業 / SES事業 / 自社サービス開発事業</dd></div>
+      <div class="company-row"><dt>所在地</dt><dd>〒103-0027 東京都中央区日本橋2-2-3 RISHEビル4F</dd></div>
+      <div class="company-row"><dt>資本金</dt><dd>1,000万円</dd></div>
+      <div class="company-row"><dt>適格請求書発行事業者登録番号</dt><dd>T3010001184086</dd></div>
+      <div class="company-row"><dt>E-mail</dt><dd><a href="#contact">***REMOVED***</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- お問い合わせ -->
+<section class="section contact" id="contact">
+  <div class="contact-bg"></div>
+  <div class="container">
+    <div class="contact-inner reveal">
+      <p class="section-label light">CONTACT</p>
+      <h2 class="contact-title">まずは、お気軽に<br>ご相談ください。</h2>
+      <p class="contact-text">
+        「AIで何ができるのか知りたい」「開発リソースが足りない」——<br class="pc-only">
+        どんなご相談でも歓迎です。貴社に最適なソリューションをご提案します。
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQiqMhQFz51c3QMovUXsDn2U_OcBS9AMCxtw5PSjh4RoNMbA/viewform"
+         target="_blank" rel="noopener" class="btn btn-light">
+        問い合わせる<span class="btn-arrow">→</span>
+      </a>
+      <p class="form-note">お問い合わせフォーム(Googleフォーム)が新しいタブで開きます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="#top" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#strengths">Strengths</a>
+      <a href="#works">Flow</a>
+      <a href="#company">Company</a>
+      <a href="recruit.html">Recruit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <nav class="footer-policies">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="security.html">セキュリティポリシー</a>
+    </nav>
+    <p class="footer-copy">© 2026 FURILAN Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
