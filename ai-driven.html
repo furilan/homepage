@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI駆動開発 | 株式会社フリラン｜生成AI・AIエージェントで開発を爆速化</title>
+<meta name="description" content="株式会社フリランのAI駆動開発サービス。生成AI・AIエージェントを開発工程に組み込み、要件定義からPoC・MVP開発までを大幅に高速化。新規事業の検証スピードを最大化します。まずは無料相談から。">
+<meta name="keywords" content="AI駆動開発,生成AI,AIエージェント,PoC,MVP開発,新規事業,DX,内製化支援,開発スピード,株式会社フリラン">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.fuliran.co.jp/ai-driven.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="株式会社フリラン">
+<meta property="og:title" content="AI駆動開発 | 株式会社フリラン｜生成AI・AIエージェントで開発を爆速化">
+<meta property="og:description" content="生成AI・AIエージェントを開発工程に組み込み、要件定義からPoC・MVP開発までを大幅に高速化。新規事業の検証スピードを最大化します。">
+<meta property="og:url" content="https://www.fuliran.co.jp/ai-driven.html">
+<meta property="og:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI駆動開発 | 株式会社フリラン">
+<meta name="twitter:description" content="生成AI・AIエージェントで開発を爆速化。PoC・MVP開発で新規事業の検証スピードを最大化。">
+<meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
+
+<meta name="theme-color" content="#06070d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.fuliran.co.jp/" },
+        { "@type": "ListItem", "position": 2, "name": "AI駆動開発", "item": "https://www.fuliran.co.jp/ai-driven.html" }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "AI駆動開発",
+      "serviceType": "AI駆動開発・PoC/MVP開発",
+      "provider": { "@type": "Organization", "name": "株式会社フリラン", "url": "https://www.fuliran.co.jp/" },
+      "areaServed": "JP",
+      "description": "生成AI・AIエージェントを開発工程に組み込み、要件定義からPoC・MVP開発までを高速化するサービス。新規事業の検証スピードを最大化する。"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "AI駆動開発とは、通常の開発と何が違うのですか?", "acceptedAnswer": { "@type": "Answer", "text": "生成AI・AIエージェントを要件定義・設計・実装・テストといった開発の各工程に組み込み、人とAIが協働して開発を進める手法です。手作業に頼っていた工程をAIが支援することで、開発スピードを大きく高められます。" } },
+    { "@type": "Question", "name": "どれくらいの期間で開発できますか?", "acceptedAnswer": { "@type": "Answer", "text": "内容や規模によりますが、PoC(概念実証)であれば最短数週間での着手・検証も目指せます。まずはヒアリングのうえ、最適なスケジュールをご提案します。" } },
+    { "@type": "Question", "name": "AIが生成したコードの品質やセキュリティは大丈夫ですか?", "acceptedAnswer": { "@type": "Answer", "text": "AIの出力をそのまま納品することはありません。経験豊富なエンジニアが設計・レビュー・テストを行い、品質とセキュリティを担保します。機密情報の取り扱いにも配慮した体制で進めます。" } },
+    { "@type": "Question", "name": "小規模・スモールスタートでも依頼できますか?", "acceptedAnswer": { "@type": "Answer", "text": "もちろんです。アイデア検証のための小さなPoCから、本開発・内製化支援まで、規模に応じて柔軟に対応します。" } },
+    { "@type": "Question", "name": "費用はどのくらいかかりますか?", "acceptedAnswer": { "@type": "Answer", "text": "ご依頼内容・規模により異なります。まずは無料相談で課題とゴールを伺い、最適なプランとお見積りをご提案します。" } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">FURILAN</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#problem">課題</a>
+      <a href="#about">AI駆動開発とは</a>
+      <a href="#plan">プラン</a>
+      <a href="#flow">進め方</a>
+      <a href="#faq">FAQ</a>
+      <a href="#cta" class="nav-cta">無料相談する</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero" id="top">
+  <canvas id="particleCanvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>AI-DRIVEN DEVELOPMENT</p>
+    <h1 class="hero-title">
+      <span class="hero-line"><span class="hero-line-inner">アイデアを、</span></span>
+      <span class="hero-line"><span class="hero-line-inner"><span class="gradient-text">最速</span>でカタチに。</span></span>
+    </h1>
+    <p class="hero-sub reveal delay-2">
+      生成AI・AIエージェントを開発プロセスに組み込む「AI駆動開発」。<br class="pc-only">
+      要件定義からPoC・MVP開発までを大幅に短縮し、新規事業の検証スピードを最大化します。
+    </p>
+    <div class="hero-actions reveal delay-3">
+      <a href="#cta" class="btn btn-primary">無料相談する<span class="btn-arrow">→</span></a>
+      <a href="#about" class="btn btn-ghost">AI駆動開発とは?</a>
+    </div>
+  </div>
+  <div class="hero-marquee">
+    <div class="marquee-track">
+      <span>AI-DRIVEN DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;RAPID POC&nbsp;&nbsp;/&nbsp;&nbsp;MVP DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;LLM &amp; AI AGENT&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT VALIDATION&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+      <span>AI-DRIVEN DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;RAPID POC&nbsp;&nbsp;/&nbsp;&nbsp;MVP DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;LLM &amp; AI AGENT&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT VALIDATION&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+    </div>
+  </div>
+</section>
+
+<!-- 課題 -->
+<section class="section lp-problem" id="problem">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">CHALLENGES</p>
+      <h2 class="section-title">こんな<span class="gradient-text">お悩み</span>、ありませんか?</h2>
+    </div>
+    <div class="value-cards">
+      <div class="value-card reveal">
+        <p class="value-num">01</p>
+        <h3>開発が遅い・高い</h3>
+        <p>従来型の開発では、企画から形になるまでに時間もコストもかかりすぎる。スピード感を持って進めたい。</p>
+      </div>
+      <div class="value-card reveal delay-1">
+        <p class="value-num">02</p>
+        <h3>PoCに踏み出せない</h3>
+        <p>新規事業のアイデアはあるが、検証(PoC)に時間とリソースが割けず、判断が後ろ倒しになっている。</p>
+      </div>
+      <div class="value-card reveal delay-2">
+        <p class="value-num">03</p>
+        <h3>AIの活かし方が分からない</h3>
+        <p>生成AIを使いたいが、自社の開発に何からどう取り入れればいいのか分からない。品質も不安。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI駆動開発とは -->
+<section class="section lp-about" id="about">
+  <div class="lp-about-bg"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">WHAT IS AI-DRIVEN DEVELOPMENT</p>
+      <h2 class="section-title">「AI駆動開発」で、<br>開発の常識が<span class="gradient-text">変わる</span>。</h2>
+    </div>
+    <p class="lp-lead reveal">
+      AI駆動開発とは、生成AI・AIエージェントを<strong>要件定義・設計・実装・テスト</strong>といった開発の各工程に組み込み、人とAIが協働して開発を進める手法です。
+      フリランは、自社でAIエージェントを開発してきた知見を活かし、AIの力を最大限に引き出しながら、<strong>人の手で品質を担保</strong>します。
+    </p>
+    <div class="benefit-cards">
+      <article class="benefit-card reveal">
+        <div class="benefit-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M26 4 L8 28 H22 L20 44 L40 18 H26 Z"/></svg></div>
+        <h3>圧倒的なスピード</h3>
+        <p>AIが要件整理・設計・実装を支援。アイデアからPoC・MVPまでを高速に進め、検証サイクルを何度も回せます。</p>
+      </article>
+      <article class="benefit-card reveal delay-1">
+        <div class="benefit-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4 L42 12 V24 C42 35 34 42 24 44 C14 42 6 35 6 24 V12 Z"/><path d="M17 24 L22 29 L32 18"/></svg></div>
+        <h3>人が支える品質</h3>
+        <p>AIの出力をそのまま納品しません。経験豊富なエンジニアが設計・レビュー・テストを行い、品質とセキュリティを担保します。</p>
+      </article>
+      <article class="benefit-card reveal delay-2">
+        <div class="benefit-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40 V20 M20 40 V8 M32 40 V26 M44 40 V14"/><path d="M4 40 H46"/></svg></div>
+        <h3>検証から本番まで伴走</h3>
+        <p>PoCで終わりではありません。市場性が見えたら、そのまま本開発・運用・社内への内製化支援まで一気通貫で伴走します。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 数字 -->
+<section class="section stats">
+  <div class="stats-bg-text" aria-hidden="true">SPEED</div>
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <p class="stat-value"><span class="counter" data-target="2">0</span><span class="stat-unit">週間〜</span></p>
+        <p class="stat-label">PoC着手の目安</p>
+      </div>
+      <div class="stat reveal delay-1">
+        <p class="stat-value">1/<span class="counter" data-target="3">0</span></p>
+        <p class="stat-label">開発工数の圧縮イメージ</p>
+      </div>
+      <div class="stat reveal delay-2">
+        <p class="stat-value"><span class="counter" data-target="24">0</span><span class="stat-unit">h</span></p>
+        <p class="stat-label">AIエージェント稼働</p>
+      </div>
+      <div class="stat reveal delay-3">
+        <p class="stat-value"><span class="counter" data-target="100">0</span><span class="stat-unit">%</span></p>
+        <p class="stat-label">納品まで伴走</p>
+      </div>
+    </div>
+    <p class="stats-note reveal">※数値は一般的な目安・イメージです。実際の期間・効果はプロジェクトにより異なります。</p>
+  </div>
+</section>
+
+<!-- プラン -->
+<section class="section lp-plan" id="plan">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">PLANS</p>
+      <h2 class="section-title">目的に合わせた<span class="gradient-text">3つのプラン</span></h2>
+    </div>
+    <div class="service-cards">
+      <article class="service-card reveal" data-index="01">
+        <div class="service-card-glow"></div>
+        <p class="service-num">01</p>
+        <h3 class="service-name">AI駆動 PoC開発</h3>
+        <p class="service-en">Proof of Concept</p>
+        <p class="service-desc">アイデアの実現可能性を最速で検証。AIを活用して要件を素早く形にし、「作る価値があるか」を早期に判断できます。</p>
+        <ul class="service-tags"><li>アイデア検証</li><li>技術検証</li><li>最短着手</li></ul>
+      </article>
+      <article class="service-card reveal delay-1" data-index="02">
+        <div class="service-card-glow"></div>
+        <p class="service-num">02</p>
+        <h3 class="service-name">AI駆動 MVP開発</h3>
+        <p class="service-en">Minimum Viable Product</p>
+        <p class="service-desc">必要最小限のプロダクトを素早く開発し、実際のユーザーで市場性(PMF)を検証。データを元に次の意思決定を支えます。</p>
+        <ul class="service-tags"><li>市場検証</li><li>ユーザー検証</li><li>グロース</li></ul>
+      </article>
+      <article class="service-card reveal delay-2" data-index="03">
+        <div class="service-card-glow"></div>
+        <p class="service-num">03</p>
+        <h3 class="service-name">本開発・内製化支援</h3>
+        <p class="service-en">Development &amp; Enablement</p>
+        <p class="service-desc">検証を経たプロダクトの本格開発から、貴社チームへAI駆動開発を根付かせる内製化支援まで。継続的な成長を支えます。</p>
+        <ul class="service-tags"><li>本格開発</li><li>運用支援</li><li>内製化</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section class="section strengths" id="reason">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">WHY FURILAN</p>
+      <h2 class="section-title">フリランが<span class="gradient-text">選ばれる</span>理由</h2>
+    </div>
+    <div class="strength-list">
+      <div class="strength-item reveal">
+        <div class="strength-num">01</div>
+        <div class="strength-body">
+          <h3>自社でAIエージェントを開発している</h3>
+          <p>AIを「使う」だけでなく「つくる」会社です。最新のAI技術を実務に落とし込む知見が、AI駆動開発の精度とスピードを支えます。</p>
+        </div>
+      </div>
+      <div class="strength-item reveal">
+        <div class="strength-num">02</div>
+        <div class="strength-body">
+          <h3>現場を知るエンジニアが品質を担保</h3>
+          <p>SES事業で培った多様な開発現場の経験。AIの出力を鵜呑みにせず、プロのエンジニアが設計・レビューで品質を守ります。</p>
+        </div>
+      </div>
+      <div class="strength-item reveal">
+        <div class="strength-num">03</div>
+        <div class="strength-body">
+          <h3>小回りの利くスピード感</h3>
+          <p>意思決定が速く、柔軟な体制。PoCから本番運用まで、最短距離で価値をお届けします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 進め方 -->
+<section class="section flow" id="flow">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">FLOW</p>
+      <h2 class="section-title">ご相談から開発までの<span class="gradient-text">進め方</span></h2>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step reveal">
+        <span class="flow-step-num">STEP 1</span>
+        <h3>無料相談</h3>
+        <p>まずは課題やアイデアをお聞かせください。AIで何ができるかを一緒に整理します。</p>
+      </div>
+      <div class="flow-connector reveal" aria-hidden="true"></div>
+      <div class="flow-step reveal delay-1">
+        <span class="flow-step-num">STEP 2</span>
+        <h3>要件定義(AI活用)</h3>
+        <p>AIを活用して要件・仕様を素早く具体化。ゴールと進め方を固めます。</p>
+      </div>
+      <div class="flow-connector reveal" aria-hidden="true"></div>
+      <div class="flow-step reveal delay-2">
+        <span class="flow-step-num">STEP 3</span>
+        <h3>PoC / MVP開発</h3>
+        <p>AI駆動で高速開発。動くものを早期にお見せしながら検証します。</p>
+      </div>
+      <div class="flow-connector reveal" aria-hidden="true"></div>
+      <div class="flow-step reveal delay-3">
+        <span class="flow-step-num">STEP 4</span>
+        <h3>評価・本開発</h3>
+        <p>検証結果をもとに改善し、本開発・運用・内製化支援まで伴走します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 事例 -->
+<section class="section lp-cases" id="cases">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">USE CASES</p>
+      <h2 class="section-title">活用<span class="gradient-text">イメージ</span></h2>
+    </div>
+    <div class="value-cards">
+      <div class="value-card reveal">
+        <p class="value-num">CASE 01</p>
+        <h3>新規事業のアイデア検証</h3>
+        <p>新サービスの構想をPoCとして高速に形にし、「市場に受け入れられるか」を早期に検証。撤退・前進の判断材料を提供。</p>
+      </div>
+      <div class="value-card reveal delay-1">
+        <p class="value-num">CASE 02</p>
+        <h3>社内業務の自動化ツール</h3>
+        <p>定型業務を自動化するAIエージェントを短期間で開発。現場で使いながら改善し、業務効率化を実現。</p>
+      </div>
+      <div class="value-card reveal delay-2">
+        <p class="value-num">CASE 03</p>
+        <h3>既存プロダクトへのAI機能追加</h3>
+        <p>既存サービスにAIチャットや要約・検索機能などを追加。AI駆動でスピーディに価値を上乗せ。</p>
+      </div>
+    </div>
+    <p class="stats-note reveal">※掲載内容は活用イメージの例です。具体的な事例はお問い合わせ時にご案内します。</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">よくある<span class="gradient-text">ご質問</span></h2>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>AI駆動開発とは、通常の開発と何が違うのですか?</summary>
+        <div class="faq-body"><p>生成AI・AIエージェントを要件定義・設計・実装・テストといった開発の各工程に組み込み、人とAIが協働して開発を進める手法です。手作業に頼っていた工程をAIが支援することで、開発スピードを大きく高められます。</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>どれくらいの期間で開発できますか?</summary>
+        <div class="faq-body"><p>内容や規模によりますが、PoC(概念実証)であれば最短数週間での着手・検証も目指せます。まずはヒアリングのうえ、最適なスケジュールをご提案します。</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>AIが生成したコードの品質やセキュリティは大丈夫ですか?</summary>
+        <div class="faq-body"><p>AIの出力をそのまま納品することはありません。経験豊富なエンジニアが設計・レビュー・テストを行い、品質とセキュリティを担保します。機密情報の取り扱いにも配慮した体制で進めます。</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>小規模・スモールスタートでも依頼できますか?</summary>
+        <div class="faq-body"><p>もちろんです。アイデア検証のための小さなPoCから、本開発・内製化支援まで、規模に応じて柔軟に対応します。</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>費用はどのくらいかかりますか?</summary>
+        <div class="faq-body"><p>ご依頼内容・規模により異なります。まずは無料相談で課題とゴールを伺い、最適なプランとお見積りをご提案します。</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section contact" id="cta">
+  <div class="contact-bg"></div>
+  <div class="container">
+    <div class="contact-inner reveal">
+      <p class="section-label light">CONTACT</p>
+      <h2 class="contact-title">まずは、無料相談から。<br>アイデアを聞かせてください。</h2>
+      <p class="contact-text">
+        「AIで何ができるか知りたい」「PoCを試したい」——<br class="pc-only">
+        構想段階のご相談も大歓迎です。貴社に最適な進め方をご提案します。
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQiqMhQFz51c3QMovUXsDn2U_OcBS9AMCxtw5PSjh4RoNMbA/viewform"
+         target="_blank" rel="noopener" class="btn btn-light">
+        無料相談を申し込む<span class="btn-arrow">→</span>
+      </a>
+      <p class="form-note">フォーム(Googleフォーム)が新しいタブで開きます。メールの場合は <a href="#contact">***REMOVED***</a> まで。</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="#problem">課題</a>
+      <a href="#about">AI駆動開発とは</a>
+      <a href="#plan">プラン</a>
+      <a href="#flow">進め方</a>
+      <a href="#cta">無料相談</a>
+    </nav>
+    <nav class="footer-policies">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="security.html">セキュリティポリシー</a>
+    </nav>
+    <p class="footer-copy">© 2026 FURILAN Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
