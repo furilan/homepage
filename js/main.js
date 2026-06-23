@@ -247,12 +247,10 @@ window.addEventListener('load', () => {
   const hero = document.getElementById('top');
   if (!hero) return;
 
-  const THEMES = [
-    { name: 'AURORA BLUE', attr: null,      dots: ['79, 124, 255', '0, 224, 198'],  link: '120, 150, 255' },
-    { name: 'NEON SUNSET', attr: 'cyber',   dots: ['255, 77, 141', '255, 158, 61'], link: '255, 120, 170' },
-    { name: 'MATRIX',      attr: 'matrix',  dots: ['43, 212, 63', '0, 224, 122'],   link: '60, 220, 90' },
-    { name: 'DEEP SPACE',  attr: 'aurora',  dots: ['61, 240, 255', '111, 123, 255'], link: '90, 200, 255' },
-    { name: 'MONO',        attr: 'mono',    dots: ['200, 206, 222', '120, 130, 150'], link: '150, 160, 180' },
+  const SKINS = [
+    { name: 'FUTURE',    skin: null,         dots: ['79, 124, 255', '0, 224, 198'], link: '120, 150, 255' },
+    { name: 'TERMINAL',  skin: 'terminal',   dots: ['57, 255, 122', '170, 255, 0'], link: '60, 220, 120' },
+    { name: 'EDITORIAL', skin: 'editorial',  dots: ['180, 83, 47', '31, 111, 86'],  link: '120, 110, 100' },
   ];
   let idx = 0;
 
@@ -266,9 +264,9 @@ window.addEventListener('load', () => {
 
   let toastTimer;
   function apply(i) {
-    const t = THEMES[i];
-    if (t.attr) document.body.setAttribute('data-theme', t.attr);
-    else document.body.removeAttribute('data-theme');
+    const t = SKINS[i];
+    if (t.skin) document.body.setAttribute('data-skin', t.skin);
+    else document.body.removeAttribute('data-skin');
 
     if (window.__furilanSetParticlePalette) {
       window.__furilanSetParticlePalette({ dots: t.dots, link: t.link });
@@ -277,7 +275,7 @@ window.addEventListener('load', () => {
     toast.innerHTML = '<span>WORLD</span><b>' + t.name + '</b>';
     toast.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 1500);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
 
     flash.classList.remove('flash-anim');
     void flash.offsetWidth;
@@ -287,7 +285,7 @@ window.addEventListener('load', () => {
   hero.addEventListener('dblclick', () => {
     const sel = window.getSelection && window.getSelection();
     if (sel) sel.removeAllRanges();
-    idx = (idx + 1) % THEMES.length;
+    idx = (idx + 1) % SKINS.length;
     apply(idx);
   });
 })();

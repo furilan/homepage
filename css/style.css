@@ -1575,46 +1575,125 @@ body {
   transition: background-color 0.7s ease, color 0.7s ease;
 }
 
-/* NEON SUNSET */
-body[data-theme="cyber"] {
-  --bg: #0c0510;
-  --bg-2: #16091e;
-  --accent: #ff4d8d;
-  --accent-2: #ff9e3d;
-  --accent-3: #c14dff;
-  --gradient: linear-gradient(120deg, #ff4d8d 0%, #ff9e3d 50%, #c14dff 100%);
+body {
+  transition: background-color 0.7s ease, color 0.5s ease;
 }
-/* MATRIX */
-body[data-theme="matrix"] {
-  --bg: #030a05;
-  --bg-2: #06140c;
-  --text: #d6ffe0;
-  --text-dim: #7fae8c;
-  --accent: #2bd43f;
-  --accent-2: #00e07a;
-  --accent-3: #7cfc00;
-  --gradient: linear-gradient(120deg, #2bd43f 0%, #00e07a 50%, #7cfc00 100%);
-  --border: rgba(120, 255, 160, 0.12);
-  --surface: rgba(80, 255, 140, 0.03);
+
+/* ============================================================
+   SKIN: TERMINAL — 等幅フォント・緑のCRT・角ゼロ・走査線
+   ============================================================ */
+body[data-skin="terminal"] {
+  --bg: #04080a;
+  --bg-2: #07120e;
+  --text: #c9ffd9;
+  --text-dim: #67a583;
+  --accent: #39ff7a;
+  --accent-2: #19e06a;
+  --accent-3: #aaff00;
+  --gradient: linear-gradient(90deg, #39ff7a, #aaff00);
+  --border: rgba(120, 255, 170, 0.22);
+  --surface: rgba(60, 255, 140, 0.04);
+  --font-jp: "Space Mono", "Noto Sans JP", monospace;
+  --font-en: "Space Mono", monospace;
 }
-/* DEEP SPACE */
-body[data-theme="aurora"] {
-  --bg: #02060f;
-  --bg-2: #06101f;
-  --accent: #3df0ff;
-  --accent-2: #38e08a;
-  --accent-3: #6f7bff;
-  --gradient: linear-gradient(120deg, #3df0ff 0%, #38e08a 50%, #6f7bff 100%);
+body[data-skin="terminal"] .gradient-text {
+  background: none;
+  -webkit-text-fill-color: var(--accent);
+  color: var(--accent);
 }
-/* MONO */
-body[data-theme="mono"] {
-  --bg: #0a0a0c;
-  --bg-2: #131316;
-  --accent: #c8cede;
-  --accent-2: #8a93a6;
-  --accent-3: #e8eaf2;
-  --gradient: linear-gradient(120deg, #e8eaf2 0%, #9aa0b5 50%, #5f5e5a 100%);
+body[data-skin="terminal"] .service-card,
+body[data-skin="terminal"] .value-card,
+body[data-skin="terminal"] .benefit-card,
+body[data-skin="terminal"] .flow-step,
+body[data-skin="terminal"] .faq-item,
+body[data-skin="terminal"] .btn,
+body[data-skin="terminal"] .nav-cta,
+body[data-skin="terminal"] .service-tags li,
+body[data-skin="terminal"] .case-toggle,
+body[data-skin="terminal"] .service-icon,
+body[data-skin="terminal"] .benefit-icon,
+body[data-skin="terminal"] .hero-eyebrow,
+body[data-skin="terminal"] .nav-logo-mark {
+  border-radius: 0 !important;
 }
+body[data-skin="terminal"] .service-card,
+body[data-skin="terminal"] .value-card,
+body[data-skin="terminal"] .benefit-card,
+body[data-skin="terminal"] .flow-step,
+body[data-skin="terminal"] .faq-item { box-shadow: none !important; }
+body[data-skin="terminal"] .btn-primary,
+body[data-skin="terminal"] .btn-light { background: var(--accent); color: #03150a; box-shadow: none; }
+body[data-skin="terminal"] .nav-cta { background: var(--accent); color: #03150a; }
+body[data-skin="terminal"] .hero-eyebrow { border-color: var(--border); color: var(--accent); background: rgba(60, 255, 140, 0.05); }
+body[data-skin="terminal"] .service-icon,
+body[data-skin="terminal"] .benefit-icon { color: var(--accent); border-color: var(--border); background: rgba(60, 255, 140, 0.06); }
+body[data-skin="terminal"] .footer-copy { color: rgba(160, 255, 190, 0.3); }
+body[data-skin="terminal"] .section-title,
+body[data-skin="terminal"] .hero-title { letter-spacing: -0.01em; }
+body[data-skin="terminal"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 120;
+  background: repeating-linear-gradient(0deg, rgba(0, 255, 120, 0.045) 0 1px, transparent 1px 3px);
+}
+
+/* ============================================================
+   SKIN: EDITORIAL — ライト・明朝体・余白広め・雑誌風
+   ============================================================ */
+body[data-skin="editorial"] {
+  --bg: #f5f3ee;
+  --bg-2: #ece8df;
+  --text: #1c1b19;
+  --text-dim: #6c6a63;
+  --accent: #b4532f;
+  --accent-2: #1f6f56;
+  --accent-3: #2a2a28;
+  --gradient: linear-gradient(90deg, #b4532f, #1f6f56);
+  --border: rgba(28, 27, 25, 0.14);
+  --surface: #ffffff;
+  --font-jp: "Noto Serif JP", "Noto Sans JP", serif;
+  --font-en: "Noto Serif JP", Georgia, serif;
+}
+body[data-skin="editorial"] #particleCanvas,
+body[data-skin="editorial"] .hero-grid-overlay,
+body[data-skin="editorial"] .cursor-glow,
+body[data-skin="editorial"] .stats-bg-text { display: none; }
+body[data-skin="editorial"] .gradient-text {
+  background: none;
+  -webkit-text-fill-color: var(--accent);
+  color: var(--accent);
+}
+body[data-skin="editorial"] .nav.scrolled { background: rgba(245, 243, 238, 0.82); border-bottom-color: var(--border); }
+body[data-skin="editorial"] .nav-burger span { background: var(--text); }
+body[data-skin="editorial"] .hero-marquee { background: rgba(245, 243, 238, 0.7); border-top-color: var(--border); }
+body[data-skin="editorial"] .services,
+body[data-skin="editorial"] .strengths,
+body[data-skin="editorial"] .faq { background: var(--bg); }
+body[data-skin="editorial"] .stats,
+body[data-skin="editorial"] .flow { background: var(--bg-2); }
+body[data-skin="editorial"] .contact-bg { background: var(--bg-2); border-top-color: var(--border); }
+body[data-skin="editorial"] .service-card:hover,
+body[data-skin="editorial"] .value-card:hover,
+body[data-skin="editorial"] .benefit-card:hover,
+body[data-skin="editorial"] .flow-step:hover { box-shadow: 0 14px 34px rgba(0, 0, 0, 0.07); border-color: rgba(28, 27, 25, 0.28); }
+body[data-skin="editorial"] .service-num { color: rgba(28, 27, 25, 0.06); }
+body[data-skin="editorial"] .service-icon,
+body[data-skin="editorial"] .benefit-icon { background: #faf7f1; border-color: var(--border); color: var(--accent); }
+body[data-skin="editorial"] .service-tags li,
+body[data-skin="editorial"] .case-toggle { background: #faf7f1; border-color: var(--border); color: var(--text-dim); }
+body[data-skin="editorial"] .hero-eyebrow { background: #fff; border-color: var(--border); color: var(--accent-2); }
+body[data-skin="editorial"] .btn-primary,
+body[data-skin="editorial"] .btn-light { background: var(--text); color: #fff; box-shadow: none; }
+body[data-skin="editorial"] .btn-ghost { background: #fff; border-color: var(--border); color: var(--text); }
+body[data-skin="editorial"] .nav-cta { color: #fff; }
+body[data-skin="editorial"] .strength-item:hover { background: rgba(0, 0, 0, 0.02); }
+body[data-skin="editorial"] .footer { background: var(--bg); }
+body[data-skin="editorial"] .footer-copy { color: rgba(0, 0, 0, 0.35); }
+body[data-skin="editorial"] .hero-title,
+body[data-skin="editorial"] .section-title,
+body[data-skin="editorial"] .contact-title { font-weight: 700; }
 
 .theme-toast {
   position: fixed;
