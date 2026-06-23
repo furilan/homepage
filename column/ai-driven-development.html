@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI駆動開発とは?従来開発との違い・メリット・進め方を解説 | 株式会社フリラン</title>
+<meta name="description" content="AI駆動開発とは何か。生成AI・AIエージェントを開発工程に組み込む手法の意味、従来開発との違い、スピード・コスト・品質のメリット、PoC・MVPでの進め方、品質とセキュリティの注意点までをわかりやすく解説します。">
+<meta name="keywords" content="AI駆動開発,AI駆動開発とは,生成AI,AIエージェント,PoC,MVP開発,システム開発,自動化,DX,AX,株式会社フリラン">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.fuliran.co.jp/column/ai-driven-development.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社フリラン">
+<meta property="og:title" content="AI駆動開発とは?従来開発との違い・メリット・進め方を解説">
+<meta property="og:description" content="生成AI・AIエージェントを開発工程に組み込む「AI駆動開発」を、従来開発との違い・メリット・進め方からわかりやすく解説します。">
+<meta property="og:url" content="https://www.fuliran.co.jp/column/ai-driven-development.html">
+<meta property="og:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI駆動開発とは?従来開発との違い・メリット・進め方を解説">
+<meta name="twitter:description" content="生成AI・AIエージェントを開発工程に組み込む「AI駆動開発」をわかりやすく解説。">
+<meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta name="theme-color" content="#06070d">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.fuliran.co.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://www.fuliran.co.jp/column/" },
+    { "@type": "ListItem", "position": 3, "name": "AI駆動開発とは", "item": "https://www.fuliran.co.jp/column/ai-driven-development.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI駆動開発とは?従来開発との違い・メリット・進め方を解説",
+  "description": "生成AI・AIエージェントを開発工程に組み込む「AI駆動開発」を、従来開発との違い・メリット・進め方からわかりやすく解説します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
+  "image": "https://www.fuliran.co.jp/ogp.png",
+  "author": { "@type": "Organization", "name": "株式会社フリラン", "url": "https://www.fuliran.co.jp/" },
+  "publisher": { "@type": "Organization", "name": "株式会社フリラン", "logo": { "@type": "ImageObject", "url": "https://www.fuliran.co.jp/ogp.png" } },
+  "mainEntityOfPage": "https://www.fuliran.co.jp/column/ai-driven-development.html"
+}
+</script>
+</head>
+<body class="subpage">
+
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#strengths">Strengths</a>
+      <a href="../column/">Column</a>
+      <a href="../recruit.html">Recruit</a>
+      <a href="../index.html#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="article">
+  <div class="container">
+    <nav class="article-breadcrumb">
+      <a href="../index.html">ホーム</a><span>/</span><a href="../column/">コラム</a><span>/</span>AI駆動開発とは
+    </nav>
+    <p class="article-cat">AI-DRIVEN DEVELOPMENT</p>
+    <h1 class="article-title">AI駆動開発とは?従来開発との違い・メリット・進め方を解説</h1>
+    <p class="article-meta">公開日:2026年6月23日 ・ 株式会社フリラン</p>
+
+    <div class="article-body">
+      <p class="article-lead">「AI駆動開発」という言葉を目にする機会が増えました。生成AIの登場により、ソフトウェア開発のスピードと進め方は大きく変わりつつあります。本記事では、AI駆動開発の意味、従来の開発との違い、メリットと注意点、そして実際の進め方までをわかりやすく解説します。</p>
+
+      <h2>AI駆動開発とは</h2>
+      <p><strong>AI駆動開発(AI-Driven Development)</strong>とは、生成AIやAIエージェントを、要件定義・設計・実装・テストといった開発の各工程に組み込み、人とAIが協働して開発を進める手法です。これまで人が手作業で行っていた工程をAIが支援・代行することで、開発のスピードと生産性を大きく高められる点が特徴です。</p>
+      <p>単に「コードをAIに書かせる」だけではありません。仕様の整理、設計案の検討、テストコードの生成、ドキュメント作成など、開発プロセス全体にAIを取り入れ、人はより本質的な判断や品質担保に集中する——これがAI駆動開発の考え方です。</p>
+
+      <h2>従来の開発との違い</h2>
+      <p>従来型の開発とAI駆動開発の違いを整理すると、次のようになります。</p>
+      <table class="article-table">
+        <thead><tr><th>観点</th><th>従来の開発</th><th>AI駆動開発</th></tr></thead>
+        <tbody>
+          <tr><td>スピード</td><td>工程ごとに人手で進める</td><td>AIが各工程を支援し高速化</td></tr>
+          <tr><td>要件定義</td><td>ドキュメント作成に時間</td><td>AIで素早く具体化・たたき台を生成</td></tr>
+          <tr><td>検証(PoC)</td><td>着手まで時間がかかる</td><td>短サイクルで何度も検証</td></tr>
+          <tr><td>人の役割</td><td>実装中心</td><td>判断・レビュー・品質担保が中心</td></tr>
+        </tbody>
+      </table>
+      <p>最大の違いは<strong>「検証サイクルの速さ」</strong>です。AI駆動開発では、アイデアを素早く形にして試し、フィードバックを得て改善する——というループを高速に回せるため、新規事業のように不確実性が高い領域で特に効果を発揮します。</p>
+
+      <h2>AI駆動開発のメリット</h2>
+      <h3>1. 圧倒的なスピード</h3>
+      <p>要件整理から実装までをAIが支援することで、アイデアからPoC(概念実証)・MVP(必要最小限のプロダクト)までを従来より大幅に短い期間で形にできます。</p>
+      <h3>2. コストの最適化</h3>
+      <p>開発工数を圧縮できるため、同じ予算でより多くの検証や機能開発に取り組めます。「作ってみて、ダメなら早く方向転換する」という意思決定がしやすくなります。</p>
+      <h3>3. 検証スピードによる成功率向上</h3>
+      <p>新規事業の失敗要因の多くは、PMF(プロダクトマーケットフィット)の不成立です。AI駆動開発で検証を高速化すれば、市場やユーザーの反応を早期に得られ、撤退・前進の判断を素早く下せます。</p>
+
+      <h2>AI駆動開発の注意点</h2>
+      <p>一方で、AIの出力をそのまま使うことには注意が必要です。生成AIは誤った内容を出力することがあり、コードの品質やセキュリティ、ライセンスの問題が見落とされるリスクもあります。</p>
+      <p>そのため、<strong>AIの出力を経験あるエンジニアがレビューし、設計・テストで品質を担保する</strong>体制が欠かせません。AI駆動開発は「人を置き換える」のではなく、「人とAIの協働で成果を最大化する」アプローチであることを押さえておきましょう。</p>
+
+      <h2>AI駆動開発の進め方</h2>
+      <ol>
+        <li><strong>ヒアリング</strong>:課題やアイデアを整理し、AIで何を実現したいかを明確化する。</li>
+        <li><strong>要件定義(AI活用)</strong>:AIを使って仕様・要件のたたき台を素早く作り、ゴールを固める。</li>
+        <li><strong>PoC / MVP開発</strong>:AI駆動で高速に開発し、動くものを早期に確認・検証する。</li>
+        <li><strong>評価・改善</strong>:検証結果をもとに改善し、本開発・運用へと進める。</li>
+      </ol>
+      <p>重要なのは、いきなり大きく作り込まず、<strong>小さく作って検証する</strong>こと。PoCやMVPで手応えを確かめながら段階的に進めることで、リスクを抑えつつスピードを最大化できます。</p>
+
+      <div class="article-cta">
+        <h3>AI駆動開発のご相談はフリランへ</h3>
+        <p>株式会社フリランは、自社でAIエージェントを開発する知見を活かし、AI駆動開発によるPoC・MVP開発を支援しています。まずは無料相談から、お気軽にご相談ください。</p>
+        <a href="../ai-driven.html" class="btn btn-primary">AI駆動開発サービスを見る<span class="btn-arrow">→</span></a>
+      </div>
+
+      <div class="article-related">
+        <p class="article-related-label">RELATED</p>
+        <a href="ax-transformation.html">AX(AIトランスフォーメーション)とは?DXとの違いと進め方 →</a>
+        <a href="ai-agent-use-cases.html">AIエージェントの活用事例|業務自動化の代表的ユースケース →</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="footer-links">
+      <a href="../index.html#services">Services</a>
+      <a href="../column/">Column</a>
+      <a href="../recruit.html">Recruit</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <nav class="footer-policies">
+      <a href="../privacy.html">プライバシーポリシー</a>
+      <a href="../security.html">セキュリティポリシー</a>
+    </nav>
+    <p class="footer-copy">© 2026 FURILAN Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
