@@ -524,6 +524,14 @@ img, svg { display: block; }
 @media (max-width: 960px) {
   .service-cards { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
 }
+.service-cards-4 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 940px;
+  margin-inline: auto;
+}
+@media (max-width: 720px) {
+  .service-cards-4 { grid-template-columns: 1fr; max-width: 520px; }
+}
 .service-card {
   position: relative;
   background: var(--surface);
