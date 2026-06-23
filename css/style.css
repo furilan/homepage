@@ -524,7 +524,8 @@ img, svg { display: block; }
 @media (max-width: 960px) {
   .service-cards { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
 }
-/* 事業内容: 横スワイプ・カルーセル(高さ統一) */
+/* 事業内容: 横スワイプ・カルーセル(高さ統一・三角矢印ナビ) */
+.services-carousel { position: relative; }
 .service-cards-4 {
   display: flex;
   flex-wrap: nowrap;
@@ -535,14 +536,10 @@ img, svg { display: block; }
   overflow-x: auto;
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
-  padding: 12px 2px 22px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  padding: 12px 2px 16px;
+  scrollbar-width: none;
 }
-.service-cards-4::-webkit-scrollbar { height: 8px; }
-.service-cards-4::-webkit-scrollbar-track { background: transparent; }
-.service-cards-4::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
-.service-cards-4::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.28); }
+.service-cards-4::-webkit-scrollbar { display: none; }
 .service-cards-4 .service-card {
   flex: 0 0 330px;
   scroll-snap-align: start;
@@ -550,6 +547,37 @@ img, svg { display: block; }
   flex-direction: column;
 }
 .service-cards-4 .service-card .case-toggle { margin-top: auto; }
+
+/* 透明な三角矢印 */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 48px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.3s, transform 0.3s var(--ease);
+}
+.carousel-arrow svg {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+}
+.carousel-arrow:hover { opacity: 0.95; }
+.carousel-prev { left: -6px; }
+.carousel-next { right: -6px; }
+.carousel-prev:hover { transform: translateY(-50%) translateX(-4px); }
+.carousel-next:hover { transform: translateY(-50%) translateX(4px); }
+.carousel-arrow.is-hidden { opacity: 0; pointer-events: none; }
+
 @media (max-width: 720px) {
   .service-cards-4 {
     display: grid;
@@ -560,6 +588,7 @@ img, svg { display: block; }
     padding: 0;
   }
   .service-cards-4 .service-card { flex: initial; }
+  .carousel-arrow { display: none; }
 }
 .service-card {
   position: relative;

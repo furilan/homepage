@@ -242,6 +242,31 @@ window.addEventListener('load', () => {
   });
 })();
 
+// ---------- 事業内容カルーセル: 三角矢印で横移動 ----------
+(() => {
+  const track = document.querySelector('.service-cards-4');
+  const prev = document.querySelector('.carousel-prev');
+  const next = document.querySelector('.carousel-next');
+  if (!track || !prev || !next) return;
+
+  const stepSize = () => {
+    const card = track.querySelector('.service-card');
+    return card ? card.offsetWidth + 24 : 354;
+  };
+
+  function update() {
+    const max = track.scrollWidth - track.clientWidth;
+    prev.classList.toggle('is-hidden', track.scrollLeft <= 4);
+    next.classList.toggle('is-hidden', track.scrollLeft >= max - 4 || max <= 0);
+  }
+
+  prev.addEventListener('click', () => track.scrollBy({ left: -stepSize(), behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: stepSize(), behavior: 'smooth' }));
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
 // ---------- 隠しギミック: ヒーローをダブルクリックで世界観チェンジ ----------
 (() => {
   const hero = document.getElementById('top');
