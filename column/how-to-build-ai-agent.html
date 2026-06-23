@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIエージェントの作り方|構成要素と開発ステップをわかりやすく解説 | 株式会社フリラン</title>
+<meta name="description" content="AIエージェントの作り方を解説。LLM・プロンプト・ツール連携・メモリ・RAGといった構成要素、開発の5ステップ、内製と開発会社への依頼の違い、品質・セキュリティの注意点までをわかりやすく紹介します。">
+<meta name="keywords" content="AIエージェント,AIエージェント 作り方,AIエージェント開発,LLM,RAG,プロンプト,ツール連携,自律型AI,株式会社フリラン">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.fuliran.co.jp/column/how-to-build-ai-agent.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社フリラン">
+<meta property="og:title" content="AIエージェントの作り方|構成要素と開発ステップをわかりやすく解説">
+<meta property="og:description" content="AIエージェントの構成要素、開発の5ステップ、内製と外注の違い、注意点をわかりやすく解説します。">
+<meta property="og:url" content="https://www.fuliran.co.jp/column/how-to-build-ai-agent.html">
+<meta property="og:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AIエージェントの作り方|構成要素と開発ステップを解説">
+<meta name="twitter:description" content="AIエージェントの構成要素・開発ステップ・注意点を解説します。">
+<meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta name="theme-color" content="#06070d">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.fuliran.co.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://www.fuliran.co.jp/column/" },
+    { "@type": "ListItem", "position": 3, "name": "AIエージェントの作り方", "item": "https://www.fuliran.co.jp/column/how-to-build-ai-agent.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AIエージェントの作り方|構成要素と開発ステップをわかりやすく解説",
+  "description": "AIエージェントの構成要素、開発の5ステップ、内製と外注の違い、注意点をわかりやすく解説します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
+  "image": "https://www.fuliran.co.jp/ogp.png",
+  "author": { "@type": "Organization", "name": "株式会社フリラン", "url": "https://www.fuliran.co.jp/" },
+  "publisher": { "@type": "Organization", "name": "株式会社フリラン", "logo": { "@type": "ImageObject", "url": "https://www.fuliran.co.jp/ogp.png" } },
+  "mainEntityOfPage": "https://www.fuliran.co.jp/column/how-to-build-ai-agent.html"
+}
+</script>
+</head>
+<body class="subpage">
+
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#strengths">Strengths</a>
+      <a href="../column/">Column</a>
+      <a href="../recruit.html">Recruit</a>
+      <a href="../index.html#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="article">
+  <div class="container">
+    <nav class="article-breadcrumb">
+      <a href="../index.html">ホーム</a><span>/</span><a href="../column/">コラム</a><span>/</span>AIエージェントの作り方
+    </nav>
+    <p class="article-cat">AI AGENT</p>
+    <h1 class="article-title">AIエージェントの作り方|構成要素と開発ステップをわかりやすく解説</h1>
+    <p class="article-meta">公開日:2026年6月23日 ・ 株式会社フリラン</p>
+
+    <div class="article-body">
+      <p class="article-lead">「AIエージェントを作ってみたいが、何が必要で、どう開発すればいいのか分からない」——本記事では、AIエージェントの構成要素、開発のステップ、内製と開発会社への依頼の違い、注意点までをわかりやすく解説します。</p>
+
+      <h2>AIエージェントとは(おさらい)</h2>
+      <p><a href="ai-agent-use-cases.html">AIエージェント</a>とは、LLM(大規模言語モデル)を中核に、目的に対して自ら考え、ツールを使い、タスクを自律的に実行するAIです。「答える」だけのチャットボットと異なり、「考えて動く」点が特徴です。</p>
+
+      <h2>AIエージェントの構成要素</h2>
+      <p>AIエージェントは、主に次の要素で構成されます。</p>
+      <table class="article-table">
+        <thead><tr><th>要素</th><th>役割</th></tr></thead>
+        <tbody>
+          <tr><td>LLM(頭脳)</td><td>理解・判断・文章生成を担う中核</td></tr>
+          <tr><td>プロンプト(指示)</td><td>役割・目的・ルールをAIに伝える設計</td></tr>
+          <tr><td>ツール・API連携</td><td>検索・計算・社内システム操作などを実行</td></tr>
+          <tr><td>メモリ</td><td>会話や作業の文脈を記憶する</td></tr>
+          <tr><td>RAG(知識参照)</td><td>社内データを検索し、根拠ある回答を生成</td></tr>
+        </tbody>
+      </table>
+      <p>これらを組み合わせ、「目的に向けて、必要なツールを使いながら自律的に動く」仕組みを作るのがAIエージェント開発です。</p>
+
+      <h2>AIエージェントの作り方(5ステップ)</h2>
+      <ol>
+        <li><strong>目的・業務を決める</strong>:どの業務を、どこまで任せたいかを明確にする。</li>
+        <li><strong>設計する</strong>:使うLLMの選定、プロンプト設計、必要なツール連携やRAGの構成を決める。</li>
+        <li><strong>開発する</strong>:エージェントを実装し、ツールやデータと接続する。</li>
+        <li><strong>評価・改善する</strong>:実際のタスクで精度を確認し、プロンプトや構成を調整する。</li>
+        <li><strong>運用・監視する</strong>:本番で動かしながら、品質や安全性を継続的に見守る。</li>
+      </ol>
+      <p>ポイントは、いきなり高機能を目指さず、<strong>小さな範囲から作って改善を重ねる</strong>ことです。</p>
+
+      <h2>内製と開発会社への依頼、どちらがよい?</h2>
+      <p>簡単な試作であれば内製でも始められますが、<strong>業務で安定して使うレベル</strong>になると、プロンプト設計・ツール連携・品質担保・セキュリティ対策など、専門的な知見が必要になります。社内にノウハウが少ない場合は、開発会社と組むことで、確実かつ短期間に形にできます。</p>
+
+      <h2>開発時の注意点</h2>
+      <ul>
+        <li><strong>ハルシネーション対策</strong>——RAGなどで根拠を持たせ、誤回答を抑える。</li>
+        <li><strong>品質担保</strong>——出力を確認・評価する仕組みを設ける。</li>
+        <li><strong>セキュリティ</strong>——機密情報の取り扱い範囲とアクセス権を設計する。</li>
+      </ul>
+
+      <div class="article-cta">
+        <h3>AIエージェント開発のご相談はフリランへ</h3>
+        <p>株式会社フリランは、自社でAIエージェントを開発する知見を活かし、お客様の業務に合わせたAIエージェントをフルスクラッチで開発します。構想段階からお気軽にご相談ください。</p>
+        <a href="../index.html#contact" class="btn btn-primary">お問い合わせはこちら<span class="btn-arrow">→</span></a>
+      </div>
+
+      <div class="article-related">
+        <p class="article-related-label">RELATED</p>
+        <a href="ai-agent-use-cases.html">AIエージェントの活用事例|業務自動化の代表的ユースケース →</a>
+        <a href="rag.html">RAGとは?仕組みと社内データ活用をわかりやすく解説 →</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="footer-links">
+      <a href="../index.html#services">Services</a>
+      <a href="../column/">Column</a>
+      <a href="../recruit.html">Recruit</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <nav class="footer-policies">
+      <a href="../privacy.html">プライバシーポリシー</a>
+      <a href="../security.html">セキュリティポリシー</a>
+    </nav>
+    <p class="footer-copy">© 2026 FURILAN Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

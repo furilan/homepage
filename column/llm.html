@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM(大規模言語モデル)とは?仕組み・できること・限界をわかりやすく解説 | 株式会社フリラン</title>
+<meta name="description" content="LLM(大規模言語モデル)とは何か。仕組み、できること、代表的なLLM、ハルシネーションなどの限界、ビジネス活用のポイントをわかりやすく解説。生成AI・AIエージェントの基礎を理解したい方へ。">
+<meta name="keywords" content="LLM,大規模言語モデル,LLMとは,生成AI,ChatGPT,Claude,自然言語処理,ハルシネーション,AIエージェント,株式会社フリラン">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.fuliran.co.jp/column/llm.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社フリラン">
+<meta property="og:title" content="LLM(大規模言語モデル)とは?仕組み・できること・限界を解説">
+<meta property="og:description" content="LLM(大規模言語モデル)の仕組み、できること、限界、ビジネス活用のポイントをわかりやすく解説します。">
+<meta property="og:url" content="https://www.fuliran.co.jp/column/llm.html">
+<meta property="og:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LLM(大規模言語モデル)とは?仕組み・できること・限界を解説">
+<meta name="twitter:description" content="LLMの仕組み・できること・限界・活用ポイントを解説します。">
+<meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta name="theme-color" content="#06070d">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.fuliran.co.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://www.fuliran.co.jp/column/" },
+    { "@type": "ListItem", "position": 3, "name": "LLMとは", "item": "https://www.fuliran.co.jp/column/llm.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LLM(大規模言語モデル)とは?仕組み・できること・限界をわかりやすく解説",
+  "description": "LLM(大規模言語モデル)の仕組み、できること、限界、ビジネス活用のポイントをわかりやすく解説します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
+  "image": "https://www.fuliran.co.jp/ogp.png",
+  "author": { "@type": "Organization", "name": "株式会社フリラン", "url": "https://www.fuliran.co.jp/" },
+  "publisher": { "@type": "Organization", "name": "株式会社フリラン", "logo": { "@type": "ImageObject", "url": "https://www.fuliran.co.jp/ogp.png" } },
+  "mainEntityOfPage": "https://www.fuliran.co.jp/column/llm.html"
+}
+</script>
+</head>
+<body class="subpage">
+
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#strengths">Strengths</a>
+      <a href="../column/">Column</a>
+      <a href="../recruit.html">Recruit</a>
+      <a href="../index.html#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="article">
+  <div class="container">
+    <nav class="article-breadcrumb">
+      <a href="../index.html">ホーム</a><span>/</span><a href="../column/">コラム</a><span>/</span>LLMとは
+    </nav>
+    <p class="article-cat">LLM</p>
+    <h1 class="article-title">LLM(大規模言語モデル)とは?仕組み・できること・限界をわかりやすく解説</h1>
+    <p class="article-meta">公開日:2026年6月23日 ・ 株式会社フリラン</p>
+
+    <div class="article-body">
+      <p class="article-lead">ChatGPTをはじめとする生成AIの中核技術が「LLM(大規模言語モデル)」です。本記事では、LLMとは何か、その仕組みやできること、限界、そしてビジネスでの活用ポイントをわかりやすく解説します。</p>
+
+      <h2>LLM(大規模言語モデル)とは</h2>
+      <p><strong>LLM(Large Language Model / 大規模言語モデル)</strong>とは、膨大な量のテキストデータを学習し、人間のように自然な文章を理解・生成できるAIモデルです。ChatGPTで使われるGPTシリーズや、Claude、Geminiなどが代表的なLLMです。</p>
+
+      <h2>LLMの仕組み(ざっくり理解)</h2>
+      <p>LLMは、大量の文章を学習する過程で「ある言葉の次に、どんな言葉が来やすいか」という確率的なパターンを身につけています。質問に対しても、この学習をもとに「最も自然で適切と思われる続き」を生成することで、回答を作り出しています。</p>
+      <p>つまりLLMは、意味を「理解している」というより、<strong>膨大なパターンから最もそれらしい文章を生成している</strong>と捉えると、得意・不得意が見えてきます。</p>
+
+      <h2>LLMにできること</h2>
+      <ul>
+        <li>文章の作成・要約・翻訳・校正</li>
+        <li>質問への回答、アイデア出し</li>
+        <li>文章の分類・情報抽出</li>
+        <li>プログラムコードの生成・補助</li>
+        <li>会話形式でのやり取り</li>
+      </ul>
+
+      <h2>LLMの限界・注意点</h2>
+      <ul>
+        <li><strong>ハルシネーション</strong>——事実でない内容を、もっともらしく生成することがある。</li>
+        <li><strong>最新情報・社内情報に弱い</strong>——学習時点以降の情報や、自社固有の情報は基本的に知らない。</li>
+        <li><strong>計算や厳密な処理は不得意な場合がある</strong>——確率的に文章を生成するため。</li>
+      </ul>
+      <p>これらの弱点は、外部情報を検索して参照させる<a href="rag.html">RAG</a>や、ツールを使わせる<a href="how-to-build-ai-agent.html">AIエージェント</a>と組み合わせることで補えます。</p>
+
+      <h2>LLMのビジネス活用</h2>
+      <p>LLMは、単体のチャットツールとして使うだけでなく、RAGやAIエージェントと組み合わせて<strong>業務システムに組み込む</strong>ことで、真価を発揮します。社内ナレッジ検索、カスタマーサポート、業務自動化など、活用の幅は広がり続けています。重要なのは、LLMの特性(得意・不得意)を理解したうえで、適切に設計することです。</p>
+
+      <div class="article-cta">
+        <h3>LLM活用・AIエージェント開発のご相談はフリランへ</h3>
+        <p>株式会社フリランは、LLMを活用したAIエージェント開発や業務自動化を、お客様の課題に合わせてフルスクラッチで支援します。「自社で何ができるか知りたい」段階からご相談ください。</p>
+        <a href="../index.html#contact" class="btn btn-primary">お問い合わせはこちら<span class="btn-arrow">→</span></a>
+      </div>
+
+      <div class="article-related">
+        <p class="article-related-label">RELATED</p>
+        <a href="how-to-build-ai-agent.html">AIエージェントの作り方|構成要素と開発ステップを解説 →</a>
+        <a href="rag.html">RAGとは?仕組みと社内データ活用をわかりやすく解説 →</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="footer-links">
+      <a href="../index.html#services">Services</a>
+      <a href="../column/">Column</a>
+      <a href="../recruit.html">Recruit</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <nav class="footer-policies">
+      <a href="../privacy.html">プライバシーポリシー</a>
+      <a href="../security.html">セキュリティポリシー</a>
+    </nav>
+    <p class="footer-copy">© 2026 FURILAN Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
