@@ -20,6 +20,13 @@ window.addEventListener('load', () => {
   const LINK_DIST = 140;
   const MOUSE_DIST = 200;
 
+  // テーマで切り替わるパーティクルの配色
+  let palette = { dots: ['79, 124, 255', '0, 224, 198'], link: '120, 150, 255' };
+  window.__furilanSetParticlePalette = (p) => {
+    palette = p;
+    if (reduced) drawStatic();
+  };
+
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     width = canvas.offsetWidth;
@@ -38,8 +45,18 @@ window.addEventListener('load', () => {
       vx: (Math.random() - 0.5) * 0.45,
       vy: (Math.random() - 0.5) * 0.45,
       r: Math.random() * 1.8 + 0.6,
-      hue: Math.random() < 0.5 ? '79, 124, 255' : '0, 224, 198',
+      tone: Math.random() < 0.5 ? 0 : 1,
     }));
+  }
+
+  function drawStatic() {
+    ctx.clearRect(0, 0, width, height);
+    for (const p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${palette.dots[p.tone]}, 0.7)`;
+      ctx.fill();
+    }
   }
 
   function step() {
@@ -64,7 +81,7 @@ window.addEventListener('load', () => {
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.hue}, 0.7)`;
+      ctx.fillStyle = `rgba(${palette.dots[p.tone]}, 0.7)`;
       ctx.fill();
     }
 
@@ -79,7 +96,7 @@ window.addEventListener('load', () => {
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(120, 150, 255, ${alpha})`;
+          ctx.strokeStyle = `rgba(${palette.link}, ${alpha})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -102,14 +119,7 @@ window.addEventListener('load', () => {
 
   resize();
   if (reduced) {
-    // 静止画として1フレームだけ描画
-    ctx.clearRect(0, 0, width, height);
-    for (const p of particles) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.hue}, 0.7)`;
-      ctx.fill();
-    }
+    drawStatic();
   } else {
     step();
   }
@@ -229,5 +239,55 @@ window.addEventListener('load', () => {
     card.addEventListener('mouseleave', () => {
       card.style.transform = '';
     });
+  });
+})();
+
+// ---------- 隠しギミック: ヒーローをダブルクリックで世界観チェンジ ----------
+(() => {
+  const hero = document.getElementById('top');
+  if (!hero) return;
+
+  const THEMES = [
+    { name: 'AURORA BLUE', attr: null,      dots: ['79, 124, 255', '0, 224, 198'],  link: '120, 150, 255' },
+    { name: 'NEON SUNSET', attr: 'cyber',   dots: ['255, 77, 141', '255, 158, 61'], link: '255, 120, 170' },
+    { name: 'MATRIX',      attr: 'matrix',  dots: ['43, 212, 63', '0, 224, 122'],   link: '60, 220, 90' },
+    { name: 'DEEP SPACE',  attr: 'aurora',  dots: ['61, 240, 255', '111, 123, 255'], link: '90, 200, 255' },
+    { name: 'MONO',        attr: 'mono',    dots: ['200, 206, 222', '120, 130, 150'], link: '150, 160, 180' },
+  ];
+  let idx = 0;
+
+  const toast = document.createElement('div');
+  toast.className = 'theme-toast';
+  toast.setAttribute('aria-live', 'polite');
+  const flash = document.createElement('div');
+  flash.className = 'theme-flash';
+  document.body.appendChild(flash);
+  document.body.appendChild(toast);
+
+  let toastTimer;
+  function apply(i) {
+    const t = THEMES[i];
+    if (t.attr) document.body.setAttribute('data-theme', t.attr);
+    else document.body.removeAttribute('data-theme');
+
+    if (window.__furilanSetParticlePalette) {
+      window.__furilanSetParticlePalette({ dots: t.dots, link: t.link });
+    }
+
+    toast.innerHTML = '<span>WORLD</span><b>' + t.name + '</b>';
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1500);
+
+    flash.classList.remove('flash-anim');
+    void flash.offsetWidth;
+    flash.classList.add('flash-anim');
+  }
+
+  hero.addEventListener('dblclick', () => {
+    const sel = window.getSelection && window.getSelection();
+    if (sel) sel.removeAllRanges();
+    idx = (idx + 1) % THEMES.length;
+    apply(idx);
   });
 })();
