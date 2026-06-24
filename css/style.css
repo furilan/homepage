@@ -534,48 +534,56 @@ img, svg { display: block; }
   max-width: none;
   margin-inline: 0;
   overflow-x: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 12px 2px 16px;
+  padding: 12px 0 16px;
   scrollbar-width: none;
 }
 .service-cards-4::-webkit-scrollbar { display: none; }
+/* ちょうど3枚がぴったり収まる幅(見切れを出さない) */
 .service-cards-4 .service-card {
-  flex: 0 0 330px;
+  flex: 0 0 calc((100% - 48px) / 3);
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
 }
 .service-cards-4 .service-card .case-toggle { margin-top: auto; }
+@media (max-width: 1024px) and (min-width: 721px) {
+  .service-cards-4 .service-card { flex-basis: calc((100% - 24px) / 2); }
+}
 
-/* 透明な三角矢印 */
+/* 大きく分かりやすい三角矢印ナビ */
 .carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 5;
-  width: 48px;
-  height: 72px;
+  z-index: 6;
+  width: 58px;
+  height: 58px;
   display: grid;
   place-items: center;
   padding: 0;
-  border: none;
-  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(127, 127, 127, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--text);
   cursor: pointer;
-  opacity: 0.4;
-  transition: opacity 0.3s, transform 0.3s var(--ease);
+  opacity: 1;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, transform 0.3s var(--ease), opacity 0.35s, box-shadow 0.3s;
 }
 .carousel-arrow svg {
   width: 30px;
   height: 30px;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
 }
-.carousel-arrow:hover { opacity: 0.95; }
-.carousel-prev { left: -6px; }
-.carousel-next { right: -6px; }
-.carousel-prev:hover { transform: translateY(-50%) translateX(-4px); }
-.carousel-next:hover { transform: translateY(-50%) translateX(4px); }
+.carousel-arrow:hover { background: rgba(127, 127, 127, 0.34); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42); }
+.carousel-prev { left: -14px; }
+.carousel-next { right: -14px; }
+.carousel-prev:hover { transform: translateY(-50%) translateX(-3px) scale(1.06); }
+.carousel-next:hover { transform: translateY(-50%) translateX(3px) scale(1.06); }
 .carousel-arrow.is-hidden { opacity: 0; pointer-events: none; }
 
 @media (max-width: 720px) {
