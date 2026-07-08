@@ -1493,6 +1493,46 @@ img, svg { display: block; }
   color: var(--text);
   font-weight: 700;
 }
+.article-toc {
+  margin: 0 0 48px;
+  padding: 26px 30px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.article-toc-label {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.article-toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: toc;
+}
+.article-toc li {
+  counter-increment: toc;
+  margin-bottom: 10px;
+  font-size: 0.92rem;
+}
+.article-toc li::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: var(--font-en);
+  color: var(--accent-2);
+  margin-right: 12px;
+  font-size: 0.8rem;
+}
+.article-toc a {
+  color: var(--text);
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.article-toc a:hover { color: var(--accent-2); border-bottom-color: var(--accent-2); }
+.article-body h2 { scroll-margin-top: 90px; }
+
 .article-cta {
   margin-top: 64px;
   padding: 40px;
