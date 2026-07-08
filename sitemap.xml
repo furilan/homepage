@@ -31,6 +31,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.fuliran.co.jp/column/ai-driven-development-guide.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.fuliran.co.jp/column/ax-guide.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.fuliran.co.jp/column/ai-driven-development.html</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
