@@ -46,6 +46,9 @@
 
 - [トップページ](https://www.fuliran.co.jp/): 会社概要・事業内容・強み・開発フロー・FAQ・お問い合わせ
 - [AI駆動開発 LP](https://www.fuliran.co.jp/ai-driven.html): AI駆動開発によるPoC・MVP開発、AX推進の支援
+- [AIエージェント開発 LP](https://www.fuliran.co.jp/ai-agent.html): 自律型AIエージェントのフルスクラッチ開発(PoC/本格開発/内製化支援)
+- [AIエージェント開発の費用相場](https://www.fuliran.co.jp/column/ai-agent-development-cost.html): 料金目安・内訳・抑え方
+- [AIエージェント開発会社の選び方](https://www.fuliran.co.jp/column/ai-agent-development-company.html): 7つの選定基準と質問リスト
 - [採用情報](https://www.fuliran.co.jp/recruit.html): AIエンジニア、ITエンジニア(SES)、Webエンジニア、セールス、コンサルタント、マーケター、企画営業を募集
 - [プライバシーポリシー](https://www.fuliran.co.jp/privacy.html)
 - [セキュリティポリシー](https://www.fuliran.co.jp/security.html)
