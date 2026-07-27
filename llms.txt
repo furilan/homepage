@@ -50,6 +50,12 @@
 - [AIエージェント開発の費用相場](https://www.fuliran.co.jp/column/ai-agent-development-cost.html): 料金目安・内訳・抑え方
 - [AIエージェント開発会社の選び方](https://www.fuliran.co.jp/column/ai-agent-development-company.html): 7つの選定基準と質問リスト
 - [AI用語集](https://www.fuliran.co.jp/column/ai-glossary.html): AIエージェント・生成AI・LLM・RAG等の重要用語18選の定義集
+- [LINEミニアプリ開発 LP](https://www.fuliran.co.jp/line-miniapp.html): 予約・会員証・モバイルオーダー・AI接客のミニアプリ開発
+- [SES・エンジニア参画支援 LP](https://www.fuliran.co.jp/ses-service.html): AI駆動開発の知見を持つエンジニアが1名から参画
+- [LINEミニアプリとは](https://www.fuliran.co.jp/column/line-miniapp-guide.html): できること・公式アカウントとの違い・開発の進め方
+- [LINEミニアプリ開発の費用相場](https://www.fuliran.co.jp/column/line-miniapp-cost.html): 料金の内訳・機能別の目安・抑え方
+- [SES活用ガイド](https://www.fuliran.co.jp/column/ses-guide.html): 発注企業向けのメリット・費用・契約・進め方
+- [SES会社の選び方](https://www.fuliran.co.jp/column/ses-company-selection.html): 6つの選定基準とチェックポイント
 - [採用情報](https://www.fuliran.co.jp/recruit.html): AIエンジニア、ITエンジニア(SES)、Webエンジニア、セールス、コンサルタント、マーケター、企画営業を募集
 - [プライバシーポリシー](https://www.fuliran.co.jp/privacy.html)
 - [セキュリティポリシー](https://www.fuliran.co.jp/security.html)
