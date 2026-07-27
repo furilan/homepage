@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI用語集|AIエージェント・生成AI・LLMの重要用語18選をわかりやすく解説 | 株式会社フリラン</title>
+<meta name="description" content="AIエージェント・生成AI・LLM・RAG・AI駆動開発・AXなど、ビジネスでAIを検討する際に押さえるべき重要用語18個を、1つずつ簡潔にわかりやすく解説するAI用語集です。各用語の詳細解説記事へのリンク付き。">
+<meta name="keywords" content="AI用語集,AI用語,AIエージェント,生成AI,LLM,RAG,ハルシネーション,プロンプト,AI駆動開発,AX,用語解説,株式会社フリラン">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.fuliran.co.jp/column/ai-glossary.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="株式会社フリラン">
+<meta property="og:title" content="AI用語集|AIエージェント・生成AI・LLMの重要用語18選">
+<meta property="og:description" content="ビジネスでAIを検討する際に押さえるべき重要用語18個を、1つずつ簡潔に解説するAI用語集。">
+<meta property="og:url" content="https://www.fuliran.co.jp/column/ai-glossary.html">
+<meta property="og:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI用語集|重要用語18選をわかりやすく解説">
+<meta name="twitter:description" content="AIエージェント・生成AI・LLM・RAGなど重要用語18個を簡潔に解説。">
+<meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta name="theme-color" content="#06070d">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.fuliran.co.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://www.fuliran.co.jp/column/" },
+    { "@type": "ListItem", "position": 3, "name": "AI用語集", "item": "https://www.fuliran.co.jp/column/ai-glossary.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://www.fuliran.co.jp/column/ai-glossary.html",
+  "name": "AI用語集(株式会社フリラン)",
+  "description": "ビジネスでAIを検討する際に押さえるべき重要用語を解説するAI用語集",
+  "inLanguage": "ja",
+  "hasDefinedTerm": [
+    { "@type": "DefinedTerm", "name": "AIエージェント", "description": "LLMを中核に、与えられた目的に対して自ら考え、ツールやデータを使い、タスクを自律的に実行するAI。回答だけでなく情報収集・判断・実行まで担える。" },
+    { "@type": "DefinedTerm", "name": "生成AI", "description": "文章・画像・コードなどの新しいコンテンツを生成できるAIの総称。ChatGPTやClaudeなどの対話型AIが代表例。" },
+    { "@type": "DefinedTerm", "name": "LLM(大規模言語モデル)", "description": "膨大なテキストデータを学習し、自然な文章を理解・生成できるAIモデル。生成AIの中核技術。" },
+    { "@type": "DefinedTerm", "name": "RAG(検索拡張生成)", "description": "生成AIが回答を作る際に、外部の情報源(社内文書など)を検索・参照しながら回答を生成する仕組み。自社情報に基づく正確な回答を可能にする。" },
+    { "@type": "DefinedTerm", "name": "ハルシネーション", "description": "生成AIが事実でない内容を、もっともらしく生成してしまう現象。RAGや人の確認フローで対策する。" },
+    { "@type": "DefinedTerm", "name": "プロンプト", "description": "AIに与える指示文。役割・目的・条件の設計(プロンプトエンジニアリング)がAIの出力品質を大きく左右する。" },
+    { "@type": "DefinedTerm", "name": "AI駆動開発", "description": "生成AI・AIエージェントを要件定義・設計・実装・テストの各工程に組み込み、人とAIが協働して開発を進める手法。" },
+    { "@type": "DefinedTerm", "name": "AX(AIトランスフォーメーション)", "description": "AIの活用を前提に、業務プロセスやビジネスモデルそのものを変革する取り組み。DXの次の段階とされる。" },
+    { "@type": "DefinedTerm", "name": "DX(デジタルトランスフォーメーション)", "description": "デジタル技術を活用して業務やビジネスモデルを変革し、競争力を高める取り組み。" },
+    { "@type": "DefinedTerm", "name": "PoC(概念実証)", "description": "新しいアイデアや技術が実現可能か・効果があるかを、本格開発の前に小さく試して検証する取り組み。" },
+    { "@type": "DefinedTerm", "name": "MVP(実用最小限の製品)", "description": "必要最小限の機能を持つ製品を素早く作り、実際のユーザーで市場性を検証する手法・その製品。" },
+    { "@type": "DefinedTerm", "name": "チャットボット", "description": "ユーザーの質問に対して、シナリオや生成AIで応答する対話プログラム。AIエージェントと異なり「答える」ことが中心。" },
+    { "@type": "DefinedTerm", "name": "ファインチューニング", "description": "既存のLLMに追加データを学習させ、特定の用途・文体に適応させる手法。RAGと使い分け・併用される。" },
+    { "@type": "DefinedTerm", "name": "マルチエージェント", "description": "役割の異なる複数のAIエージェントが連携・分業してタスクを遂行する構成。複雑な業務の自動化に用いられる。" },
+    { "@type": "DefinedTerm", "name": "API連携", "description": "システム同士をAPI(接続口)経由でつなぐこと。AIエージェントが既存の業務システムやチャットツールと連携して動くための基盤。" },
+    { "@type": "DefinedTerm", "name": "ベクトル検索", "description": "文章を数値(ベクトル)に変換し、意味の近さで検索する技術。キーワード一致ではなく「意味」で探せるため、RAGの検索部分で使われる。" },
+    { "@type": "DefinedTerm", "name": "トークン", "description": "LLMが文章を処理する際の単位。LLMのAPI利用料は処理するトークン量に応じた従量課金が一般的。" },
+    { "@type": "DefinedTerm", "name": "FDE(フォワードデプロイドエンジニア)", "description": "顧客の現場に深く入り込み、課題のヒアリングから開発・実装・運用までを伴走するエンジニアの働き方。" }
+  ]
+}
+</script>
+</head>
+<body class="subpage">
+
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#strengths">Strengths</a>
+      <a href="../column/">Column</a>
+      <a href="../recruit.html">Recruit</a>
+      <a href="../index.html#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="article">
+  <div class="container">
+    <nav class="article-breadcrumb">
+      <a href="../index.html">ホーム</a><span>/</span><a href="../column/">コラム</a><span>/</span>AI用語集
+    </nav>
+    <p class="article-cat">AI GLOSSARY</p>
+    <h1 class="article-title">AI用語集|AIエージェント・生成AI・LLMの重要用語18選をわかりやすく解説</h1>
+    <p class="article-meta">公開日:2026年7月9日 ・ 株式会社フリラン(AIエージェント開発会社)</p>
+
+    <div class="article-body">
+      <p class="article-lead">ビジネスでAI導入を検討すると、次々に専門用語が登場します。本用語集では、AIエージェント開発会社である当社が、<strong>実務で本当に登場する重要用語18個</strong>を厳選し、それぞれ2〜3文で簡潔に解説します。詳しく知りたい用語は、リンク先の解説記事をご覧ください。</p>
+
+      <h2>基本のAI用語</h2>
+
+      <div class="glossary-item">
+        <h3>生成AI<span class="glossary-en">Generative AI</span></h3>
+        <p>生成AIとは、文章・画像・コードなどの新しいコンテンツを生成できるAIの総称です。ChatGPTやClaudeなどの対話型AIが代表例で、業務では文書作成・要約・翻訳・アイデア出しなどに活用されます。→ <a href="generative-ai-adoption.html">生成AIの社内導入ステップ</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>LLM(大規模言語モデル)<span class="glossary-en">Large Language Model</span></h3>
+        <p>LLMとは、膨大なテキストデータを学習し、人間のように自然な文章を理解・生成できるAIモデルです。生成AIの中核技術であり、GPTシリーズ・Claude・Geminiなどが代表例です。→ <a href="llm.html">LLMとは(詳細解説)</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>プロンプト<span class="glossary-en">Prompt</span></h3>
+        <p>プロンプトとは、AIに与える指示文のことです。役割・目的・条件をどう設計するか(プロンプトエンジニアリング)によって、AIの出力品質は大きく変わります。</p>
+      </div>
+      <div class="glossary-item">
+        <h3>トークン<span class="glossary-en">Token</span></h3>
+        <p>トークンとは、LLMが文章を処理する際の単位です(日本語ではおおむね1文字=1〜2トークン程度)。LLMのAPI利用料は処理トークン量に応じた従量課金が一般的で、AIエージェントのランニングコストを左右します。→ <a href="ai-agent-development-cost.html">AIエージェント開発の費用相場</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>ハルシネーション<span class="glossary-en">Hallucination</span></h3>
+        <p>ハルシネーションとは、生成AIが事実でない内容を、もっともらしく生成してしまう現象です。業務利用ではRAGによる根拠付けや、人の確認フローの設計で対策します。</p>
+      </div>
+
+      <h2>AIエージェント関連の用語</h2>
+
+      <div class="glossary-item">
+        <h3>AIエージェント<span class="glossary-en">AI Agent</span></h3>
+        <p>AIエージェントとは、LLMを中核に、与えられた目的に対して自ら考え、ツールやデータを使い、タスクを自律的に実行するAIです。「答える」だけのチャットボットと異なり、情報収集・判断・実行までを担えます。→ <a href="ai-agent-implementation-guide.html">AIエージェント導入ガイド</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>チャットボット<span class="glossary-en">Chatbot</span></h3>
+        <p>チャットボットとは、ユーザーの質問にシナリオや生成AIで応答する対話プログラムです。「答える」ことが中心で、自律的にタスクを実行するAIエージェントとは役割が異なります。→ <a href="ai-agent-vs-chatbot.html">AIエージェントとチャットボットの違い</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>RAG(検索拡張生成)<span class="glossary-en">Retrieval-Augmented Generation</span></h3>
+        <p>RAGとは、生成AIが回答を作る際に、外部の情報源(社内文書やデータベース)を検索・参照しながら回答を生成する仕組みです。自社固有の情報に基づく正確な回答を可能にし、ハルシネーション対策にもなります。→ <a href="rag.html">RAGとは(詳細解説)</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>ベクトル検索<span class="glossary-en">Vector Search</span></h3>
+        <p>ベクトル検索とは、文章を数値(ベクトル)に変換し、意味の近さで検索する技術です。キーワードの一致ではなく「意味」で探せるため、RAGの検索部分で広く使われます。</p>
+      </div>
+      <div class="glossary-item">
+        <h3>マルチエージェント<span class="glossary-en">Multi-Agent</span></h3>
+        <p>マルチエージェントとは、役割の異なる複数のAIエージェントが連携・分業してタスクを遂行する構成です。調査担当・執筆担当・チェック担当のように分けることで、複雑な業務の自動化に対応できます。</p>
+      </div>
+      <div class="glossary-item">
+        <h3>API連携<span class="glossary-en">API Integration</span></h3>
+        <p>API連携とは、システム同士をAPI(接続口)経由でつなぐことです。AIエージェントがCRM・社内DB・チャットツールなど既存システムと連携して業務フローの中で動くための基盤になります。</p>
+      </div>
+      <div class="glossary-item">
+        <h3>ファインチューニング<span class="glossary-en">Fine-tuning</span></h3>
+        <p>ファインチューニングとは、既存のLLMに追加データを学習させ、特定の用途・文体に適応させる手法です。「知識を参照させたい」だけならRAGの方が低コストな場合が多く、目的に応じて使い分けます。</p>
+      </div>
+
+      <h2>開発・推進に関する用語</h2>
+
+      <div class="glossary-item">
+        <h3>AI駆動開発<span class="glossary-en">AI-Driven Development</span></h3>
+        <p>AI駆動開発とは、生成AI・AIエージェントを要件定義・設計・実装・テストの各工程に組み込み、人とAIが協働して開発を進める手法です。PoC・MVPを従来より大幅に短いサイクルで形にできます。→ <a href="ai-driven-development-guide.html">AI駆動開発 完全ガイド</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>PoC(概念実証)<span class="glossary-en">Proof of Concept</span></h3>
+        <p>PoCとは、新しいアイデアや技術が「実現可能か」「効果があるか」を、本格開発の前に小さく試して検証する取り組みです。AI導入では、実データでの精度検証として最初のステップになります。→ <a href="poc.html">PoCとは(詳細解説)</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>MVP(実用最小限の製品)<span class="glossary-en">Minimum Viable Product</span></h3>
+        <p>MVPとは、必要最小限の機能を持つ製品を素早く作り、実際のユーザーで市場性を検証する手法(またはその製品)です。PoCが「作れるか」の検証なのに対し、MVPは「使われるか」の検証です。→ <a href="poc-vs-mvp.html">PoCとMVPの違い</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>AX(AIトランスフォーメーション)<span class="glossary-en">AI Transformation</span></h3>
+        <p>AXとは、AIの活用を前提に、業務プロセスやビジネスモデルそのものを変革する取り組みです。デジタル化を中心とするDXの次の段階とされます。→ <a href="ax-guide.html">AX推進 完全ガイド</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>DX(デジタルトランスフォーメーション)<span class="glossary-en">Digital Transformation</span></h3>
+        <p>DXとは、デジタル技術を活用して業務やビジネスモデルを変革し、競争力を高める取り組みです。単なるIT化にとどまらず「仕事の進め方を作り変える」ことを指します。→ <a href="dx.html">DX推進の進め方</a></p>
+      </div>
+      <div class="glossary-item">
+        <h3>FDE(フォワードデプロイドエンジニア)<span class="glossary-en">Forward Deployed Engineer</span></h3>
+        <p>FDEとは、顧客の現場に深く入り込み、課題のヒアリングから開発・実装・運用までを伴走するエンジニアの働き方です。AIエージェント導入のように「業務理解」が成否を分ける開発で重要性が高まっています。</p>
+      </div>
+
+      <div class="article-cta">
+        <h3>用語の理解から、実践へ</h3>
+        <p>株式会社フリランは、AIエージェント開発・AI駆動開発で企業のAI活用を支援しています。「まず何から始めればいいか」という段階から、お気軽にご相談ください。</p>
+        <a href="../index.html#contact" class="btn btn-primary">無料相談はこちら<span class="btn-arrow">→</span></a>
+      </div>
+
+      <div class="article-related">
+        <p class="article-related-label">RELATED</p>
+        <a href="ai-agent-implementation-guide.html">AIエージェント導入ガイド|メリット・事例・費用・進め方 →</a>
+        <a href="ai-driven-development-guide.html">AI駆動開発 完全ガイド|工程別のAI活用・進め方・費用 →</a>
+        <a href="ax-guide.html">AX推進 完全ガイド|進め方・成熟度ステップ・体制づくり →</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="footer-links">
+      <a href="../index.html#services">Services</a>
+      <a href="../column/">Column</a>
+      <a href="../recruit.html">Recruit</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <nav class="footer-policies">
+      <a href="../privacy.html">プライバシーポリシー</a>
+      <a href="../security.html">セキュリティポリシー</a>
+    </nav>
+    <p class="footer-copy">© 2026 FURILAN Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

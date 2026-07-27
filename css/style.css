@@ -1493,6 +1493,72 @@ img, svg { display: block; }
   color: var(--text);
   font-weight: 700;
 }
+.article-summary {
+  margin: 0 0 32px;
+  padding: 22px 26px;
+  border: 1px solid rgba(0, 224, 198, 0.25);
+  border-left: 3px solid var(--accent-2);
+  border-radius: 0 14px 14px 0;
+  background: rgba(0, 224, 198, 0.04);
+}
+.article-summary-label {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: var(--accent-2);
+  margin-bottom: 12px;
+}
+.article-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.article-summary li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 0.93rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+.article-summary li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--gradient);
+}
+
+/* 用語集 */
+.glossary-item {
+  padding: 26px 4px;
+  border-bottom: 1px solid var(--border);
+}
+.glossary-item:first-child { border-top: 1px solid var(--border); }
+.glossary-item h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.glossary-item h3 .glossary-en {
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-left: 10px;
+  letter-spacing: 0.05em;
+}
+.glossary-item p {
+  color: var(--text-dim);
+  font-size: 0.94rem;
+  line-height: 1.95;
+}
+.glossary-item a { color: var(--accent-2); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+.glossary-item a:hover { border-bottom-color: var(--accent-2); }
+
 .article-toc {
   margin: 0 0 48px;
   padding: 26px 30px;
