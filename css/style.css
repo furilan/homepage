@@ -547,7 +547,9 @@ img, svg { display: block; }
   display: flex;
   flex-direction: column;
 }
-.service-cards-4 .service-card .case-toggle { margin-top: auto; }
+/* moreボタンはカード下端で揃え、タグとの最低余白を確保する */
+.service-cards-4 .service-card .service-tags { margin-bottom: 28px; }
+.service-cards-4 .service-card .service-more { margin-top: auto; }
 @media (max-width: 1024px) and (min-width: 721px) {
   .service-cards-4 .service-card { flex-basis: calc((100% - 24px) / 2); }
 }
@@ -712,8 +714,8 @@ img, svg { display: block; }
   transform: translate(2px, -2px);
 }
 
-/* 事例アコーディオン */
-.case-toggle {
+/* サービスカードの more ボタン */
+.service-more {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -724,96 +726,23 @@ img, svg { display: block; }
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.02);
   color: var(--text);
-  font-family: var(--font-jp);
-  font-size: 0.9rem;
+  font-family: var(--font-en);
+  font-size: 0.92rem;
   font-weight: 700;
-  cursor: pointer;
+  letter-spacing: 0.08em;
   transition: border-color 0.3s, background 0.3s, color 0.3s;
 }
-.case-toggle:hover {
+.service-more:hover {
   border-color: rgba(79, 124, 255, 0.45);
   background: rgba(79, 124, 255, 0.06);
   color: var(--accent);
 }
-.case-toggle-icon {
-  position: relative;
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-.case-toggle-icon::before,
-.case-toggle-icon::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: currentColor;
-  border-radius: 2px;
-  transition: transform 0.35s var(--ease), opacity 0.35s;
-}
-.case-toggle-icon::before {
-  width: 16px;
-  height: 2px;
-  transform: translate(-50%, -50%);
-}
-.case-toggle-icon::after {
-  width: 2px;
-  height: 16px;
-  transform: translate(-50%, -50%);
-}
-.case-toggle[aria-expanded="true"] .case-toggle-icon::after {
-  transform: translate(-50%, -50%) rotate(90deg);
-  opacity: 0;
-}
-.service-cases {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.55s var(--ease);
-}
-.service-cases.open {
-  max-height: 1200px;
-}
-.case-item {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-}
-.case-item:first-child { padding-top: 24px; }
-.case-item:last-child { border-bottom: 0; padding-bottom: 0; }
-.case-item h4 {
-  font-size: 0.98rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  padding-left: 14px;
-  position: relative;
-}
-.case-item h4::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.35em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gradient);
-}
-.case-item p {
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  padding-left: 14px;
-}
-.case-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  margin-left: 14px;
-  font-size: 0.82rem;
-  font-weight: 500;
+.service-more-icon {
   color: var(--accent-2);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s;
+  font-size: 1.05rem;
+  transition: transform 0.3s var(--ease);
 }
-.case-link:hover { border-bottom-color: var(--accent-2); }
+.service-more:hover .service-more-icon { transform: translateX(5px); }
 
 /* ---------- 統計 ---------- */
 .stats {
@@ -1781,7 +1710,7 @@ body[data-skin="terminal"] .faq-item,
 body[data-skin="terminal"] .btn,
 body[data-skin="terminal"] .nav-cta,
 body[data-skin="terminal"] .service-tags li,
-body[data-skin="terminal"] .case-toggle,
+body[data-skin="terminal"] .service-more,
 body[data-skin="terminal"] .service-icon,
 body[data-skin="terminal"] .benefit-icon,
 body[data-skin="terminal"] .hero-eyebrow,
@@ -1854,7 +1783,7 @@ body[data-skin="editorial"] .service-num { color: rgba(28, 27, 25, 0.06); }
 body[data-skin="editorial"] .service-icon,
 body[data-skin="editorial"] .benefit-icon { background: #faf7f1; border-color: var(--border); color: var(--accent); }
 body[data-skin="editorial"] .service-tags li,
-body[data-skin="editorial"] .case-toggle { background: #faf7f1; border-color: var(--border); color: var(--text-dim); }
+body[data-skin="editorial"] .service-more { background: #faf7f1; border-color: var(--border); color: var(--text-dim); }
 body[data-skin="editorial"] .hero-eyebrow { background: #fff; border-color: var(--border); color: var(--accent-2); }
 body[data-skin="editorial"] .btn-primary,
 body[data-skin="editorial"] .btn-light { background: var(--text); color: #fff; box-shadow: none; }

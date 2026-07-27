@@ -200,22 +200,6 @@ window.addEventListener('load', () => {
   counters.forEach((el) => observer.observe(el));
 })();
 
-// ---------- 事例アコーディオン ----------
-(() => {
-  document.querySelectorAll('.case-toggle').forEach((btn) => {
-    const panel = btn.nextElementSibling;
-    const label = btn.querySelector('.case-toggle-label');
-    if (!panel) return;
-
-    btn.addEventListener('click', () => {
-      const willOpen = !panel.classList.contains('open');
-      panel.classList.toggle('open', willOpen);
-      btn.setAttribute('aria-expanded', String(willOpen));
-      if (label) label.textContent = willOpen ? 'close' : 'case';
-    });
-  });
-})();
-
 // ---------- カードの3Dチルト&グロー ----------
 (() => {
   const cards = document.querySelectorAll('.tilt');
