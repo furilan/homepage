@@ -58,6 +58,12 @@ const allDemos = [
     durationMs: 15500,
     posterAtSec: 14,
   },
+  {
+    file: "demo-line-miniapp.html",
+    name: "demo-line-miniapp",
+    durationMs: 14000,
+    posterAtSec: 12.5,
+  },
 ];
 
 // 引数でデモ名を渡すとそれだけ録画する:  node record-demos.mjs demo-mail-triage ...
