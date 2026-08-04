@@ -54,7 +54,7 @@
 - [LINEミニアプリ開発 LP](https://www.fuliran.co.jp/line-miniapp.html): 予約・会員証・モバイルオーダー・AI接客のミニアプリ開発
 - [SES・エンジニア参画支援 LP](https://www.fuliran.co.jp/ses-service.html): AI駆動開発の知見を持つエンジニアが1名から参画
 - [自社サービス開発](https://www.fuliran.co.jp/products.html): 運営中の自社サービス(フリランドットコム/なまらワークス)と開発の考え方
-- [開発実績・サンプル](https://www.fuliran.co.jp/works.html): 自社で開発・運用中のサービス、AI駆動開発で内製したコーポレートサイト、業務自動化基盤、開発サンプル(AIエージェント/LINEミニアプリ/自動化/MVP)
+- [開発実績・サンプル](https://www.fuliran.co.jp/works.html): 自社で開発・運用中のサービス、AI駆動開発で内製したコーポレートサイト、業務自動化基盤、開発サンプル(AIエージェント/LINEミニアプリ/自動化/MVP)。AIエージェントのデモ動画(社内ナレッジ検索/経理自動化ワークフロー)も掲載
 - [LINEミニアプリとは](https://www.fuliran.co.jp/column/line-miniapp-guide.html): できること・公式アカウントとの違い・開発の進め方
 - [LINEミニアプリ開発の費用相場](https://www.fuliran.co.jp/column/line-miniapp-cost.html): 料金の内訳・機能別の目安・抑え方
 - [SES活用ガイド](https://www.fuliran.co.jp/column/ses-guide.html): 発注企業向けのメリット・費用・契約・進め方

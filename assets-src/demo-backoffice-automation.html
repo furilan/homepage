@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>経理自動化ワークフロー — デモ録画用</title>
+<style>
+:root {
+  --bg: #06070d; --bg-2: #0b0d17;
+  --surface: rgba(255,255,255,0.04); --border: rgba(255,255,255,0.1);
+  --text: #e8eaf2; --text-dim: #9aa0b5;
+  --accent: #4f7cff; --accent-2: #00e0c6; --accent-3: #a855f7;
+  --gradient: linear-gradient(120deg,#4f7cff 0%,#00e0c6 50%,#a855f7 100%);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:1280px; height:720px; overflow:hidden;
+  background: radial-gradient(1100px 550px at 30% -10%, rgba(168,85,247,0.10), transparent 60%),
+              radial-gradient(900px 500px at 90% 110%, rgba(0,224,198,0.08), transparent 60%),
+              var(--bg);
+  color:var(--text);
+  font-family:"Noto Sans JP","WenQuanYi Zen Hei",system-ui,sans-serif;
+  display:flex; align-items:center; justify-content:center;
+}
+.stage { width:1060px; }
+.header { display:flex; align-items:center; gap:14px; margin-bottom:30px; }
+.header h1 { font-size:22px; font-weight:700; letter-spacing:0.02em; }
+.badge { font-size:11px; font-weight:700; letter-spacing:0.18em; color:#06070d; background:var(--gradient); padding:4px 12px; border-radius:99px; }
+.subtitle { color:var(--text-dim); font-size:13px; margin-left:auto; }
+
+.pipeline { display:flex; align-items:stretch; gap:0; margin-bottom:28px; }
+.node { flex:1; background:var(--bg-2); border:1px solid var(--border); border-radius:14px;
+  padding:20px 18px; text-align:center; position:relative; transition:all .5s ease; }
+.node .icon { font-size:26px; margin-bottom:8px; filter:grayscale(1) opacity(0.45); transition:filter .5s ease; }
+.node h3 { font-size:14px; font-weight:700; color:var(--text-dim); transition:color .5s ease; }
+.node .state { font-size:11px; margin-top:8px; color:#565c72; letter-spacing:0.06em; min-height:16px; }
+.node.active { border-color:rgba(79,124,255,0.55); box-shadow:0 0 30px rgba(79,124,255,0.16); }
+.node.active .icon { filter:none; }
+.node.active h3 { color:var(--text); }
+.node.active .state { color:var(--accent); }
+.node.done { border-color:rgba(0,224,198,0.45); }
+.node.done .icon { filter:none; }
+.node.done h3 { color:var(--text); }
+.node.done .state { color:var(--accent-2); }
+.connector { width:56px; display:flex; align-items:center; justify-content:center; position:relative; }
+.connector::before { content:""; position:absolute; left:8px; right:8px; height:2px; background:rgba(255,255,255,0.09); border-radius:2px; }
+.connector .fill { position:absolute; left:8px; height:2px; width:0; background:var(--gradient); border-radius:2px; transition:width .8s ease; }
+.connector.go .fill { width:calc(100% - 16px); }
+
+.panel { background:var(--bg-2); border:1px solid var(--border); border-radius:14px; padding:24px 28px; min-height:250px; }
+.panel-title { font-size:12px; letter-spacing:0.14em; color:var(--text-dim); margin-bottom:16px; }
+.rows { display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; }
+.row { display:flex; justify-content:space-between; border-bottom:1px dashed rgba(255,255,255,0.08); padding-bottom:9px;
+  font-size:14px; opacity:0; transform:translateY(6px); transition:all .35s ease; }
+.row.show { opacity:1; transform:none; }
+.row .k { color:var(--text-dim); }
+.row .v { font-weight:600; }
+.row .v.hl { color:var(--accent-2); }
+.result { display:flex; gap:12px; margin-top:18px; }
+.result-card { flex:1; display:flex; align-items:center; gap:12px; border-radius:12px; padding:13px 16px; font-size:13px;
+  opacity:0; transform:translateY(8px); transition:all .4s ease; }
+.result-card.show { opacity:1; transform:none; }
+.result-card.freee { border:1px solid rgba(0,224,198,0.35); background:rgba(0,224,198,0.06); }
+.result-card.slack { border:1px solid rgba(168,85,247,0.4); background:rgba(168,85,247,0.07); }
+.check { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  background:var(--accent-2); color:#06070d; font-weight:700; font-size:14px; flex:0 0 auto; }
+.result-card.slack .check { background:var(--accent-3); color:#fff; }
+.result-card small { display:block; color:var(--text-dim); font-size:11px; margin-top:1px; }
+.summary { margin-top:20px; display:flex; gap:26px; justify-content:center; opacity:0; transition:opacity .5s ease; }
+.summary.show { opacity:1; }
+.stat { text-align:center; }
+.stat .num { font-size:26px; font-weight:700; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.stat .lbl { font-size:11px; color:var(--text-dim); letter-spacing:0.1em; margin-top:2px; }
+.note { text-align:center; font-size:11px; color:#565c72; margin-top:18px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="header">
+    <h1>経理自動化ワークフロー</h1>
+    <span class="badge">DEMO</span>
+    <span class="subtitle">請求書の受信から通知まで、人の手を介さず処理</span>
+  </div>
+
+  <div class="pipeline">
+    <div class="node" id="n1">
+      <div class="icon">📧</div><h3>請求書を受信</h3><div class="state" id="s1">待機中</div>
+    </div>
+    <div class="connector" id="c1"><div class="fill"></div></div>
+    <div class="node" id="n2">
+      <div class="icon">🤖</div><h3>AIが内容を解析</h3><div class="state" id="s2">待機中</div>
+    </div>
+    <div class="connector" id="c2"><div class="fill"></div></div>
+    <div class="node" id="n3">
+      <div class="icon">📗</div><h3>freeeへ仕訳登録</h3><div class="state" id="s3">待機中</div>
+    </div>
+    <div class="connector" id="c3"><div class="fill"></div></div>
+    <div class="node" id="n4">
+      <div class="icon">💬</div><h3>Slackへ通知</h3><div class="state" id="s4">待機中</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">抽出データ</div>
+    <div class="rows">
+      <div class="row" id="r1"><span class="k">書類種別</span><span class="v">請求書 (PDF)</span></div>
+      <div class="row" id="r2"><span class="k">取引先</span><span class="v">株式会社サンプル商事</span></div>
+      <div class="row" id="r3"><span class="k">金額</span><span class="v hl">¥330,000 (税込)</span></div>
+      <div class="row" id="r4"><span class="k">支払期日</span><span class="v">2026-08-31</span></div>
+      <div class="row" id="r5"><span class="k">勘定科目 (推定)</span><span class="v">外注費</span></div>
+      <div class="row" id="r6"><span class="k">登録番号</span><span class="v">T0000000000000 ✓ 適格</span></div>
+    </div>
+    <div class="result">
+      <div class="result-card freee" id="res1">
+        <div class="check">✓</div>
+        <div>freee に仕訳を登録しました<small>取引 #1024 / 未決済・支払期日 2026-08-31</small></div>
+      </div>
+      <div class="result-card slack" id="res2">
+        <div class="check">✓</div>
+        <div>#経理 チャンネルへ通知しました<small>経理bot: 「サンプル商事 ¥330,000 を登録 (期日 8/31)」</small></div>
+      </div>
+    </div>
+    <div class="summary" id="summary">
+      <div class="stat"><div class="num">42秒</div><div class="lbl">処理時間</div></div>
+      <div class="stat"><div class="num">0分</div><div class="lbl">人の作業時間</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">証憑の自動保存</div></div>
+    </div>
+  </div>
+  <p class="note">※ 画面はデモ用に再現したイメージです。取引先名・金額は架空のものです。</p>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+async function run() {
+  await sleep(900);
+  // 1) 受信
+  $("n1").classList.add("active"); $("s1").textContent = "添付PDFを検出";
+  await sleep(1300);
+  $("n1").classList.replace("active", "done"); $("s1").textContent = "完了";
+  $("c1").classList.add("go");
+  await sleep(700);
+  // 2) AI解析 — フィールドが順に埋まる
+  $("n2").classList.add("active"); $("s2").textContent = "解析中…";
+  $("r1").classList.add("show");
+  await sleep(650); $("r2").classList.add("show");
+  await sleep(650); $("r3").classList.add("show");
+  await sleep(650); $("r4").classList.add("show");
+  await sleep(650); $("r5").classList.add("show");
+  await sleep(650); $("r6").classList.add("show");
+  await sleep(600);
+  $("n2").classList.replace("active", "done"); $("s2").textContent = "完了";
+  $("c2").classList.add("go");
+  await sleep(700);
+  // 3) freee登録
+  $("n3").classList.add("active"); $("s3").textContent = "登録中…";
+  await sleep(1400);
+  $("res1").classList.add("show");
+  $("n3").classList.replace("active", "done"); $("s3").textContent = "完了";
+  $("c3").classList.add("go");
+  await sleep(800);
+  // 4) Slack通知
+  $("n4").classList.add("active"); $("s4").textContent = "送信中…";
+  await sleep(1100);
+  $("res2").classList.add("show");
+  $("n4").classList.replace("active", "done"); $("s4").textContent = "完了";
+  await sleep(800);
+  // 5) サマリー
+  $("summary").classList.add("show");
+}
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>社内ナレッジ検索エージェント — デモ録画用</title>
+<style>
+:root {
+  --bg: #06070d; --bg-2: #0b0d17;
+  --surface: rgba(255,255,255,0.04); --border: rgba(255,255,255,0.1);
+  --text: #e8eaf2; --text-dim: #9aa0b5;
+  --accent: #4f7cff; --accent-2: #00e0c6; --accent-3: #a855f7;
+  --gradient: linear-gradient(120deg,#4f7cff 0%,#00e0c6 50%,#a855f7 100%);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:1280px; height:720px; overflow:hidden;
+  background: radial-gradient(1200px 600px at 70% -10%, rgba(79,124,255,0.12), transparent 60%),
+              radial-gradient(900px 500px at 10% 110%, rgba(0,224,198,0.08), transparent 60%),
+              var(--bg);
+  color:var(--text);
+  font-family:"Noto Sans JP","WenQuanYi Zen Hei",system-ui,sans-serif;
+  display:flex; align-items:center; justify-content:center;
+}
+.window {
+  width:900px; height:620px; background:var(--bg-2);
+  border:1px solid var(--border); border-radius:16px;
+  display:flex; flex-direction:column; overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(79,124,255,0.06);
+}
+.titlebar {
+  display:flex; align-items:center; gap:10px;
+  padding:14px 18px; border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,0.02); flex:0 0 auto;
+}
+.dots { display:flex; gap:7px; }
+.dots span { width:11px; height:11px; border-radius:50%; background:#3a3f52; }
+.title { font-size:14px; color:var(--text-dim); margin-left:8px; letter-spacing:0.04em; }
+.badge {
+  margin-left:auto; font-size:11px; font-weight:700; letter-spacing:0.18em;
+  color:#06070d; background:var(--gradient);
+  padding:4px 12px; border-radius:99px;
+}
+.chat { flex:1; padding:26px 30px; display:flex; flex-direction:column; gap:16px; overflow:hidden; }
+.msg { max-width:78%; padding:14px 18px; border-radius:14px; font-size:15px; line-height:1.75;
+  opacity:0; transform:translateY(10px); transition:opacity .4s ease, transform .4s ease; }
+.msg.show { opacity:1; transform:none; }
+.user { align-self:flex-end; background:linear-gradient(120deg,rgba(79,124,255,0.25),rgba(0,224,198,0.18));
+  border:1px solid rgba(79,124,255,0.35); border-bottom-right-radius:4px; }
+.agent { align-self:flex-start; background:var(--surface); border:1px solid var(--border); border-bottom-left-radius:4px; }
+.agent-label { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--accent-2); margin-bottom:6px; letter-spacing:0.06em; }
+.agent-label::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--accent-2); box-shadow:0 0 10px var(--accent-2); }
+.status { align-self:flex-start; display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text-dim);
+  background:var(--surface); border:1px solid var(--border); border-radius:99px; padding:8px 16px;
+  opacity:0; transition:opacity .3s ease; }
+.status.show { opacity:1; }
+.status.hide { opacity:0; }
+.spinner { width:14px; height:14px; border-radius:50%; border:2px solid rgba(255,255,255,0.15); border-top-color:var(--accent-2); animation:spin 0.8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.chips { display:flex; gap:8px; align-self:flex-start; opacity:0; transition:opacity .4s ease; }
+.chips.show { opacity:1; }
+.chip { font-size:12px; color:var(--text-dim); border:1px solid var(--border); background:rgba(255,255,255,0.02);
+  border-radius:8px; padding:5px 12px; }
+.chip b { color:var(--accent-2); font-weight:500; }
+.source { align-self:flex-start; display:flex; gap:12px; align-items:center;
+  border:1px solid rgba(0,224,198,0.3); background:rgba(0,224,198,0.06);
+  border-radius:12px; padding:12px 16px; font-size:13px;
+  opacity:0; transform:translateY(8px); transition:all .4s ease; }
+.source.show { opacity:1; transform:none; }
+.source-icon { width:34px; height:34px; border-radius:8px; background:rgba(0,224,198,0.12);
+  display:flex; align-items:center; justify-content:center; font-size:16px; }
+.source small { display:block; color:var(--text-dim); font-size:11px; margin-top:2px; }
+.followups { display:flex; gap:10px; align-self:flex-start; opacity:0; transition:opacity .4s ease; }
+.followups.show { opacity:1; }
+.followup { font-size:13px; color:var(--accent); border:1px solid rgba(79,124,255,0.4);
+  border-radius:99px; padding:7px 16px; background:rgba(79,124,255,0.06); }
+.inputbar { flex:0 0 auto; margin:0 30px 24px; display:flex; align-items:center; gap:12px;
+  border:1px solid var(--border); background:rgba(255,255,255,0.03); border-radius:12px; padding:14px 18px; }
+.inputtext { flex:1; font-size:15px; color:var(--text); min-height:22px; }
+.inputtext .placeholder { color:#565c72; }
+.caret { display:inline-block; width:2px; height:18px; background:var(--accent-2); vertical-align:-3px; animation:blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity:0; } }
+.send { width:38px; height:38px; border-radius:10px; background:var(--gradient);
+  display:flex; align-items:center; justify-content:center; color:#06070d; font-weight:700; }
+.cursor-hint { font-size:12px; color:var(--text-dim); }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="titlebar">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <span class="title">社内ナレッジ検索エージェント</span>
+    <span class="badge">DEMO</span>
+  </div>
+
+  <div class="chat" id="chat">
+    <div class="msg user" id="userMsg">経費精算の締め日と、申請のやり方を教えて</div>
+
+    <div class="status" id="status1"><span class="spinner"></span><span id="statusText">規程データベースを検索しています…</span></div>
+
+    <div class="chips" id="chips">
+      <span class="chip">📄 経費精算規程.pdf</span>
+      <span class="chip">📄 就業規則.pdf</span>
+      <span class="chip"><b>該当 2 件</b></span>
+    </div>
+
+    <div class="msg agent" id="agentMsg">
+      <div class="agent-label">FURILAN AI Agent</div>
+      <span id="agentText"></span><span class="caret" id="agentCaret" style="display:none"></span>
+    </div>
+
+    <div class="source" id="source">
+      <div class="source-icon">📄</div>
+      <div>
+        出典: 経費精算規程 第4条(2025年4月改定)
+        <small>クリックで該当箇所を表示 →</small>
+      </div>
+    </div>
+
+    <div class="followups" id="followups">
+      <span class="followup">1件あたりの上限額は?</span>
+      <span class="followup">海外出張の場合は?</span>
+    </div>
+  </div>
+
+  <div class="inputbar">
+    <div class="inputtext" id="inputText"><span class="placeholder" id="ph">社内規程・マニュアルについて質問…</span><span class="caret" id="inputCaret"></span></div>
+    <div class="send">↑</div>
+  </div>
+</div>
+
+<script>
+const q = "経費精算の締め日と、申請のやり方を教えて";
+const answer = "経費精算の締め日は毎月25日です。締め日までに申請された分は、翌月10日に給与口座へ振り込まれます。申請は社内ポータルの「経費精算」メニューから、領収書の写真を添付して提出してください。";
+const $ = (id) => document.getElementById(id);
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+async function typeInto(el, text, cps) {
+  for (let i = 1; i <= text.length; i++) {
+    el.textContent = text.slice(0, i);
+    await sleep(1000 / cps);
+  }
+}
+
+async function run() {
+  await sleep(800);
+  // 1) 入力欄にタイピング
+  $("ph").remove();
+  const typed = document.createElement("span");
+  $("inputText").insertBefore(typed, $("inputCaret"));
+  await typeInto(typed, q, 14);
+  await sleep(400);
+  // 2) 送信 → ユーザーバブル
+  typed.textContent = "";
+  $("userMsg").classList.add("show");
+  await sleep(700);
+  // 3) 検索ステータス
+  $("status1").classList.add("show");
+  await sleep(1600);
+  $("statusText").textContent = "該当文書を読み取り中…";
+  $("chips").classList.add("show");
+  await sleep(1600);
+  $("status1").classList.add("hide");
+  // 4) 回答ストリーミング
+  $("agentMsg").classList.add("show");
+  $("agentCaret").style.display = "";
+  await typeInto($("agentText"), answer, 17);
+  $("agentCaret").style.display = "none";
+  await sleep(400);
+  // 5) 出典カード
+  $("source").classList.add("show");
+  await sleep(900);
+  // 6) フォローアップ
+  $("followups").classList.add("show");
+}
+run();
+</script>
+</body>
+</html>
