@@ -21,7 +21,7 @@ const tmpDir = join(__dirname, ".video-tmp");
 const CHROMIUM =
   process.env.CHROMIUM_PATH ?? "/opt/pw-browsers/chromium-1194/chrome-linux/chrome";
 
-const demos = [
+const allDemos = [
   {
     file: "demo-knowledge-agent.html",
     name: "demo-knowledge-agent",
@@ -34,7 +34,35 @@ const demos = [
     durationMs: 16500,
     posterAtSec: 14.5,
   },
+  {
+    file: "demo-ai-driven-dev.html",
+    name: "demo-ai-driven-dev",
+    durationMs: 16500,
+    posterAtSec: 14.5,
+  },
+  {
+    file: "demo-seo-article.html",
+    name: "demo-seo-article",
+    durationMs: 18500,
+    posterAtSec: 17,
+  },
+  {
+    file: "demo-mail-triage.html",
+    name: "demo-mail-triage",
+    durationMs: 18500,
+    posterAtSec: 16.5,
+  },
+  {
+    file: "demo-weekly-report.html",
+    name: "demo-weekly-report",
+    durationMs: 15500,
+    posterAtSec: 14,
+  },
 ];
+
+// 引数でデモ名を渡すとそれだけ録画する:  node record-demos.mjs demo-mail-triage ...
+const targets = process.argv.slice(2);
+const demos = targets.length > 0 ? allDemos.filter((d) => targets.includes(d.name)) : allDemos;
 
 mkdirSync(outDir, { recursive: true });
 mkdirSync(tmpDir, { recursive: true });

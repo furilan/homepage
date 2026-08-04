@@ -1896,3 +1896,15 @@ body[data-skin="editorial"] .contact-title { font-weight: 700; }
   margin: 0 4px;
   line-height: 1.75;
 }
+.demo-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent-2);
+  border: 1px solid rgba(0, 224, 198, 0.35);
+  background: rgba(0, 224, 198, 0.06);
+  border-radius: 99px;
+  padding: 3px 12px;
+  margin: 14px 4px 0;
+}
+.demo-card h3 { margin-top: 8px; }

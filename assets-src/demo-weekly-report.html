@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>週次レポート自動作成 — デモ録画用</title>
+<style>
+:root {
+  --bg:#06070d; --bg-2:#0b0d17; --surface:rgba(255,255,255,0.04); --border:rgba(255,255,255,0.1);
+  --text:#e8eaf2; --text-dim:#9aa0b5; --accent:#4f7cff; --accent-2:#00e0c6; --accent-3:#a855f7;
+  --gradient:linear-gradient(120deg,#4f7cff 0%,#00e0c6 50%,#a855f7 100%);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:1280px; height:720px; overflow:hidden;
+  background: radial-gradient(1100px 550px at 50% -15%, rgba(79,124,255,0.10), transparent 60%), var(--bg);
+  color:var(--text); font-family:"Noto Sans JP","WenQuanYi Zen Hei",system-ui,sans-serif;
+  display:flex; align-items:center; justify-content:center;
+}
+.stage { width:1040px; }
+.header { display:flex; align-items:center; gap:14px; margin-bottom:24px; }
+.header h1 { font-size:22px; font-weight:700; }
+.badge { font-size:11px; font-weight:700; letter-spacing:0.18em; color:#06070d; background:var(--gradient); padding:4px 12px; border-radius:99px; }
+.subtitle { color:var(--text-dim); font-size:13px; margin-left:auto; }
+.sources { display:flex; gap:12px; margin-bottom:22px; }
+.src { flex:1; display:flex; align-items:center; gap:10px; border:1px solid var(--border); background:var(--bg-2);
+  border-radius:12px; padding:13px 16px; font-size:13.5px; color:var(--text-dim); transition:all .45s ease; }
+.src .ic { font-size:18px; filter:grayscale(1) opacity(0.5); transition:filter .45s ease; }
+.src.active { border-color:rgba(79,124,255,0.5); color:var(--text); box-shadow:0 0 24px rgba(79,124,255,0.13); }
+.src.active .ic { filter:none; }
+.src.done { border-color:rgba(0,224,198,0.4); color:var(--text); }
+.src.done .ic { filter:none; }
+.src .st { margin-left:auto; font-size:11px; color:#565c72; }
+.src.active .st { color:var(--accent); }
+.src.done .st { color:var(--accent-2); }
+.report { background:var(--bg-2); border:1px solid var(--border); border-radius:14px; padding:26px 30px; min-height:360px; }
+.report-head { display:flex; align-items:baseline; gap:14px; border-bottom:1px solid var(--border); padding-bottom:14px; margin-bottom:18px;
+  opacity:0; transition:opacity .4s ease; }
+.report-head.show { opacity:1; }
+.report-head h2 { font-size:17px; font-weight:700; }
+.report-head time { font-size:12.5px; color:var(--text-dim); }
+.kpis { display:flex; gap:14px; margin-bottom:20px; }
+.kpi { flex:1; border:1px solid var(--border); border-radius:12px; padding:14px 16px; text-align:center;
+  opacity:0; transform:translateY(8px); transition:all .4s ease; }
+.kpi.show { opacity:1; transform:none; }
+.kpi .num { font-size:24px; font-weight:700; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.kpi .lbl { font-size:11px; color:var(--text-dim); letter-spacing:0.08em; margin-top:3px; }
+.kpi .delta { font-size:11px; color:var(--accent-2); margin-top:2px; }
+.bullets { font-size:14px; line-height:2.1; }
+.bullets li { list-style:none; opacity:0; transform:translateY(6px); transition:all .35s ease; }
+.bullets li.show { opacity:1; transform:none; }
+.bullets li::before { content:"● "; font-size:9px; vertical-align:2px; color:var(--accent); margin-right:8px; }
+.bullets li.risk::before { color:#f59e0b; }
+.savebar { display:flex; align-items:center; gap:12px; margin-top:18px; font-size:13.5px; color:var(--accent-2);
+  opacity:0; transition:opacity .45s ease; }
+.savebar.show { opacity:1; }
+.checkmark { width:24px; height:24px; border-radius:50%; background:var(--accent-2); color:#06070d; font-weight:700;
+  display:flex; align-items:center; justify-content:center; font-size:13px; }
+.savebar small { color:var(--text-dim); margin-left:6px; }
+.note { text-align:center; font-size:11px; color:#565c72; margin-top:14px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="header">
+    <h1>週次レポート自動作成</h1>
+    <span class="badge">DEMO</span>
+    <span class="subtitle">毎週月曜 9:00 に自動実行</span>
+  </div>
+  <div class="sources">
+    <div class="src" id="src1"><span class="ic">💬</span>Slack #営業<span class="st" id="ss1">待機中</span></div>
+    <div class="src" id="src2"><span class="ic">📅</span>カレンダー<span class="st" id="ss2">待機中</span></div>
+    <div class="src" id="src3"><span class="ic">📊</span>売上シート<span class="st" id="ss3">待機中</span></div>
+    <div class="src" id="src4"><span class="ic">📗</span>会計データ<span class="st" id="ss4">待機中</span></div>
+  </div>
+  <div class="report">
+    <div class="report-head" id="rh">
+      <h2>週次経営レポート</h2>
+      <time>2026年7月27日 〜 8月2日</time>
+    </div>
+    <div class="kpis">
+      <div class="kpi" id="kp1"><div class="num">¥3,120,000</div><div class="lbl">今週の売上</div><div class="delta">前週比 +8%</div></div>
+      <div class="kpi" id="kp2"><div class="num">5 → 2</div><div class="lbl">商談 → 受注</div><div class="delta">受注率 40%</div></div>
+      <div class="kpi" id="kp3"><div class="num">12件</div><div class="lbl">新規リード</div><div class="delta">前週比 +3件</div></div>
+    </div>
+    <ul class="bullets">
+      <li id="b1">株式会社サンプル製作所様の開発案件が受注確定。キックオフは 8/8 を予定</li>
+      <li id="b2">デモ商事様のPoCが最終週。来週の報告会に向けて資料準備が必要</li>
+      <li class="risk" id="b3">リスク: テスト社案件の要件確定が3日遅延中 — 今週中の確定が必要</li>
+    </ul>
+    <div class="savebar" id="save">
+      <div class="checkmark">✓</div> Notionの経営ダッシュボードへ保存し、Slackへ共有しました
+      <small>所要 28秒</small>
+    </div>
+  </div>
+  <p class="note">※ 画面はデモ用に再現したイメージです。社名・数値はすべて架空のものです。</p>
+</div>
+<script>
+const $ = (id) => document.getElementById(id);
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+async function collect(id, sid, ms) {
+  $(id).classList.add("active"); $(sid).textContent = "収集中…";
+  await sleep(ms);
+  $(id).classList.replace("active", "done"); $(sid).textContent = "完了";
+}
+async function run() {
+  await sleep(900);
+  await collect("src1", "ss1", 1100);
+  await collect("src2", "ss2", 900);
+  await collect("src3", "ss3", 1000);
+  await collect("src4", "ss4", 900);
+  await sleep(500);
+  $("rh").classList.add("show"); await sleep(600);
+  $("kp1").classList.add("show"); await sleep(550);
+  $("kp2").classList.add("show"); await sleep(550);
+  $("kp3").classList.add("show"); await sleep(800);
+  $("b1").classList.add("show"); await sleep(900);
+  $("b2").classList.add("show"); await sleep(900);
+  $("b3").classList.add("show"); await sleep(1000);
+  $("save").classList.add("show");
+}
+run();
+</script>
+</body>
+</html>

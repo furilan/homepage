@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SEO記事作成エージェント — デモ録画用</title>
+<style>
+:root {
+  --bg:#06070d; --bg-2:#0b0d17; --surface:rgba(255,255,255,0.04); --border:rgba(255,255,255,0.1);
+  --text:#e8eaf2; --text-dim:#9aa0b5; --accent:#4f7cff; --accent-2:#00e0c6; --accent-3:#a855f7;
+  --gradient:linear-gradient(120deg,#4f7cff 0%,#00e0c6 50%,#a855f7 100%);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:1280px; height:720px; overflow:hidden;
+  background: radial-gradient(1100px 550px at 20% -10%, rgba(79,124,255,0.12), transparent 60%), var(--bg);
+  color:var(--text); font-family:"Noto Sans JP","WenQuanYi Zen Hei",system-ui,sans-serif;
+  display:flex; align-items:center; justify-content:center;
+}
+.stage { width:1060px; }
+.header { display:flex; align-items:center; gap:14px; margin-bottom:24px; }
+.header h1 { font-size:22px; font-weight:700; }
+.badge { font-size:11px; font-weight:700; letter-spacing:0.18em; color:#06070d; background:var(--gradient); padding:4px 12px; border-radius:99px; }
+.subtitle { color:var(--text-dim); font-size:13px; margin-left:auto; }
+.steps { display:flex; gap:10px; margin-bottom:22px; }
+.step { flex:1; text-align:center; font-size:13px; color:#565c72; border:1px solid var(--border);
+  border-radius:99px; padding:9px 0; transition:all .4s ease; }
+.step.active { color:var(--text); border-color:rgba(79,124,255,0.55); background:rgba(79,124,255,0.08); }
+.step.done { color:var(--accent-2); border-color:rgba(0,224,198,0.4); }
+.panel { background:var(--bg-2); border:1px solid var(--border); border-radius:14px; padding:24px 28px; height:430px; position:relative; overflow:hidden; }
+.view { position:absolute; inset:24px 28px; opacity:0; transition:opacity .45s ease; }
+.view.show { opacity:1; }
+.view.hide { opacity:0; }
+.panel-title { font-size:12px; letter-spacing:0.14em; color:var(--text-dim); margin-bottom:14px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { text-align:left; color:var(--text-dim); font-weight:500; font-size:12px; padding:8px 6px; border-bottom:1px solid var(--border); }
+td { padding:10px 6px; border-bottom:1px dashed rgba(255,255,255,0.07); }
+tr.r { opacity:0; transition:opacity .35s ease; } tr.r.show { opacity:1; }
+.pos-none { color:#565c72; } .vol { color:var(--accent-2); font-weight:600; }
+.chance { color:var(--accent-3); font-size:12px; }
+.h2list { list-style:none; font-size:15px; line-height:2.2; }
+.h2list li { opacity:0; transform:translateX(-8px); transition:all .35s ease; }
+.h2list li.show { opacity:1; transform:none; }
+.h2list li::before { content:"H2 "; font-size:11px; color:var(--accent); border:1px solid rgba(79,124,255,0.4);
+  border-radius:5px; padding:1px 7px; margin-right:10px; }
+.draft { font-size:14px; line-height:2.0; color:var(--text); }
+.draft h4 { font-size:16px; margin-bottom:10px; color:var(--text); }
+.caret { display:inline-block; width:2px; height:16px; background:var(--accent-2); vertical-align:-2px; animation:blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity:0; } }
+.metacard { border:1px solid rgba(0,224,198,0.3); background:rgba(0,224,198,0.05); border-radius:12px; padding:18px 20px; font-size:14px; line-height:1.9; margin-top:6px;
+  opacity:0; transform:translateY(8px); transition:all .4s ease; }
+.metacard.show { opacity:1; transform:none; }
+.metacard .k { color:var(--text-dim); font-size:12px; }
+.donebar { display:flex; align-items:center; gap:10px; margin-top:16px; font-size:14px; color:var(--accent-2);
+  opacity:0; transition:opacity .4s ease; }
+.donebar.show { opacity:1; }
+.checkmark { width:24px; height:24px; border-radius:50%; background:var(--accent-2); color:#06070d; font-weight:700;
+  display:flex; align-items:center; justify-content:center; font-size:13px; }
+.note { text-align:center; font-size:11px; color:#565c72; margin-top:14px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="header">
+    <h1>SEO記事作成エージェント</h1>
+    <span class="badge">DEMO</span>
+    <span class="subtitle">検索データの分析から入稿準備まで</span>
+  </div>
+  <div class="steps">
+    <div class="step" id="st1">① 検索データ分析</div>
+    <div class="step" id="st2">② 構成案の生成</div>
+    <div class="step" id="st3">③ 本文の執筆</div>
+    <div class="step" id="st4">④ 入稿準備</div>
+  </div>
+  <div class="panel">
+    <!-- view 1: keyword analysis -->
+    <div class="view" id="v1">
+      <div class="panel-title">狙えるキーワードを抽出中…</div>
+      <table>
+        <tr><th>キーワード</th><th>月間検索数</th><th>現在順位</th><th>判定</th></tr>
+        <tr class="r" id="k1"><td>業務自動化 事例</td><td class="vol">1,300</td><td class="pos-none">圏外</td><td class="chance">◎ 新規獲得チャンス</td></tr>
+        <tr class="r" id="k2"><td>AIエージェント 導入 手順</td><td class="vol">880</td><td>18位</td><td class="chance">◎ 上位化を狙える</td></tr>
+        <tr class="r" id="k3"><td>経理 自動化 ツール</td><td class="vol">2,400</td><td class="pos-none">圏外</td><td class="chance">○ 競合強め</td></tr>
+      </table>
+    </div>
+    <!-- view 2: outline -->
+    <div class="view" id="v2">
+      <div class="panel-title">「業務自動化 事例」の構成案</div>
+      <ul class="h2list">
+        <li id="o1">業務自動化とは — まず押さえる基本</li>
+        <li id="o2">部門別の自動化事例 5選 (経理・営業・人事)</li>
+        <li id="o3">自動化に向く業務・向かない業務の見分け方</li>
+        <li id="o4">導入ステップと費用の目安</li>
+        <li id="o5">よくある失敗と回避策</li>
+      </ul>
+    </div>
+    <!-- view 3: draft -->
+    <div class="view" id="v3">
+      <div class="panel-title">本文を執筆中…</div>
+      <div class="draft">
+        <h4>部門別の自動化事例 5選</h4>
+        <span id="draftText"></span><span class="caret" id="draftCaret"></span>
+      </div>
+    </div>
+    <!-- view 4: publish-ready -->
+    <div class="view" id="v4">
+      <div class="panel-title">入稿データ</div>
+      <div class="metacard" id="m1">
+        <div class="k">タイトル (32文字)</div>
+        業務自動化の事例5選 — 経理・営業・人事の実例と費用目安
+      </div>
+      <div class="metacard" id="m2">
+        <div class="k">メタディスクリプション / 内部リンク</div>
+        導入手順・費用まで解説 ─ 関連記事への内部リンク 3本を自動設定済み
+      </div>
+      <div class="donebar" id="done">
+        <div class="checkmark">✓</div> 下書きとしてCMSへ保存しました — 公開は人がレビューして実行します
+      </div>
+    </div>
+  </div>
+  <p class="note">※ 画面はデモ用に再現したイメージです。キーワード・数値は架空のものです。</p>
+</div>
+<script>
+const $ = (id) => document.getElementById(id);
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+const draft = "経理部門では、請求書の受領から仕訳登録までをAIエージェントが処理する構成が定着しつつあります。ポイントは「すべてを自動化しない」こと。金額の大きい取引や新規取引先は人の確認を挟む設計にすることで、安全性とスピードを両立できます…";
+async function typeInto(el, text, cps) {
+  for (let i = 1; i <= text.length; i++) { el.textContent = text.slice(0, i); await sleep(1000 / cps); }
+}
+async function run() {
+  await sleep(700);
+  $("st1").classList.add("active"); $("v1").classList.add("show");
+  await sleep(700); $("k1").classList.add("show");
+  await sleep(650); $("k2").classList.add("show");
+  await sleep(650); $("k3").classList.add("show");
+  await sleep(1200);
+  $("st1").classList.replace("active","done"); $("v1").classList.remove("show");
+  $("st2").classList.add("active"); $("v2").classList.add("show");
+  for (const o of ["o1","o2","o3","o4","o5"]) { await sleep(480); $(o).classList.add("show"); }
+  await sleep(1100);
+  $("st2").classList.replace("active","done"); $("v2").classList.remove("show");
+  $("st3").classList.add("active"); $("v3").classList.add("show");
+  await sleep(400);
+  await typeInto($("draftText"), draft, 22);
+  $("draftCaret").style.display = "none";
+  await sleep(700);
+  $("st3").classList.replace("active","done"); $("v3").classList.remove("show");
+  $("st4").classList.add("active"); $("v4").classList.add("show");
+  await sleep(400); $("m1").classList.add("show");
+  await sleep(700); $("m2").classList.add("show");
+  await sleep(800); $("done").classList.add("show");
+  $("st4").classList.replace("active","done");
+}
+run();
+</script>
+</body>
+</html>

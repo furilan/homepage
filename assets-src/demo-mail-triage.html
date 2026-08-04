@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>メール対応エージェント — デモ録画用</title>
+<style>
+:root {
+  --bg:#06070d; --bg-2:#0b0d17; --surface:rgba(255,255,255,0.04); --border:rgba(255,255,255,0.1);
+  --text:#e8eaf2; --text-dim:#9aa0b5; --accent:#4f7cff; --accent-2:#00e0c6; --accent-3:#a855f7;
+  --gradient:linear-gradient(120deg,#4f7cff 0%,#00e0c6 50%,#a855f7 100%);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:1280px; height:720px; overflow:hidden;
+  background: radial-gradient(1000px 500px at 85% 110%, rgba(168,85,247,0.10), transparent 60%), var(--bg);
+  color:var(--text); font-family:"Noto Sans JP","WenQuanYi Zen Hei",system-ui,sans-serif;
+  display:flex; align-items:center; justify-content:center;
+}
+.window { width:1020px; height:640px; background:var(--bg-2); border:1px solid var(--border); border-radius:16px;
+  display:flex; flex-direction:column; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.55); }
+.titlebar { display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,0.02); flex:0 0 auto; }
+.dots { display:flex; gap:7px; } .dots span { width:11px; height:11px; border-radius:50%; background:#3a3f52; }
+.title { font-size:14px; color:var(--text-dim); margin-left:8px; }
+.badge { margin-left:auto; font-size:11px; font-weight:700; letter-spacing:0.18em; color:#06070d;
+  background:var(--gradient); padding:4px 12px; border-radius:99px; }
+.main { flex:1; display:flex; overflow:hidden; }
+.inbox { flex:1; border-right:1px solid var(--border); padding:18px 0; }
+.inbox-title { font-size:12px; letter-spacing:0.14em; color:var(--text-dim); padding:0 22px 12px; }
+.mail { padding:14px 22px; border-bottom:1px solid rgba(255,255,255,0.05); opacity:0; transform:translateX(-10px);
+  transition:all .4s ease; }
+.mail.show { opacity:1; transform:none; }
+.mail.selected { background:rgba(79,124,255,0.08); border-left:2px solid var(--accent); }
+.mail .from { font-size:13.5px; font-weight:700; }
+.mail .subj { font-size:13px; color:var(--text-dim); margin-top:3px; }
+.labels { display:flex; gap:6px; margin-top:8px; }
+.label { font-size:11px; border-radius:6px; padding:2px 10px; opacity:0; transform:scale(0.9); transition:all .35s ease; }
+.label.show { opacity:1; transform:none; }
+.label.hot { color:var(--accent-2); border:1px solid rgba(0,224,198,0.45); background:rgba(0,224,198,0.07); }
+.label.route { color:var(--accent); border:1px solid rgba(79,124,255,0.45); background:rgba(79,124,255,0.07); }
+.label.low { color:var(--text-dim); border:1px solid var(--border); }
+.detail { flex:1.25; padding:20px 26px; display:flex; flex-direction:column; }
+.detail-head { font-size:12px; letter-spacing:0.14em; color:var(--text-dim); margin-bottom:12px; }
+.draftbox { flex:1; border:1px solid var(--border); border-radius:12px; background:rgba(255,255,255,0.02);
+  padding:18px 20px; font-size:14px; line-height:2.0; opacity:0; transition:opacity .4s ease; }
+.draftbox.show { opacity:1; }
+.draftbox .to { font-size:12.5px; color:var(--text-dim); border-bottom:1px solid var(--border); padding-bottom:10px; margin-bottom:12px; }
+.caret { display:inline-block; width:2px; height:16px; background:var(--accent-2); vertical-align:-2px; animation:blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity:0; } }
+.actions { display:flex; gap:12px; margin-top:16px; align-items:center; }
+.btn-save { background:var(--gradient); color:#06070d; font-weight:700; font-size:13px; border-radius:10px; padding:10px 22px;
+  opacity:0; transition:opacity .4s ease; }
+.btn-save.show { opacity:1; }
+.approve-note { font-size:12px; color:var(--text-dim); opacity:0; transition:opacity .4s ease; }
+.approve-note.show { opacity:1; }
+.scanline { font-size:12.5px; color:var(--accent-3); padding:0 22px 10px; opacity:0; transition:opacity .3s ease; display:flex; gap:8px; align-items:center; }
+.scanline.show { opacity:1; }
+.spinner { width:12px; height:12px; border-radius:50%; border:2px solid rgba(255,255,255,0.15); border-top-color:var(--accent-3); animation:spin .8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="titlebar">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <span class="title">メール対応エージェント — 受信トレイ</span>
+    <span class="badge">DEMO</span>
+  </div>
+  <div class="main">
+    <div class="inbox">
+      <div class="inbox-title">受信トレイ (今朝の未読 3件)</div>
+      <div class="scanline" id="scan"><span class="spinner"></span>内容を解析して優先度を判定中…</div>
+      <div class="mail" id="m1">
+        <div class="from">株式会社サンプル製作所 田中様</div>
+        <div class="subj">Webシステム開発のお見積りのご相談</div>
+        <div class="labels">
+          <span class="label hot" id="lb1a">見積依頼</span>
+          <span class="label hot" id="lb1b">優先: 高</span>
+        </div>
+      </div>
+      <div class="mail" id="m2">
+        <div class="from">デモ商事株式会社 経理部</div>
+        <div class="subj">【送付】8月分請求書のご送付</div>
+        <div class="labels">
+          <span class="label route" id="lb2a">経理へ転送</span>
+          <span class="label route" id="lb2b">自動処理済み</span>
+        </div>
+      </div>
+      <div class="mail" id="m3">
+        <div class="from">メールマガジン</div>
+        <div class="subj">【本日限定】クラウドサービスのご案内</div>
+        <div class="labels">
+          <span class="label low" id="lb3a">アーカイブ</span>
+        </div>
+      </div>
+    </div>
+    <div class="detail">
+      <div class="detail-head">返信ドラフト — 株式会社サンプル製作所様</div>
+      <div class="draftbox" id="draftbox">
+        <div class="to">宛先: 田中様 / 件名: Re: Webシステム開発のお見積りのご相談</div>
+        <span id="draftText"></span><span class="caret" id="draftCaret"></span>
+      </div>
+      <div class="actions">
+        <span class="btn-save" id="btnSave">下書きとして保存</span>
+        <span class="approve-note" id="approveNote">✓ 保存しました — 送信は担当者が確認してから行います</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const $ = (id) => document.getElementById(id);
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+const draft = "田中様\n\nお問い合わせありがとうございます。株式会社フリランの営業担当です。\n\nWebシステム開発のお見積りの件、承知いたしました。要件を30分ほどオンラインでお伺いできれば、1週間以内に概算のお見積りをご提示できます。\n\n候補日程: 8/6(木) 14:00〜 / 8/7(金) 10:00〜";
+async function typeInto(el, text, cps) {
+  for (let i = 1; i <= text.length; i++) { el.textContent = text.slice(0, i); await sleep(1000 / cps); }
+}
+async function run() {
+  await sleep(800);
+  $("m1").classList.add("show"); await sleep(450);
+  $("m2").classList.add("show"); await sleep(450);
+  $("m3").classList.add("show"); await sleep(700);
+  $("scan").classList.add("show"); await sleep(1700);
+  $("scan").classList.remove("show");
+  $("lb1a").classList.add("show"); $("lb1b").classList.add("show"); await sleep(500);
+  $("lb2a").classList.add("show"); $("lb2b").classList.add("show"); await sleep(500);
+  $("lb3a").classList.add("show"); await sleep(800);
+  $("m1").classList.add("selected");
+  $("draftbox").classList.add("show"); await sleep(500);
+  await typeInto($("draftText"), draft, 24);
+  $("draftCaret").style.display = "none";
+  await sleep(500);
+  $("btnSave").classList.add("show"); await sleep(900);
+  $("approveNote").classList.add("show");
+}
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>AI駆動開発アシスタント — デモ録画用</title>
+<style>
+:root {
+  --bg:#06070d; --bg-2:#0b0d17; --surface:rgba(255,255,255,0.04); --border:rgba(255,255,255,0.1);
+  --text:#e8eaf2; --text-dim:#9aa0b5; --accent:#4f7cff; --accent-2:#00e0c6; --accent-3:#a855f7;
+  --gradient:linear-gradient(120deg,#4f7cff 0%,#00e0c6 50%,#a855f7 100%);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:1280px; height:720px; overflow:hidden;
+  background: radial-gradient(1100px 550px at 80% -10%, rgba(0,224,198,0.10), transparent 60%), var(--bg);
+  color:var(--text); font-family:"Noto Sans JP","WenQuanYi Zen Hei",system-ui,sans-serif;
+  display:flex; align-items:center; justify-content:center;
+}
+.window { width:980px; height:640px; background:var(--bg-2); border:1px solid var(--border); border-radius:16px;
+  display:flex; flex-direction:column; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.55); }
+.titlebar { display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,0.02); flex:0 0 auto; }
+.dots { display:flex; gap:7px; } .dots span { width:11px; height:11px; border-radius:50%; background:#3a3f52; }
+.title { font-size:14px; color:var(--text-dim); margin-left:8px; }
+.badge { margin-left:auto; font-size:11px; font-weight:700; letter-spacing:0.18em; color:#06070d;
+  background:var(--gradient); padding:4px 12px; border-radius:99px; }
+.main { flex:1; display:flex; overflow:hidden; }
+.log { flex:1.1; padding:22px 26px; font-family:"Space Mono",ui-monospace,monospace; font-size:13.5px;
+  line-height:2.0; border-right:1px solid var(--border); }
+.line { opacity:0; transform:translateY(6px); transition:all .3s ease; white-space:pre-wrap; }
+.line.show { opacity:1; transform:none; }
+.p-user { color:var(--accent-2); }
+.p-dim { color:var(--text-dim); }
+.p-plan { color:var(--text); }
+.p-ok { color:var(--accent-2); }
+.p-run { color:var(--accent-3); }
+.check { color:var(--accent-2); }
+.diff { flex:1; padding:22px 24px; font-family:"Space Mono",ui-monospace,monospace; font-size:12.5px; line-height:1.9;
+  background:rgba(0,0,0,0.25); }
+.diff-file { font-size:12px; color:var(--text-dim); border-bottom:1px solid var(--border); padding-bottom:8px; margin-bottom:10px;
+  opacity:0; transition:opacity .3s ease; }
+.diff-file.show { opacity:1; }
+.dline { opacity:0; transition:opacity .2s ease; white-space:pre; }
+.dline.show { opacity:1; }
+.add { color:#7ee787; } .add::before { content:"+ "; }
+.ctx { color:#565c72; } .ctx::before { content:"  "; }
+.statusbar { flex:0 0 auto; display:flex; align-items:center; gap:16px; padding:12px 20px;
+  border-top:1px solid var(--border); font-size:12.5px; color:var(--text-dim); background:rgba(255,255,255,0.02); }
+.pill { border:1px solid var(--border); border-radius:99px; padding:4px 14px; opacity:0; transition:all .35s ease; }
+.pill.show { opacity:1; }
+.pill.ok { border-color:rgba(0,224,198,0.4); color:var(--accent-2); background:rgba(0,224,198,0.06); }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="titlebar">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <span class="title">AI駆動開発アシスタント — ターミナル</span>
+    <span class="badge">DEMO</span>
+  </div>
+  <div class="main">
+    <div class="log">
+      <div class="line p-user" id="l1">&gt; LINEミニアプリの会員証に、バーコード表示を追加して</div>
+      <div class="line p-dim" id="l2">実装計画を作成しています…</div>
+      <div class="line p-plan" id="l3"><span class="check">✓</span> 計画 1/3 会員証画面にバーコード描画を追加</div>
+      <div class="line p-plan" id="l4"><span class="check">✓</span> 計画 2/3 会員番号取得APIを拡張</div>
+      <div class="line p-plan" id="l5"><span class="check">✓</span> 計画 3/3 表示テストを追加</div>
+      <div class="line p-run" id="l6">▸ member-card.ts を編集中…</div>
+      <div class="line p-run" id="l7">▸ api/member.ts を編集中…</div>
+      <div class="line p-run" id="l8">▸ テストを実行中…</div>
+      <div class="line p-ok" id="l9">✓ テスト 12件 すべてパス (2.4s)</div>
+      <div class="line p-ok" id="l10">✓ コミット: feat: 会員証にバーコード表示を追加</div>
+      <div class="line p-dim" id="l11">プレビューURLを発行しました → 実機で確認できます</div>
+    </div>
+    <div class="diff">
+      <div class="diff-file" id="df">member-card.ts — 変更差分</div>
+      <div class="dline ctx" id="d1">const card = renderMemberCard(user);</div>
+      <div class="dline add" id="d2">const barcode = generateBarcode(</div>
+      <div class="dline add" id="d3">  user.memberId, { format: "CODE128" }</div>
+      <div class="dline add" id="d4">);</div>
+      <div class="dline add" id="d5">card.append(barcode);</div>
+      <div class="dline ctx" id="d6">card.append(pointBadge);</div>
+      <div class="dline add" id="d7">// 画面輝度を一時的に上げて読み取り性向上</div>
+      <div class="dline add" id="d8">await raiseBrightness();</div>
+    </div>
+  </div>
+  <div class="statusbar">
+    <span class="pill" id="p1">変更ファイル 2</span>
+    <span class="pill" id="p2">追加 +38 行</span>
+    <span class="pill ok" id="p3">✓ tests 12 passed</span>
+    <span class="pill ok" id="p4">✓ プレビュー発行済み</span>
+  </div>
+</div>
+<script>
+const $ = (id) => document.getElementById(id);
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+const show = (id) => $(id).classList.add("show");
+async function run() {
+  await sleep(900);
+  show("l1"); await sleep(1300);
+  show("l2"); await sleep(1200);
+  show("l3"); await sleep(600); show("l4"); await sleep(600); show("l5"); await sleep(900);
+  show("l6"); show("df"); await sleep(500);
+  for (const d of ["d1","d2","d3","d4","d5"]) { show(d); await sleep(420); }
+  show("l7"); await sleep(500);
+  for (const d of ["d6","d7","d8"]) { show(d); await sleep(420); }
+  show("p1"); show("p2");
+  await sleep(700);
+  show("l8"); await sleep(1500);
+  show("l9"); show("p3"); await sleep(900);
+  show("l10"); await sleep(800);
+  show("l11"); show("p4");
+}
+run();
+</script>
+</body>
+</html>
