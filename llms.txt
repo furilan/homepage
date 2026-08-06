@@ -57,6 +57,9 @@
 - [開発実績・サンプル](https://www.fuliran.co.jp/works.html): 開発サンプル(AIエージェント/LINEミニアプリ/自動化/MVP)と、デモ動画7本(社内ナレッジ検索/経理自動化/AI駆動開発/SEO記事作成/メール対応/週次レポート/LINEミニアプリ来店予約)を掲載
 - [LINEミニアプリとは](https://www.fuliran.co.jp/column/line-miniapp-guide.html): できること・公式アカウントとの違い・開発の進め方
 - [LINEミニアプリ開発の費用相場](https://www.fuliran.co.jp/column/line-miniapp-cost.html): 料金の内訳・機能別の目安・抑え方
+- [LINE公式アカウントとLINEミニアプリの違い](https://www.fuliran.co.jp/column/line-oa-vs-miniapp.html): 役割の違い・使い分け・併用の相乗効果
+- [LINEミニアプリの活用事例](https://www.fuliran.co.jp/column/line-miniapp-use-cases.html): 飲食・サロン・小売など業種別の導入パターン
+- [LINEミニアプリ開発会社の選び方](https://www.fuliran.co.jp/column/line-miniapp-company.html): 6つの選定基準・パッケージと個別開発の違い
 - [SES活用ガイド](https://www.fuliran.co.jp/column/ses-guide.html): 発注企業向けのメリット・費用・契約・進め方
 - [SES会社の選び方](https://www.fuliran.co.jp/column/ses-company-selection.html): 6つの選定基準とチェックポイント
 - [採用情報](https://www.fuliran.co.jp/recruit.html): AIエンジニア、ITエンジニア(SES)、Webエンジニア、セールス、コンサルタント、マーケター、企画営業を募集
