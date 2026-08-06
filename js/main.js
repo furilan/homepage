@@ -200,6 +200,21 @@ window.addEventListener('load', () => {
   counters.forEach((el) => observer.observe(el));
 })();
 
+// ---------- CTAクリックの計測(GA4) ----------
+// お問い合わせフォームは外部ドメイン(Googleフォーム)のため送信自体は計測できない。
+// クリックをイベントとして送り、CVの手前の指標として計測する。
+(() => {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="docs.google.com/forms"]');
+    if (!link || typeof window.gtag !== 'function') return;
+    window.gtag('event', 'contact_cta_click', {
+      link_url: link.href,
+      page_path: location.pathname,
+      link_text: (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 50),
+    });
+  });
+})();
+
 // ---------- カードの3Dチルト&グロー ----------
 (() => {
   const cards = document.querySelectorAll('.tilt');
