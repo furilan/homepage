@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>AIエージェント導入ガイド | 株式会社フリラン</title>
+<style>
+  @page { size: A4; margin: 16mm 14mm 18mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Yu Gothic UI", "Yu Gothic", "Meiryo", sans-serif;
+    color: #1c1c1e;
+    font-size: 10.5pt;
+    line-height: 1.85;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+
+  /* 表紙 */
+  .cover {
+    height: 250mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(160deg, #06070d 0%, #0d1424 60%, #0b1a2e 100%);
+    color: #fff;
+    margin: -16mm -14mm 0;
+    padding: 28mm 20mm 20mm;
+  }
+  .cover-brand { display: flex; align-items: center; gap: 8px; font-size: 11pt; font-weight: 700; letter-spacing: 2px; }
+  .cover-mark { width: 11px; height: 11px; border-radius: 3px; background: linear-gradient(120deg,#4f7cff,#00e0c6,#a855f7); }
+  .cover-eyebrow { font-size: 9.5pt; letter-spacing: 3px; color: #00e0c6; margin-bottom: 10mm; }
+  .cover-title { font-size: 30pt; font-weight: 900; line-height: 1.35; letter-spacing: 1px; }
+  .cover-title em { font-style: normal; background: linear-gradient(120deg,#4f7cff,#00e0c6,#a855f7); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .cover-sub { font-size: 11pt; color: #c3c9db; margin-top: 8mm; line-height: 2; }
+  .cover-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10mm; }
+  .cover-tags span { font-size: 8.5pt; border: 1px solid rgba(255,255,255,.25); border-radius: 20px; padding: 3px 12px; color: #d7dcea; }
+  .cover-foot { font-size: 9pt; color: #8e97ad; border-top: 1px solid rgba(255,255,255,.15); padding-top: 6mm; }
+
+  h2.sec {
+    font-size: 15pt; font-weight: 700; color: #0b1020;
+    border-left: 4px solid #1d7fd6; padding-left: 10px;
+    margin: 0 0 6mm;
+  }
+  h3 { font-size: 11.5pt; font-weight: 700; margin: 6mm 0 2mm; color: #16224a; }
+  p { margin-bottom: 3mm; }
+  strong { color: #0b1020; }
+  ul, ol { margin: 0 0 4mm 5mm; }
+  li { margin-bottom: 1.6mm; }
+
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 9.5pt; }
+  th, td { border: 0.6pt solid #c9cfdc; padding: 2.6mm 3mm; text-align: left; vertical-align: top; }
+  th { background: #eef2f9; font-weight: 700; color: #16224a; }
+
+  .lead { background: #f2f6fc; border-left: 3px solid #00b39b; padding: 4mm 5mm; margin-bottom: 6mm; font-size: 10pt; }
+  .note { font-size: 9pt; color: #5c6478; margin-top: 2mm; }
+  .callout { border: 0.8pt solid #1d7fd6; border-radius: 3mm; padding: 4mm 5mm; background: #f5f9ff; margin: 4mm 0; }
+  .callout-title { font-weight: 700; color: #14528f; margin-bottom: 2mm; font-size: 10.5pt; }
+
+  /* 目次 */
+  .toc-item { display: flex; justify-content: space-between; border-bottom: 0.5pt dotted #b9c0d0; padding: 2.4mm 0; font-size: 10.5pt; }
+  .toc-item b { font-weight: 700; }
+  .toc-appendix { color: #14528f; }
+
+  /* 付録:記入シート */
+  .sheet { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm; font-size: 9.5pt; }
+  .sheet th { background: #16224a; color: #fff; font-weight: 700; }
+  .sheet td { height: 9mm; }
+  .checklist { list-style: none; margin-left: 0; }
+  .checklist li { padding-left: 8mm; position: relative; margin-bottom: 2.2mm; font-size: 9.8pt; }
+  .checklist li::before {
+    content: ""; position: absolute; left: 0; top: 1.2mm;
+    width: 4mm; height: 4mm; border: 0.8pt solid #5c6478; border-radius: 0.8mm;
+  }
+  .checklist .cat { padding-left: 0; font-weight: 700; color: #14528f; margin: 4mm 0 2mm; font-size: 10pt; }
+  .checklist .cat::before { display: none; }
+
+  /* 稟議1枚 */
+  .ringi { border: 1pt solid #16224a; border-radius: 2mm; padding: 5mm 6mm; }
+  .ringi-row { display: flex; border-bottom: 0.5pt solid #d3d8e4; padding: 2.6mm 0; }
+  .ringi-row:last-child { border-bottom: none; }
+  .ringi-label { width: 34mm; font-weight: 700; color: #16224a; flex-shrink: 0; font-size: 9.8pt; }
+  .ringi-body { flex: 1; font-size: 9.8pt; }
+
+  /* フッター */
+  .pagefoot { margin-top: 8mm; border-top: 0.5pt solid #ccd2df; padding-top: 3mm; font-size: 8.5pt; color: #7b8397; display: flex; justify-content: space-between; }
+
+  .last { background: #0b1020; color: #fff; margin: -16mm -14mm -18mm; padding: 24mm 20mm; height: 250mm; display: flex; flex-direction: column; justify-content: center; }
+  .last h2 { font-size: 20pt; font-weight: 900; margin-bottom: 6mm; }
+  .last p { color: #c3c9db; font-size: 10.5pt; }
+  .last .box { border: 0.8pt solid rgba(255,255,255,.25); border-radius: 3mm; padding: 6mm 7mm; margin-top: 8mm; }
+  .last .box dt { font-size: 9pt; color: #00e0c6; letter-spacing: 1px; margin-bottom: 1.5mm; }
+  .last .box dd { font-size: 10.5pt; margin-bottom: 4mm; }
+  .last a { color: #7fd4ff; }
+</style>
+</head>
+<body>
+
+<!-- ===== 表紙 ===== -->
+<div class="page">
+  <div class="cover">
+    <div>
+      <div class="cover-brand"><span class="cover-mark"></span>FURILAN</div>
+    </div>
+    <div>
+      <p class="cover-eyebrow">AI AGENT IMPLEMENTATION GUIDE</p>
+      <h1 class="cover-title">AIエージェント<br><em>導入ガイド</em></h1>
+      <p class="cover-sub">
+        「どの業務に使えるか」から「いくらかかるか」「どう選ぶか」まで。<br>
+        導入検討に必要な情報と、そのまま使える実務シートをまとめました。
+      </p>
+      <div class="cover-tags">
+        <span>業務棚卸しシート付き</span><span>費用試算ワークシート付き</span><span>選定チェックリスト20項目</span><span>稟議用サマリー</span>
+      </div>
+    </div>
+    <div class="cover-foot">株式会社フリラン｜AIエージェント開発・AI駆動開発・SES・LINEミニアプリ開発</div>
+  </div>
+</div>
+
+<!-- ===== 目次 ===== -->
+<div class="page">
+  <h2 class="sec">目次</h2>
+  <div class="toc-item"><span><b>1.</b> AIエージェントとは</span><span>P.3</span></div>
+  <div class="toc-item"><span><b>2.</b> 導入で解決できる課題</span><span>P.3</span></div>
+  <div class="toc-item"><span><b>3.</b> 業務別・活用パターン</span><span>P.4</span></div>
+  <div class="toc-item"><span><b>4.</b> 導入の進め方(5ステップ)</span><span>P.5</span></div>
+  <div class="toc-item"><span><b>5.</b> 費用の目安と内訳</span><span>P.6</span></div>
+  <div class="toc-item"><span><b>6.</b> よくある失敗5つと対策</span><span>P.7</span></div>
+  <div class="toc-item toc-appendix"><span><b>付録A.</b> 業務棚卸しシート</span><span>P.8</span></div>
+  <div class="toc-item toc-appendix"><span><b>付録B.</b> 費用試算ワークシート</span><span>P.9</span></div>
+  <div class="toc-item toc-appendix"><span><b>付録C.</b> 開発会社 選定チェックリスト(20項目)</span><span>P.10</span></div>
+  <div class="toc-item toc-appendix"><span><b>付録D.</b> 社内稟議用サマリー(1枚)</span><span>P.11</span></div>
+
+  <div class="callout" style="margin-top:10mm;">
+    <p class="callout-title">本資料の使い方</p>
+    <p>1〜6章は導入検討の全体像を掴むための解説です。急いでいる方は、<strong>付録A(業務棚卸しシート)から記入を始め、付録D(稟議用サマリー)で社内提案</strong>という流れが最短です。付録は印刷してそのままご利用いただけます。</p>
+  </div>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>株式会社フリラン</span></div>
+</div>
+
+<!-- ===== 1〜2章 ===== -->
+<div class="page">
+  <h2 class="sec">1. AIエージェントとは</h2>
+  <p class="lead">AIエージェントとは、LLM(大規模言語モデル)を中核に、与えられた目的に対して<strong>自ら考え、ツールやデータを使い、タスクを自律的に実行する</strong>AIです。</p>
+  <p>質問に答えるだけのチャットボットと異なり、情報収集・判断・実行までを一連で担えます。そのため「チャット画面で個別に使う」段階を超えて、<strong>業務プロセスそのものに組み込める</strong>点が最大の違いです。</p>
+
+  <table>
+    <thead><tr><th style="width:24%">観点</th><th>チャットボット</th><th>AIエージェント</th></tr></thead>
+    <tbody>
+      <tr><td>主な役割</td><td>質問に答える</td><td>目的達成のために行動する</td></tr>
+      <tr><td>自律性</td><td>低い(決められた応答)</td><td>高い(自ら計画・判断)</td></tr>
+      <tr><td>タスク実行</td><td>基本は応答のみ</td><td>複数の作業を実行できる</td></tr>
+      <tr><td>外部連携</td><td>限定的</td><td>社内システム・APIを利用できる</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sec" style="margin-top:10mm;">2. 導入で解決できる課題</h2>
+  <ul>
+    <li><strong>対応時間の削減</strong>——問い合わせ対応・資料作成・データ集計をAIが処理し、人は確認と判断に集中できます。</li>
+    <li><strong>24時間365日の稼働</strong>——営業時間外の問い合わせにも一次対応でき、機会損失と翌朝の負荷を減らせます。</li>
+    <li><strong>品質の均一化</strong>——担当者によるばらつきをなくし、属人化を解消できます。</li>
+    <li><strong>既存システムとの連携</strong>——CRM・社内DB・チャットツールをまたいだ処理を自動化できます。</li>
+    <li><strong>データ活用の促進</strong>——社内に眠る文書をRAG(検索拡張生成)で活用し、「情報はあるのに探せない」を解消します。</li>
+  </ul>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>P.3</span></div>
+</div>
+
+<!-- ===== 3章 ===== -->
+<div class="page">
+  <h2 class="sec">3. 業務別・活用パターン</h2>
+  <p>自社のどの業務が当てはまるかを考えながらご覧ください。<strong>効果が見えやすい業務から1つ選ぶ</strong>のが導入成功の鉄則です。</p>
+  <table>
+    <thead><tr><th style="width:20%">業務領域</th><th style="width:45%">活用パターン</th><th>期待できる効果</th></tr></thead>
+    <tbody>
+      <tr><td>バックオフィス</td><td>社内規程・手続きに関する問い合わせ対応</td><td>問い合わせ工数の削減</td></tr>
+      <tr><td>カスタマーサポート</td><td>FAQ・履歴に基づく一次回答、有人へのエスカレーション</td><td>応答速度向上・対応コスト削減</td></tr>
+      <tr><td>営業</td><td>提案資料のたたき台作成、商談準備の情報整理</td><td>準備時間の短縮・提案品質の向上</td></tr>
+      <tr><td>マーケティング</td><td>コンテンツ案生成、データ集計・レポート作成</td><td>施策サイクルの高速化</td></tr>
+      <tr><td>開発</td><td>コード生成・レビュー支援(AI駆動開発)</td><td>開発スピードの向上</td></tr>
+      <tr><td>全社共通</td><td>社内ナレッジ検索(RAG)、議事録要約、定型文書作成</td><td>情報アクセス・文書業務の効率化</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p class="callout-title">最初の1業務を選ぶ基準</p>
+    <p>次の3条件を満たす業務が第一候補です。<strong>①頻度が高い ②判断基準を言語化できる ③効果を数字で測れる</strong>。この3つが揃っていると、短期間で成果が出て社内の理解も得やすくなります。</p>
+  </div>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>P.4</span></div>
+</div>
+
+<!-- ===== 4章 ===== -->
+<div class="page">
+  <h2 class="sec">4. 導入の進め方(5ステップ)</h2>
+
+  <h3>STEP 1｜業務の棚卸しと対象選定</h3>
+  <p>時間がかかっている業務を洗い出し、「頻度が高く、判断基準を言語化できる」業務を第一候補にします。<strong>→ 付録Aの棚卸しシートをご利用ください。</strong></p>
+
+  <h3>STEP 2｜成功基準の設定</h3>
+  <p>「対応時間を◯割削減」「一次回答率◯%」など、導入後に測れる基準を先に決めます。ここが曖昧だと、後で「効果があったのか」を判断できません。</p>
+
+  <h3>STEP 3｜PoC(小さく検証)</h3>
+  <p>対象業務を絞って試作し、実データで精度と効果を確認します。ここで想定した精度に届くかを見極め、本格開発に進むかを判断します。</p>
+
+  <h3>STEP 4｜本格導入と業務フローへの組み込み</h3>
+  <p>効果が確認できたら、既存システムと連携させ実際の業務フローに組み込みます。利用ルールと確認体制もこの段階で整備します。</p>
+
+  <h3>STEP 5｜運用・改善</h3>
+  <p>利用状況と精度をモニタリングし、プロンプトやデータを継続的に改善します。<strong>導入して終わりではなく、育てる運用</strong>が成果を分けます。</p>
+
+  <div class="callout">
+    <p class="callout-title">期間の目安</p>
+    <p>小規模なPoCであれば数週間〜、本格的な業務導入は数か月が一般的な目安です。対象業務の複雑さ・連携システムの数によって変動します。</p>
+  </div>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>P.5</span></div>
+</div>
+
+<!-- ===== 5章 ===== -->
+<div class="page">
+  <h2 class="sec">5. 費用の目安と内訳</h2>
+  <table>
+    <thead><tr><th style="width:28%">導入形態</th><th style="width:24%">費用の目安</th><th>向いているケース</th></tr></thead>
+    <tbody>
+      <tr><td>既存SaaSツールの利用</td><td>月額数万円〜</td><td>汎用的なFAQ対応など、標準機能で足りる場合</td></tr>
+      <tr><td>個別開発(PoC)</td><td>数十万円〜</td><td>自社業務での効果をまず確かめたい段階</td></tr>
+      <tr><td>個別開発(本格導入)</td><td>数百万円〜</td><td>既存システム連携を含む業務組み込み</td></tr>
+    </tbody>
+  </table>
+  <p class="note">※一般的な目安です。対象業務の複雑さ、連携システムの数、精度・セキュリティ要件によって変動します。</p>
+
+  <h3>初期費用(開発費)の内訳</h3>
+  <table>
+    <thead><tr><th style="width:34%">項目</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>要件定義・業務設計</td><td>対象業務の整理、エージェントの役割・成功基準の設計</td></tr>
+      <tr><td>プロンプト・エージェント設計</td><td>LLMの選定、指示設計、処理フローの構築</td></tr>
+      <tr><td>RAG・データ整備</td><td>社内文書の取り込み、検索基盤の構築</td></tr>
+      <tr><td>システム連携</td><td>既存システム・チャットツールとのAPI連携</td></tr>
+      <tr><td>テスト・チューニング</td><td>実データでの精度検証、回答品質の調整</td></tr>
+    </tbody>
+  </table>
+
+  <h3>見落としがちなランニングコスト</h3>
+  <ul>
+    <li><strong>LLMのAPI利用料</strong>——処理量に応じた従量課金。利用者数・頻度に比例して増えるため、月間の想定利用量を必ず確認しましょう。</li>
+    <li><strong>インフラ費用</strong>——サーバー・データベース等のクラウド利用料。</li>
+    <li><strong>保守・改善費</strong>——精度改善、参照データの更新、機能追加。</li>
+  </ul>
+  <p><strong>→ 付録Bの費用試算ワークシートで、自社の概算を整理できます。</strong></p>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>P.6</span></div>
+</div>
+
+<!-- ===== 6章 ===== -->
+<div class="page">
+  <h2 class="sec">6. よくある失敗5つと対策</h2>
+
+  <h3>失敗1｜目的が「AI導入」になっている</h3>
+  <p>ツールを入れること自体が目的化し、現場で使われないまま終わるパターン。<br><strong>対策:</strong>解決したい業務課題と成功基準を先に定義し、AIはその手段として選ぶ。</p>
+
+  <h3>失敗2｜最初から大きく作りすぎる</h3>
+  <p>全社導入を前提に大規模開発を始め、精度や運用の問題で頓挫するパターン。<br><strong>対策:</strong>1業務・1部署から小さく始め、効果を確認してから広げる。</p>
+
+  <h3>失敗3｜データが整備されていない</h3>
+  <p>参照させたい社内文書が古い・散在している状態では、AIの回答品質も上がりません。<br><strong>対策:</strong>導入と並行して、参照データの棚卸し・整理を計画に含める。</p>
+
+  <h3>失敗4｜AIの出力を無検証で使う</h3>
+  <p>ハルシネーション(もっともらしい誤り)を見逃し、信頼を損なうパターン。<br><strong>対策:</strong>重要度に応じた人の確認フローを設計する。「AIが下書き、人が承認」から始めるのが安全です。</p>
+
+  <h3>失敗5｜運用・改善の担当が決まっていない</h3>
+  <p>導入直後は使われても、精度改善やデータ更新が止まり、徐々に使われなくなるパターン。<br><strong>対策:</strong>運用オーナーを決め、利用状況を定期的にレビューする体制を導入時に作る。</p>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>P.7</span></div>
+</div>
+
+<!-- ===== 付録A ===== -->
+<div class="page">
+  <h2 class="sec">付録A. 業務棚卸しシート</h2>
+  <p>候補となる業務を書き出し、右3列を評価してください(◎○△)。<strong>3項目すべてが◎○の業務</strong>が、最初の導入対象として最適です。</p>
+  <table class="sheet">
+    <thead>
+      <tr>
+        <th style="width:26%">業務名</th>
+        <th style="width:14%">担当部署</th>
+        <th style="width:16%">月間工数(h)</th>
+        <th style="width:14%">頻度の高さ</th>
+        <th style="width:15%">判断の言語化</th>
+        <th>効果測定の可否</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p class="callout-title">評価の基準</p>
+    <p><strong>頻度の高さ</strong>:毎日発生=◎ / 週数回=○ / 月数回=△<br>
+    <strong>判断の言語化</strong>:マニュアル化できる=◎ / 一部は暗黙知=○ / 職人技=△<br>
+    <strong>効果測定の可否</strong>:時間や件数で測れる=◎ / 部分的に測れる=○ / 測りにくい=△</p>
+  </div>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>P.8</span></div>
+</div>
+
+<!-- ===== 付録B ===== -->
+<div class="page">
+  <h2 class="sec">付録B. 費用試算ワークシート</h2>
+  <p>概算を掴むためのシートです。金額は開発会社への相談前の目安としてご利用ください。</p>
+
+  <h3>① 現状コスト(削減対象)</h3>
+  <table class="sheet">
+    <thead><tr><th style="width:50%">項目</th><th style="width:25%">計算式</th><th>金額(月)</th></tr></thead>
+    <tbody>
+      <tr><td>対象業務の月間工数</td><td>____ 時間</td><td></td></tr>
+      <tr><td>担当者の時間単価</td><td>____ 円/時</td><td></td></tr>
+      <tr><td><strong>現状の月間コスト</strong></td><td>工数 × 単価</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h3>② 導入コスト</h3>
+  <table class="sheet">
+    <thead><tr><th style="width:50%">項目</th><th style="width:25%">区分</th><th>金額</th></tr></thead>
+    <tbody>
+      <tr><td>PoC(実現性の検証)</td><td>初期</td><td></td></tr>
+      <tr><td>本格開発(業務組み込み)</td><td>初期</td><td></td></tr>
+      <tr><td>LLM API利用料</td><td>月額</td><td></td></tr>
+      <tr><td>インフラ費用</td><td>月額</td><td></td></tr>
+      <tr><td>保守・改善費</td><td>月額</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h3>③ 回収期間の目安</h3>
+  <table class="sheet">
+    <thead><tr><th style="width:50%">項目</th><th style="width:25%">計算式</th><th>結果</th></tr></thead>
+    <tbody>
+      <tr><td>削減できる月間コスト</td><td>①×削減率(想定 __%)</td><td></td></tr>
+      <tr><td>月間の実質削減額</td><td>削減額 − 月額コスト</td><td></td></tr>
+      <tr><td><strong>初期費用の回収期間</strong></td><td>初期費用 ÷ 実質削減額</td><td>約 ___ か月</td></tr>
+    </tbody>
+  </table>
+  <p class="note">※削減率は業務によって異なります。問い合わせ対応の一次回答など定型性の高い業務ほど高くなる傾向があります。PoCの結果をもとに精度を上げてください。</p>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>P.9</span></div>
+</div>
+
+<!-- ===== 付録C ===== -->
+<div class="page">
+  <h2 class="sec">付録C. 開発会社 選定チェックリスト(20項目)</h2>
+  <p>商談時にそのままご利用ください。<strong>該当が多いほど、成果につながりやすい会社</strong>です。</p>
+
+  <ul class="checklist">
+    <li class="cat">実績・知見(5項目)</li>
+    <li>自社でAIエージェントを開発・運用している</li>
+    <li>自社での活用事例を具体的に説明できる</li>
+    <li>類似業務・同業種での開発経験がある</li>
+    <li>できないこと・向かないことも正直に話す</li>
+    <li>最新のAI動向を実務レベルで把握している</li>
+
+    <li class="cat">提案の質(5項目)</li>
+    <li>技術の話より先に、業務課題のヒアリングから入る</li>
+    <li>「なぜこの構成か」を論理的に説明できる</li>
+    <li>スモールスタート(PoC)を提案してくる</li>
+    <li>このプロジェクトのリスクを言語化できる</li>
+    <li>費用対効果の考え方を一緒に整理してくれる</li>
+
+    <li class="cat">品質・セキュリティ(5項目)</li>
+    <li>ハルシネーション対策を仕組みで説明できる</li>
+    <li>精度の検証方法・合格基準を提示できる</li>
+    <li>機密情報の取り扱い範囲を設計に含めている</li>
+    <li>アクセス権限・ログ管理の考慮がある</li>
+    <li>利用するLLMのデータ取り扱いポリシーを確認している</li>
+
+    <li class="cat">契約・運用(5項目)</li>
+    <li>見積もりの内訳と前提条件が明示されている</li>
+    <li>PoCからの段階契約に対応できる</li>
+    <li>運用フェーズの体制と費用を提示できる</li>
+    <li>ドキュメント整備が業務範囲に含まれる</li>
+    <li>内製化・引き継ぎに協力的である</li>
+  </ul>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>P.10</span></div>
+</div>
+
+<!-- ===== 付録D ===== -->
+<div class="page">
+  <h2 class="sec">付録D. 社内稟議用サマリー(1枚)</h2>
+  <p>社内提案の骨子です。空欄を埋めれば、そのまま説明資料としてご利用いただけます。</p>
+
+  <div class="ringi">
+    <div class="ringi-row"><div class="ringi-label">件名</div><div class="ringi-body">AIエージェント導入によるーーーー業務の効率化(PoC実施)</div></div>
+    <div class="ringi-row"><div class="ringi-label">背景・課題</div><div class="ringi-body">ーーーー業務に月間____時間を要しており、担当者がコア業務に注力できていない。人員増による解決は採用難易度・固定費の面で現実的でない。</div></div>
+    <div class="ringi-row"><div class="ringi-label">施策概要</div><div class="ringi-body">LLMを活用したAIエージェントを導入し、当該業務の____部分を自動化する。まずPoCで実データによる精度・効果を検証し、結果をもって本格導入を判断する。</div></div>
+    <div class="ringi-row"><div class="ringi-label">期待効果</div><div class="ringi-body">月間____時間(約____円)の削減。あわせて対応品質の均一化・24時間対応による機会損失の防止。</div></div>
+    <div class="ringi-row"><div class="ringi-label">投資額</div><div class="ringi-body">PoC:____円(初期)／本格導入:____円(初期)+ 月額____円<br>初期費用の回収見込み:約____か月</div></div>
+    <div class="ringi-row"><div class="ringi-label">進め方</div><div class="ringi-body">①業務棚卸し・成功基準の設定 → ②PoC(____週間)→ ③効果検証・判断 → ④本格導入 → ⑤運用改善</div></div>
+    <div class="ringi-row"><div class="ringi-label">リスクと対策</div><div class="ringi-body">・精度不足 → PoCで事前検証し、基準未達なら本格導入を見送る<br>・誤回答 → 人による確認フローを設計に組み込む<br>・情報漏洩 → 入力可能な情報の範囲を規定し、権限・ログを管理する</div></div>
+    <div class="ringi-row"><div class="ringi-label">判断のポイント</div><div class="ringi-body">PoC段階の投資は限定的であり、効果が確認できなかった場合は本格投資を行わずに撤退できる。</div></div>
+  </div>
+
+  <div class="callout">
+    <p class="callout-title">稟議を通しやすくするコツ</p>
+    <p><strong>「PoCで小さく検証してから判断する」</strong>という構成にすることで、意思決定者にとってのリスクが大きく下がります。最初から本格導入の予算を求めるより、承認を得やすくなります。</p>
+  </div>
+
+  <div class="pagefoot"><span>AIエージェント導入ガイド</span><span>P.11</span></div>
+</div>
+
+<!-- ===== 裏表紙 ===== -->
+<div class="page">
+  <div class="last">
+    <h2>導入のご相談を<br>承っています</h2>
+    <p>
+      株式会社フリランは、自社でAIエージェントを開発・運用する知見をもとに、
+      業務の棚卸しからPoC・本格導入・運用改善までを一貫して支援しています。<br>
+      「自社のどの業務に使えるか」という整理の段階からご相談いただけます。
+    </p>
+    <div class="box">
+      <dl>
+        <dt>WEB</dt>
+        <dd>https://www.fuliran.co.jp/</dd>
+        <dt>AIエージェント開発</dt>
+        <dd>https://www.fuliran.co.jp/ai-agent.html</dd>
+        <dt>無料のAI活用度診断(登録不要・約1分)</dt>
+        <dd>https://www.fuliran.co.jp/ai-check.html</dd>
+        <dt>お問い合わせ</dt>
+        <dd>サイト内のお問い合わせフォームよりご連絡ください</dd>
+      </dl>
+    </div>
+    <p style="margin-top:10mm;font-size:9pt;color:#8e97ad;">
+      株式会社フリラン｜〒103-0027 東京都中央区日本橋2-2-3 RISHEビル4F<br>
+      本資料の内容は作成時点の一般的な情報であり、実際の期間・費用はプロジェクトにより異なります。<br>
+      © 2026 FURILAN Inc.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

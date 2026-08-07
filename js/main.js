@@ -204,10 +204,14 @@ window.addEventListener('load', () => {
 // お問い合わせフォームは外部ドメイン(Googleフォーム)のため送信自体は計測できない。
 // クリックをイベントとして送り、CVの手前の指標として計測する。
 (() => {
+  // 資料請求フォームのID(問い合わせフォームと区別してイベントを分ける)
+  const DOWNLOAD_FORM = '1FAIpQLSc8oTcN9Q8BlKpBVxqOdA-l9BjEAh98WkcHto-DU-ijRxd4_g';
+
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href*="docs.google.com/forms"]');
     if (!link || typeof window.gtag !== 'function') return;
-    window.gtag('event', 'contact_cta_click', {
+    const isDownload = link.href.includes(DOWNLOAD_FORM);
+    window.gtag('event', isDownload ? 'download_cta_click' : 'contact_cta_click', {
       link_url: link.href,
       page_path: location.pathname,
       link_text: (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 50),

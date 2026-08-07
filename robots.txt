@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# 資料PDFはフォーム経由での配布のため、検索結果には表示しない
+Disallow: /docs/
+
 # 主要な検索エンジン・AIクローラーを明示的に許可
 User-agent: Googlebot
 Allow: /
