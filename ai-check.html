@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QM0EZRJ4LX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QM0EZRJ4LX');
+</script>
+
+<title>AI活用度診断|8つの質問で自社のAX成熟度がわかる(無料) | 株式会社フリラン</title>
+<meta name="description" content="8つの質問に答えるだけで、自社のAI活用レベル(AX成熟度)を5段階で診断。現在地と次に取るべきアクションが1分でわかる無料診断です。入力・登録は一切不要でその場で結果が表示されます。">
+<meta name="keywords" content="AI活用度診断,AX成熟度,無料診断,AI導入,生成AI,業務自動化,DX,チェックリスト,株式会社フリラン">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.fuliran.co.jp/ai-check.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="株式会社フリラン">
+<meta property="og:title" content="AI活用度診断|8つの質問で自社のAX成熟度がわかる(無料)">
+<meta property="og:description" content="8つの質問に答えるだけで、自社のAI活用レベルを5段階で診断。現在地と次のアクションが1分でわかります。">
+<meta property="og:url" content="https://www.fuliran.co.jp/ai-check.html">
+<meta property="og:image" content="https://www.fuliran.co.jp/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI活用度診断|8つの質問でAX成熟度がわかる">
+<meta name="twitter:description" content="登録不要・1分で完了。自社のAI活用レベルと次のアクションがわかる無料診断。">
+<meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
+
+<meta name="theme-color" content="#06070d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.fuliran.co.jp/" },
+        { "@type": "ListItem", "position": 2, "name": "AI活用度診断", "item": "https://www.fuliran.co.jp/ai-check.html" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "AI活用度診断",
+      "url": "https://www.fuliran.co.jp/ai-check.html",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "inLanguage": "ja",
+      "description": "8つの質問に答えることで、自社のAI活用レベル(AX成熟度)を5段階で判定し、次に取るべきアクションを提示する無料の診断ツール。",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+      "provider": { "@type": "Organization", "name": "株式会社フリラン", "url": "https://www.fuliran.co.jp/" }
+    }
+  ]
+}
+</script>
+</head>
+<body class="subpage">
+
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#services">Services</a>
+      <a href="works.html">Works</a>
+      <a href="column/">Column</a>
+      <a href="recruit.html">Recruit</a>
+      <a href="index.html#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="check-page">
+  <div class="container">
+
+    <!-- イントロ -->
+    <section class="check-intro" id="checkIntro">
+      <p class="section-label">FREE DIAGNOSIS</p>
+      <h1 class="check-title">AI活用度診断</h1>
+      <p class="check-lead">
+        8つの質問に答えるだけで、貴社のAI活用レベル(<strong>AX成熟度</strong>)を5段階で判定します。<br class="pc-only">
+        現在地と「次に取るべき一手」が、その場でわかります。
+      </p>
+      <ul class="check-meta">
+        <li>所要時間 約1分</li>
+        <li>登録・入力不要</li>
+        <li>その場で結果表示</li>
+      </ul>
+      <button class="btn btn-primary" id="startBtn" type="button">診断をはじめる<span class="btn-arrow">→</span></button>
+    </section>
+
+    <!-- 設問 -->
+    <section class="check-quiz" id="checkQuiz" hidden>
+      <div class="check-progress">
+        <div class="check-progress-bar"><span id="progressFill"></span></div>
+        <p class="check-progress-text"><span id="qCurrent">1</span> / <span id="qTotal">8</span></p>
+      </div>
+      <div class="check-question">
+        <p class="check-q-cat" id="qCat">現状把握</p>
+        <h2 class="check-q-text" id="qText">質問</h2>
+        <div class="check-options" id="qOptions"></div>
+      </div>
+      <button class="check-back" id="backBtn" type="button" hidden>← 前の質問に戻る</button>
+    </section>
+
+    <!-- 結果 -->
+    <section class="check-result" id="checkResult" hidden>
+      <p class="section-label">RESULT</p>
+      <div class="result-level">
+        <p class="result-level-label" id="resultLevel">Lv.2</p>
+        <h2 class="result-level-name" id="resultName">業務利用</h2>
+      </div>
+      <div class="result-gauge">
+        <div class="result-gauge-bar"><span id="gaugeFill"></span></div>
+        <div class="result-gauge-scale">
+          <span>Lv.0</span><span>Lv.1</span><span>Lv.2</span><span>Lv.3</span><span>Lv.4</span>
+        </div>
+      </div>
+      <p class="result-desc" id="resultDesc"></p>
+
+      <div class="result-block">
+        <h3 class="result-block-title">次に取るべき3つのアクション</h3>
+        <ol class="result-actions" id="resultActions"></ol>
+      </div>
+
+      <div class="result-block">
+        <h3 class="result-block-title">貴社の段階におすすめの記事</h3>
+        <div class="result-links" id="resultArticles"></div>
+      </div>
+
+      <div class="article-cta">
+        <h3 id="ctaTitle">次の一手を、一緒に整理しませんか</h3>
+        <p id="ctaText">診断結果をもとに、貴社の状況に合わせた具体的な進め方をご提案します。「何から始めるべきか」の整理だけでも構いません。無料相談をご利用ください。</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQiqMhQFz51c3QMovUXsDn2U_OcBS9AMCxtw5PSjh4RoNMbA/viewform"
+           target="_blank" rel="noopener" class="btn btn-primary" id="resultCta">無料相談を申し込む<span class="btn-arrow">→</span></a>
+        <p class="form-note" style="margin-top:16px;">フォーム(Googleフォーム)が新しいタブで開きます。</p>
+      </div>
+
+      <button class="check-back" id="retryBtn" type="button">↻ もう一度診断する</button>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      FURILAN<span class="nav-logo-dot">.</span>
+    </a>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="works.html">Works</a>
+      <a href="column/">Column</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <nav class="footer-policies">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="security.html">セキュリティポリシー</a>
+    </nav>
+    <p class="footer-copy">© 2026 FURILAN Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/ai-check.js"></script>
+</body>
+</html>
