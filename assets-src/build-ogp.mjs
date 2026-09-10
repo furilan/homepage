@@ -12,7 +12,7 @@ const resvg = new Resvg(svg, {
     loadSystemFonts: true,
     defaultFontFamily: 'Yu Gothic UI',
   },
-  background: '#ffffff',
+  background: '#0b0d17',
 });
 
 const png = resvg.render().asPng();

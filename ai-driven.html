@@ -30,12 +30,12 @@
 <meta name="twitter:description" content="生成AI・AIエージェントで開発を爆速化。PoC・MVP開発で新規事業の検証スピードを最大化。">
 <meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
 
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#06070d">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 
 <script type="application/ld+json">
@@ -76,7 +76,14 @@
 </head>
 <body>
 
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">FURILAN</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
 
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
@@ -102,8 +109,10 @@
 
 <!-- ヒーロー -->
 <section class="hero" id="top">
-  <div class="container hero-content">
-    <p class="hero-eyebrow reveal">AI-DRIVEN DEVELOPMENT</p>
+  <canvas id="particleCanvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>AI-DRIVEN DEVELOPMENT</p>
     <h1 class="hero-title">
       <span class="hero-line"><span class="hero-line-inner">アイデアを、</span></span>
       <span class="hero-line"><span class="hero-line-inner"><span class="gradient-text">最速</span>でカタチに。</span></span>
@@ -115,6 +124,12 @@
     <div class="hero-actions reveal delay-3">
       <a href="#cta" class="btn btn-primary">無料相談する<span class="btn-arrow">→</span></a>
       <a href="#about" class="btn btn-ghost">AI駆動開発とは?</a>
+    </div>
+  </div>
+  <div class="hero-marquee">
+    <div class="marquee-track">
+      <span>AI-DRIVEN DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;RAPID POC&nbsp;&nbsp;/&nbsp;&nbsp;MVP DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;LLM &amp; AI AGENT&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT VALIDATION&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+      <span>AI-DRIVEN DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;RAPID POC&nbsp;&nbsp;/&nbsp;&nbsp;MVP DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;LLM &amp; AI AGENT&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT VALIDATION&nbsp;&nbsp;/&nbsp;&nbsp;</span>
     </div>
   </div>
 </section>
@@ -148,6 +163,7 @@
 
 <!-- AI駆動開発とは -->
 <section class="section lp-about" id="about">
+  <div class="lp-about-bg"></div>
   <div class="container">
     <div class="section-head reveal">
       <p class="section-label">WHAT IS AI-DRIVEN DEVELOPMENT</p>
@@ -179,6 +195,7 @@
 
 <!-- 数字 -->
 <section class="section stats">
+  <div class="stats-bg-text" aria-hidden="true">SPEED</div>
   <div class="container">
     <div class="stats-grid">
       <div class="stat reveal">
@@ -211,6 +228,7 @@
     </div>
     <div class="service-cards">
       <article class="service-card reveal" data-index="01">
+        <div class="service-card-glow"></div>
         <p class="service-num">01</p>
         <h3 class="service-name">AI駆動 PoC開発</h3>
         <p class="service-en">Proof of Concept</p>
@@ -218,6 +236,7 @@
         <ul class="service-tags"><li>アイデア検証</li><li>技術検証</li><li>最短着手</li></ul>
       </article>
       <article class="service-card reveal delay-1" data-index="02">
+        <div class="service-card-glow"></div>
         <p class="service-num">02</p>
         <h3 class="service-name">AI駆動 MVP開発</h3>
         <p class="service-en">Minimum Viable Product</p>
@@ -225,6 +244,7 @@
         <ul class="service-tags"><li>市場検証</li><li>ユーザー検証</li><li>グロース</li></ul>
       </article>
       <article class="service-card reveal delay-2" data-index="03">
+        <div class="service-card-glow"></div>
         <p class="service-num">03</p>
         <h3 class="service-name">本開発・内製化支援</h3>
         <p class="service-en">Development &amp; Enablement</p>

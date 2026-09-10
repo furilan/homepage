@@ -30,12 +30,12 @@
 <meta name="twitter:description" content="課題から生まれたプロダクトを、企画から運用まで自分たちで育てています。">
 <meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
 
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#06070d">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 
 <script type="application/ld+json">
@@ -74,7 +74,14 @@
 </head>
 <body>
 
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">FURILAN</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
 
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
@@ -99,8 +106,10 @@
 
 <!-- ヒーロー -->
 <section class="hero" id="top">
-  <div class="container hero-content">
-    <p class="hero-eyebrow reveal">PRODUCT DEVELOPMENT</p>
+  <canvas id="particleCanvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>PRODUCT DEVELOPMENT</p>
     <h1 class="hero-title">
       <span class="hero-line"><span class="hero-line-inner">つくって、運用して、</span></span>
       <span class="hero-line"><span class="hero-line-inner"><span class="gradient-text">育てる</span>。</span></span>
@@ -114,10 +123,17 @@
       <a href="#cta" class="btn btn-ghost">お問い合わせ</a>
     </div>
   </div>
+  <div class="hero-marquee">
+    <div class="marquee-track">
+      <span>PRODUCT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;WEB MEDIA&nbsp;&nbsp;/&nbsp;&nbsp;AGILE&nbsp;&nbsp;/&nbsp;&nbsp;UI/UX&nbsp;&nbsp;/&nbsp;&nbsp;GROWTH&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+      <span>PRODUCT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;WEB MEDIA&nbsp;&nbsp;/&nbsp;&nbsp;AGILE&nbsp;&nbsp;/&nbsp;&nbsp;UI/UX&nbsp;&nbsp;/&nbsp;&nbsp;GROWTH&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+    </div>
+  </div>
 </section>
 
 <!-- 考え方 -->
 <section class="section lp-about" id="about">
+  <div class="lp-about-bg"></div>
   <div class="container">
     <div class="section-head reveal">
       <p class="section-label">OUR APPROACH</p>
@@ -156,6 +172,7 @@
     </div>
     <div class="service-cards">
       <article class="service-card reveal" data-index="01">
+        <div class="service-card-glow"></div>
         <p class="service-num">01</p>
         <h3 class="service-name">フリランドットコム</h3>
         <p class="service-en">furilan.com</p>
@@ -166,6 +183,7 @@
         <a href="https://furilan.com/" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:24px;width:100%;justify-content:center;">サイトをみる<span class="btn-arrow">↗</span></a>
       </article>
       <article class="service-card reveal delay-1" data-index="02">
+        <div class="service-card-glow"></div>
         <p class="service-num">02</p>
         <h3 class="service-name">なまらワークス</h3>
         <p class="service-en">namaraworks.com</p>
@@ -176,6 +194,7 @@
         <a href="https://namaraworks.com/" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:24px;width:100%;justify-content:center;">サイトをみる<span class="btn-arrow">↗</span></a>
       </article>
       <article class="service-card reveal delay-2" data-index="03">
+        <div class="service-card-glow"></div>
         <p class="service-num">03</p>
         <h3 class="service-name">新規プロダクト</h3>
         <p class="service-en">In Development</p>
