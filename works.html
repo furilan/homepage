@@ -37,13 +37,13 @@
 <meta name="twitter:description" content="AIエージェント・AI駆動開発・LINEミニアプリのデモ動画7本を掲載。フリランの開発力を実物でご確認ください。">
 <meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
 
-<meta name="theme-color" content="#06070d">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- 構造化データ: パンくず + デモ動画リスト -->
@@ -74,15 +74,6 @@
 </head>
 <body>
 
-<!-- ローディング画面 -->
-<div class="loader" id="loader">
-  <div class="loader-inner">
-    <div class="loader-logo">FURILAN</div>
-    <div class="loader-bar"><span></span></div>
-  </div>
-</div>
-
-<div class="cursor-glow" id="cursorGlow"></div>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
@@ -107,10 +98,8 @@
 
 <!-- ヒーロー -->
 <section class="hero" id="top">
-  <canvas id="particleCanvas"></canvas>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>WORKS &amp; SAMPLES</p>
+  <div class="container hero-content">
+    <p class="hero-eyebrow reveal">WORKS &amp; SAMPLES</p>
     <h1 class="hero-title">
       <span class="hero-line"><span class="hero-line-inner">言葉より、</span></span>
       <span class="hero-line"><span class="hero-line-inner"><span class="gradient-text">実物</span>で語る。</span></span>
@@ -122,12 +111,6 @@
     <div class="hero-actions reveal delay-3">
       <a href="#samples" class="btn btn-primary">サンプルを見る<span class="btn-arrow">→</span></a>
       <a href="#demos" class="btn btn-ghost">デモ動画を見る</a>
-    </div>
-  </div>
-  <div class="hero-marquee">
-    <div class="marquee-track">
-      <span>WORKS&nbsp;&nbsp;/&nbsp;&nbsp;SAMPLES&nbsp;&nbsp;/&nbsp;&nbsp;AI AGENT&nbsp;&nbsp;/&nbsp;&nbsp;LINE MINI APP&nbsp;&nbsp;/&nbsp;&nbsp;AUTOMATION&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-      <span>WORKS&nbsp;&nbsp;/&nbsp;&nbsp;SAMPLES&nbsp;&nbsp;/&nbsp;&nbsp;AI AGENT&nbsp;&nbsp;/&nbsp;&nbsp;LINE MINI APP&nbsp;&nbsp;/&nbsp;&nbsp;AUTOMATION&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT&nbsp;&nbsp;/&nbsp;&nbsp;</span>
     </div>
   </div>
 </section>

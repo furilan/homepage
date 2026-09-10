@@ -37,13 +37,13 @@
 <meta name="twitter:description" content="AIエージェント開発・SES・自社サービス開発を手がけるテクノロジーカンパニー。LLMを活用した開発で企業のDXを加速させます。">
 <meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
 
-<meta name="theme-color" content="#06070d">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- 構造化データ: 組織情報(SEO / LLMO 強化) -->
@@ -130,16 +130,6 @@
 </head>
 <body>
 
-<!-- ローディング画面 -->
-<div class="loader" id="loader">
-  <div class="loader-inner">
-    <div class="loader-logo">FURILAN</div>
-    <div class="loader-bar"><span></span></div>
-  </div>
-</div>
-
-<!-- カーソル追従グロー -->
-<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ナビゲーション -->
 <header class="nav" id="nav">
@@ -168,10 +158,8 @@
 
 <!-- ヒーロー -->
 <section class="hero" id="top">
-  <canvas id="particleCanvas"></canvas>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>AI AGENT × HUMAN CREATIVITY</p>
+  <div class="container hero-content">
+    <p class="hero-eyebrow reveal">AI AGENT × HUMAN CREATIVITY</p>
     <h1 class="hero-title">
       <span class="hero-line"><span class="hero-line-inner">テクノロジーで、</span></span>
       <span class="hero-line"><span class="hero-line-inner"><span class="gradient-text">未来</span>を実装する。</span></span>
@@ -185,16 +173,31 @@
       <a href="#contact" class="btn btn-ghost">お問い合わせ</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span>SCROLL</span>
-    <div class="hero-scroll-line"></div>
+</section>
+
+<!-- ショーリール: 実際に動くAIエージェント -->
+<section class="showreel" aria-label="デモ動画">
+  <div class="showreel-track">
+    <figure class="showreel-item reveal">
+      <video muted loop playsinline preload="metadata" poster="videos/demo-knowledge-agent-poster.jpg" aria-label="社内ナレッジ検索AIエージェントのデモ">
+        <source src="videos/demo-knowledge-agent.mp4" type="video/mp4">
+      </video>
+      <figcaption>社内ナレッジ検索AIエージェント</figcaption>
+    </figure>
+    <figure class="showreel-item reveal delay-1">
+      <video muted loop playsinline preload="metadata" poster="videos/demo-backoffice-automation-poster.jpg" aria-label="バックオフィス自動化ワークフローのデモ">
+        <source src="videos/demo-backoffice-automation.mp4" type="video/mp4">
+      </video>
+      <figcaption>バックオフィス自動化ワークフロー</figcaption>
+    </figure>
+    <figure class="showreel-item reveal delay-2">
+      <video muted loop playsinline preload="metadata" poster="videos/demo-line-miniapp-poster.jpg" aria-label="LINEミニアプリ(予約・会員証)のデモ">
+        <source src="videos/demo-line-miniapp.mp4" type="video/mp4">
+      </video>
+      <figcaption>LINEミニアプリ(予約・会員証)</figcaption>
+    </figure>
   </div>
-  <div class="hero-marquee">
-    <div class="marquee-track">
-      <span>AI AGENT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;SYSTEM ENGINEERING SERVICE&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;LLM INTEGRATION&nbsp;&nbsp;/&nbsp;&nbsp;DX CONSULTING&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-      <span>AI AGENT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;SYSTEM ENGINEERING SERVICE&nbsp;&nbsp;/&nbsp;&nbsp;PRODUCT DEVELOPMENT&nbsp;&nbsp;/&nbsp;&nbsp;LLM INTEGRATION&nbsp;&nbsp;/&nbsp;&nbsp;DX CONSULTING&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-    </div>
-  </div>
+  <p class="showreel-more container"><a href="works.html">すべてのデモ動画を見る →</a></p>
 </section>
 
 <!-- 事業内容 -->
@@ -209,8 +212,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="15.5,3.5 6,12 15.5,20.5" fill="currentColor"/></svg>
       </button>
       <div class="service-cards service-cards-4">
-      <article class="service-card tilt reveal" data-index="01">
-        <div class="service-card-glow"></div>
+      <article class="service-card reveal" data-index="01">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="24" cy="14" r="6"/>
@@ -234,8 +236,7 @@
         </a>
       </article>
 
-      <article class="service-card tilt reveal delay-1" data-index="02">
-        <div class="service-card-glow"></div>
+      <article class="service-card reveal delay-1" data-index="02">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="16" cy="16" r="6"/>
@@ -258,8 +259,7 @@
         </a>
       </article>
 
-      <article class="service-card tilt reveal delay-2" data-index="03">
-        <div class="service-card-glow"></div>
+      <article class="service-card reveal delay-2" data-index="03">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="8" y="8" width="32" height="32" rx="4"/>
@@ -282,8 +282,7 @@
         </a>
       </article>
 
-      <article class="service-card tilt reveal" data-index="04">
-        <div class="service-card-glow"></div>
+      <article class="service-card reveal" data-index="04">
         <div class="service-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="8" y="10" width="32" height="24" rx="6"/>
@@ -317,7 +316,6 @@
 
 <!-- 数字で見るフリラン -->
 <section class="section stats">
-  <div class="stats-bg-text" aria-hidden="true">FURILAN</div>
   <div class="container">
     <div class="stats-grid">
       <div class="stat reveal">
