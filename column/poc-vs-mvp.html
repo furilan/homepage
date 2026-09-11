@@ -53,11 +53,51 @@
   "description": "PoCとMVPの違いを、目的・検証内容・成果物・進める順番の観点でわかりやすく解説します。",
   "inLanguage": "ja",
   "datePublished": "2026-06-23",
-  "dateModified": "2026-06-23",
+  "dateModified": "2026-09-11",
   "image": "https://www.fuliran.co.jp/ogp.png",
   "author": { "@type": "Organization", "name": "株式会社フリラン", "url": "https://www.fuliran.co.jp/" },
   "publisher": { "@type": "Organization", "name": "株式会社フリラン", "logo": { "@type": "ImageObject", "url": "https://www.fuliran.co.jp/ogp.png" } },
   "mainEntityOfPage": "https://www.fuliran.co.jp/column/poc-vs-mvp.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "PoCとMVPはどちらを先にやるべきですか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "技術的な実現性に不安がある場合はPoCから、技術面は問題なくニーズ検証を優先したい場合はMVPから始めるのが基本です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "PoCの費用はどのくらいですか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "テーマや規模によりますが、一般的に数十万〜数百万円、期間は1〜4週間が目安です。AI関連のPoCではデータ準備やAPI連携の工数が加わるため、やや高くなる傾向があります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "PoCとプロトタイプの違いは何ですか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PoCは「技術的に作れるか」を確認するもので、プロトタイプは「操作して使えるか」を確認するものです。PoCの成果は検証データ、プロトタイプの成果は操作可能な試作品です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "MVP開発の期間・費用の目安は?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "機能を最小限に絞った場合、1〜3か月・数百万円〜が一般的です。AI駆動開発を活用すると、従来の半分程度の期間で構築できるケースもあります。"
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -111,6 +151,20 @@
       </table>
       <p>ひとことで言えば、<strong>PoCは「作れるか」、MVPは「売れるか・使われるか」</strong>を検証するもの、という違いがあります。</p>
 
+      <h2>プロトタイプとの違い(3者比較)</h2>
+      <p>PoCとMVPに加え、「プロトタイプ」も混同されやすい概念です。3つの違いを整理します。</p>
+      <table class="article-table">
+        <thead><tr><th>観点</th><th>PoC(概念実証)</th><th>プロトタイプ(試作品)</th><th>MVP(最小限の製品)</th></tr></thead>
+        <tbody>
+          <tr><td>確かめること</td><td>作れるか(技術的実現性)</td><td>使えるか(操作性・設計)</td><td>売れるか(市場性・ニーズ)</td></tr>
+          <tr><td>主な対象</td><td>社内の技術チーム</td><td>社内+一部ユーザー</td><td>実際のユーザー・市場</td></tr>
+          <tr><td>成果物</td><td>検証データ・技術レポート</td><td>操作可能な試作品</td><td>リリース可能な最小製品</td></tr>
+          <tr><td>期間の目安</td><td>1〜4週間</td><td>2〜6週間</td><td>1〜3か月</td></tr>
+          <tr><td>コスト感</td><td>数十万〜数百万円</td><td>数十万〜数百万円</td><td>数百万〜1,000万円超</td></tr>
+        </tbody>
+      </table>
+      <p>一般的な流れは <strong>PoC → プロトタイプ → MVP → 本開発</strong> ですが、技術リスクが低い場合はPoCを省略してMVPから始めるケースもあります。</p>
+
       <h2>進める順番:PoC → MVP → 本開発</h2>
       <p>一般的には、次の順で進みます。</p>
       <ol>
@@ -122,6 +176,27 @@
 
       <h2>どちらから始めるべき?</h2>
       <p>技術的な実現性に不安がある場合は<strong>PoCから</strong>、技術は問題なく「ニーズがあるか」を確かめたい場合は<strong>MVPから</strong>始めるのが基本です。両者は対立するものではなく、検証の目的に応じて使い分け・組み合わせるものです。</p>
+
+      <h2>よくある失敗と注意点</h2>
+      <p>PoCやMVPは検証手法として有効ですが、進め方を誤ると逆効果になることがあります。</p>
+      <h3>PoC疲れ(PoC貧乏)</h3>
+      <p>PoCを繰り返すだけで先に進めない状態を「PoC疲れ」と呼びます。原因の多くは<strong>ゴール設定の曖昧さ</strong>です。「何が確認できたらPoCを終了するか」を開始前に決めておくことが重要です。</p>
+      <h3>MVPの肥大化</h3>
+      <p>「最小限」のはずが、関係者の要望を取り込むうちに機能が膨らみ、開発期間もコストも本開発並みになってしまうケースがあります。MVPでは<strong>検証したい仮説を1つに絞る</strong>ことが鍵です。</p>
+      <h3>検証せずに本開発へ進む</h3>
+      <p>「早く作りたい」という気持ちからPoCやMVPを省略すると、技術的に実現不可能だった・ニーズがなかった、という事実に本開発の後半で気づくリスクがあります。手戻りコストを考えると、検証フェーズへの投資は十分に元が取れます。</p>
+
+      <h2>よくある質問(FAQ)</h2>
+      <dl class="article-faq">
+        <dt>Q. PoCとMVPはどちらを先にやるべきですか?</dt>
+        <dd>A. 技術的な実現性に不安がある場合はPoCから、技術面は問題なくニーズ検証を優先したい場合はMVPから始めるのが基本です。</dd>
+        <dt>Q. PoCの費用はどのくらいですか?</dt>
+        <dd>A. テーマや規模によりますが、一般的に数十万〜数百万円、期間は1〜4週間が目安です。AI関連のPoCではデータ準備やAPI連携の工数が加わるため、やや高くなる傾向があります。</dd>
+        <dt>Q. PoCとプロトタイプの違いは何ですか?</dt>
+        <dd>A. PoCは「技術的に作れるか」を確認するもので、プロトタイプは「操作して使えるか」を確認するものです。PoCの成果は検証データ、プロトタイプの成果は操作可能な試作品です。</dd>
+        <dt>Q. MVP開発の期間・費用の目安は?</dt>
+        <dd>A. 機能を最小限に絞った場合、1〜3か月・数百万円〜が一般的です。AI駆動開発を活用すると、従来の半分程度の期間で構築できるケースもあります。</dd>
+      </dl>
 
       <h2>AI駆動開発で検証を高速化</h2>
       <p>近年は、生成AIを開発に取り入れる<a href="ai-driven-development.html">AI駆動開発</a>によって、PoCもMVPも従来より短期間で形にできるようになりました。検証サイクルを速く回せるほど、新規事業の成功率は高まります。</p>
