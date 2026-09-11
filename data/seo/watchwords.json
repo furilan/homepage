@@ -1,30 +1,181 @@
 {
   "siteUrl": "sc-domain:fuliran.co.jp",
-  "_note": "初期値は既存ページのtitleから逆算した暫定リスト。GSC接続後に --discover の結果で置き換える。",
+  "_note": "サービス系キーワードは事業目的なので impressions 0 でも残す。下段は --discover (2026-09-11) で実際に露出が確認できたクエリ。PoC/MVP 系は表記ゆれが多く、すべて /column/poc-vs-mvp.html に着地している。",
   "keywords": [
-    { "keyword": "AIエージェント 開発 費用", "targetPath": "/column/ai-agent-development-cost.html", "priority": "high" },
-    { "keyword": "AIエージェント 開発会社", "targetPath": "/column/ai-agent-development-company.html", "priority": "high" },
-    { "keyword": "AIエージェント 導入", "targetPath": "/column/ai-agent-implementation-guide.html", "priority": "high" },
-    { "keyword": "AIエージェント 活用事例", "targetPath": "/column/ai-agent-use-cases.html", "priority": "medium" },
-    { "keyword": "AIエージェント チャットボット 違い", "targetPath": "/column/ai-agent-vs-chatbot.html", "priority": "medium" },
-    { "keyword": "AIエージェント 作り方", "targetPath": "/column/how-to-build-ai-agent.html", "priority": "medium" },
-    { "keyword": "AI駆動開発", "targetPath": "/column/ai-driven-development.html", "priority": "high" },
-    { "keyword": "AI駆動開発 進め方", "targetPath": "/column/ai-driven-development-guide.html", "priority": "medium" },
-    { "keyword": "AX とは", "targetPath": "/column/ax-transformation.html", "priority": "medium" },
-    { "keyword": "AX 推進", "targetPath": "/column/ax-guide.html", "priority": "medium" },
-    { "keyword": "LINEミニアプリ 費用", "targetPath": "/column/line-miniapp-cost.html", "priority": "high" },
-    { "keyword": "LINEミニアプリ 開発会社", "targetPath": "/column/line-miniapp-company.html", "priority": "high" },
-    { "keyword": "LINEミニアプリ とは", "targetPath": "/column/line-miniapp-guide.html", "priority": "medium" },
-    { "keyword": "LINE公式アカウント ミニアプリ 違い", "targetPath": "/column/line-oa-vs-miniapp.html", "priority": "medium" },
-    { "keyword": "LINEミニアプリ 活用事例", "targetPath": "/column/line-miniapp-use-cases.html", "priority": "low" },
-    { "keyword": "SES とは", "targetPath": "/column/ses.html", "priority": "medium" },
-    { "keyword": "SES 会社 選び方", "targetPath": "/column/ses-company-selection.html", "priority": "high" },
-    { "keyword": "SES 発注", "targetPath": "/column/ses-guide.html", "priority": "medium" },
-    { "keyword": "PoC MVP 違い", "targetPath": "/column/poc-vs-mvp.html", "priority": "low" },
-    { "keyword": "RAG とは", "targetPath": "/column/rag.html", "priority": "medium" },
-    { "keyword": "業務自動化 進め方", "targetPath": "/column/business-automation.html", "priority": "medium" },
-    { "keyword": "生成AI 社内導入", "targetPath": "/column/generative-ai-adoption.html", "priority": "medium" },
-    { "keyword": "AI用語集", "targetPath": "/column/ai-glossary.html", "priority": "low" },
-    { "keyword": "株式会社フリラン", "targetPath": "/", "priority": "high" }
+    {
+      "keyword": "AIエージェント 開発 費用",
+      "targetPath": "/column/ai-agent-development-cost.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "AIエージェント 開発会社",
+      "targetPath": "/column/ai-agent-development-company.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "AIエージェント 導入",
+      "targetPath": "/column/ai-agent-implementation-guide.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "AIエージェント 活用事例",
+      "targetPath": "/column/ai-agent-use-cases.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "AIエージェント チャットボット 違い",
+      "targetPath": "/column/ai-agent-vs-chatbot.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "AIエージェント 作り方",
+      "targetPath": "/column/how-to-build-ai-agent.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "AI駆動開発",
+      "targetPath": "/column/ai-driven-development.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "AI駆動開発 進め方",
+      "targetPath": "/column/ai-driven-development-guide.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "AX とは",
+      "targetPath": "/column/ax-transformation.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "AX 推進",
+      "targetPath": "/column/ax-guide.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "LINEミニアプリ 費用",
+      "targetPath": "/column/line-miniapp-cost.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "LINEミニアプリ 開発会社",
+      "targetPath": "/column/line-miniapp-company.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "LINEミニアプリ とは",
+      "targetPath": "/column/line-miniapp-guide.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "LINE公式アカウント ミニアプリ 違い",
+      "targetPath": "/column/line-oa-vs-miniapp.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "LINEミニアプリ 活用事例",
+      "targetPath": "/column/line-miniapp-use-cases.html",
+      "priority": "low"
+    },
+    {
+      "keyword": "SES とは",
+      "targetPath": "/column/ses.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "SES 会社 選び方",
+      "targetPath": "/column/ses-company-selection.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "SES 発注",
+      "targetPath": "/column/ses-guide.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "PoC MVP 違い",
+      "targetPath": "/column/poc-vs-mvp.html",
+      "priority": "low"
+    },
+    {
+      "keyword": "RAG とは",
+      "targetPath": "/column/rag.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "業務自動化 進め方",
+      "targetPath": "/column/business-automation.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "生成AI 社内導入",
+      "targetPath": "/column/generative-ai-adoption.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "AI用語集",
+      "targetPath": "/column/ai-glossary.html",
+      "priority": "low"
+    },
+    {
+      "keyword": "株式会社フリラン",
+      "targetPath": "/",
+      "priority": "high"
+    },
+    {
+      "keyword": "poc mvpとは",
+      "targetPath": "/column/poc-vs-mvp.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "poc mvp",
+      "targetPath": "/column/poc-vs-mvp.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "mvp poc 違い",
+      "targetPath": "/column/poc-vs-mvp.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "poc vs mvp",
+      "targetPath": "/column/poc-vs-mvp.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "mvpとpocの違い",
+      "targetPath": "/column/poc-vs-mvp.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "poc とは",
+      "targetPath": "/column/poc.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "aiエージェント 導入 費用 poc",
+      "targetPath": "/column/ai-agent-development-cost.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "aiエージェント 構成要素",
+      "targetPath": "/column/how-to-build-ai-agent.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "ses 契約 流れ",
+      "targetPath": "/column/ses-guide.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "line公式アカウント できること",
+      "targetPath": "/column/line-oa-vs-miniapp.html",
+      "priority": "medium"
+    },
+    {
+      "keyword": "無料のaiエージェント",
+      "targetPath": "/column/how-to-build-ai-agent.html",
+      "priority": "low"
+    }
   ]
 }
