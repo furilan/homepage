@@ -10,3 +10,7 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+
+# エージェント実行時のローカル生成物
+.agents/
+
