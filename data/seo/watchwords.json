@@ -1,6 +1,6 @@
 {
   "siteUrl": "sc-domain:fuliran.co.jp",
-  "_note": "サービス系キーワードは事業目的なので impressions 0 でも残す。下段は --discover (2026-09-11) で実際に露出が確認できたクエリ。PoC/MVP 系は表記ゆれが多く、すべて /column/poc-vs-mvp.html に着地している。",
+  "_note": "サービス系キーワードは事業目的なので impressions 0 でも残す。下段は --discover (2026-09-11) で実際に露出が確認できたクエリ。PoC/MVP 系は表記ゆれが多く、すべて /column/poc-vs-mvp.html に着地している。 2026-09-25: 7日レビューが母数不足で判定できなかったため、PoC/MVP 系は impressions の多いクエリを high に付け替えた。",
   "keywords": [
     {
       "keyword": "AIエージェント 開発 費用",
@@ -95,7 +95,7 @@
     {
       "keyword": "PoC MVP 違い",
       "targetPath": "/column/poc-vs-mvp.html",
-      "priority": "low"
+      "priority": "high"
     },
     {
       "keyword": "RAG とは",
@@ -125,12 +125,12 @@
     {
       "keyword": "poc mvpとは",
       "targetPath": "/column/poc-vs-mvp.html",
-      "priority": "high"
+      "priority": "medium"
     },
     {
       "keyword": "poc mvp",
       "targetPath": "/column/poc-vs-mvp.html",
-      "priority": "high"
+      "priority": "medium"
     },
     {
       "keyword": "mvp poc 違い",
@@ -140,12 +140,12 @@
     {
       "keyword": "poc vs mvp",
       "targetPath": "/column/poc-vs-mvp.html",
-      "priority": "medium"
+      "priority": "low"
     },
     {
       "keyword": "mvpとpocの違い",
       "targetPath": "/column/poc-vs-mvp.html",
-      "priority": "medium"
+      "priority": "low"
     },
     {
       "keyword": "poc とは",

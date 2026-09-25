@@ -2,8 +2,8 @@
   {
     "keyword": "poc vs mvp",
     "targetPath": "/column/poc-vs-mvp.html",
-    "status": "observing",
-    "nextReviewDate": "2026-09-18",
+    "status": "active",
+    "nextReviewDate": null,
     "actions": [
       {
         "date": "2026-09-11",
@@ -12,6 +12,14 @@
         "done": "プロトタイプとの3者比較表(期間・コスト感含む)、よくある失敗と注意点(PoC疲れ・MVP肥大化)セクション、FAQ4問+FAQPage構造化データを追加"
       }
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "date": "2026-09-25",
+        "rank7d": null,
+        "rankAtAction": 5.2,
+        "verdict": "improved",
+        "note": "本来の判定日 2026-09-18 にタスクが消えていたため、7日遅れで判定。「poc vs mvp」自体は直近7日の impressions が 0 で単独判定できない（28日でも 5.2→6.2、impr 5 と母数が小さい）。同一ページに着地する兄弟クエリは明確に上昇: 「PoC MVP 違い」12→4.7(28日)/3.1(7日, impr 22)、「mvp poc 違い」9.5→6.6、「poc mvpとは」9.6→8.5。ページ単位では効果あり。以後の判定は母数のある「PoC MVP 違い」を主対象にする。"
+      }
+    ]
   }
 ]
