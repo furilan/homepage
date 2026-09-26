@@ -21,5 +21,20 @@
         "note": "本来の判定日 2026-09-18 にタスクが消えていたため、7日遅れで判定。「poc vs mvp」自体は直近7日の impressions が 0 で単独判定できない（28日でも 5.2→6.2、impr 5 と母数が小さい）。同一ページに着地する兄弟クエリは明確に上昇: 「PoC MVP 違い」12→4.7(28日)/3.1(7日, impr 22)、「mvp poc 違い」9.5→6.6、「poc mvpとは」9.6→8.5。ページ単位では効果あり。以後の判定は母数のある「PoC MVP 違い」を主対象にする。"
       }
     ]
+  },
+  {
+    "keyword": "PoC MVP 違い",
+    "targetPath": "/column/poc-vs-mvp.html",
+    "status": "observing",
+    "nextReviewDate": "2026-10-04",
+    "actions": [
+      {
+        "date": "2026-09-27",
+        "rankAtAction": 4.3,
+        "needs": "新規事業やAI開発の担当者が、PoCとMVPの違いを自社の案件に当てはめて理解し、PoCの次にMVPへ進んでよいかを判断したい",
+        "done": "前回(09-11: 比較表・失敗例・FAQ)とは別の手として、比較表に「リリース前提」行、同一テーマ(AI問い合わせ対応)でのPoC/MVP具体例の比較表、PoC→MVP移行の判断基準チェックリスト5項目、FAQ「PoCの成果物はMVPに流用できるか」(+FAQPage構造化データ)を追加。meta description と dateModified を更新"
+      }
+    ],
+    "reviews": []
   }
 ]
