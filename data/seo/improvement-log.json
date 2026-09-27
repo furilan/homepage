@@ -4,6 +4,7 @@
     "targetPath": "/column/poc-vs-mvp.html",
     "status": "active",
     "nextReviewDate": null,
+    "_note": "2026-09-28 以降の同ページの改善は「PoC MVP 違い」のエントリで管理する。",
     "actions": [
       {
         "date": "2026-09-11",
@@ -21,5 +22,24 @@
         "note": "本来の判定日 2026-09-18 にタスクが消えていたため、7日遅れで判定。「poc vs mvp」自体は直近7日の impressions が 0 で単独判定できない（28日でも 5.2→6.2、impr 5 と母数が小さい）。同一ページに着地する兄弟クエリは明確に上昇: 「PoC MVP 違い」12→4.7(28日)/3.1(7日, impr 22)、「mvp poc 違い」9.5→6.6、「poc mvpとは」9.6→8.5。ページ単位では効果あり。以後の判定は母数のある「PoC MVP 違い」を主対象にする。"
       }
     ]
+  },
+  {
+    "keyword": "PoC MVP 違い",
+    "targetPath": "/column/poc-vs-mvp.html",
+    "status": "observing",
+    "nextReviewDate": "2026-10-05",
+    "actions": [
+      {
+        "date": "2026-09-28",
+        "rankAtAction": 4.5,
+        "rank7dAtAction": 2.2,
+        "impressions28d": 48,
+        "clicks28d": 0,
+        "needs": "新規事業・AI開発の担当者が、PoCとMVPの違いを一言で把握し、自分の案件ではどちらから始め、いつPoCを終えてMVPに進むかを判断したい",
+        "gap": "上位ページ（GeNEE / Y's / co-well / astina 等）と比較表の内容はほぼ同等。不足は (1) 冒頭の結論（2〜4位で表示48回・クリック0）(2) 同じ案件でのPoC/MVPの具体例 (3) PoC→MVP移行の判断基準 (4) リリース前提の違い",
+        "done": "前回（09-11: 3者比較表・失敗例・FAQ追加）とは違う手法。リード直後に結論文を追加、description を結論先出しに変更、比較表に「リリース」行を追加、「具体例:社内問い合わせAIの場合」比較表と「PoCからMVPへ進む判断基準」チェックリスト4項目を追加、dateModified を更新。title・URL は変更なし"
+      }
+    ],
+    "reviews": []
   }
 ]
