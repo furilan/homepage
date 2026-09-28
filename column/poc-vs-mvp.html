@@ -13,7 +13,7 @@
 </script>
 
 <title>PoCとMVPの違いとは?目的・使い分け・進める順番をわかりやすく解説 | 株式会社フリラン</title>
-<meta name="description" content="PoCとMVPの違いをわかりやすく比較。それぞれの目的、検証する内容、成果物の違い、進める順番(PoC→MVP→本開発)、どちらから始めるべきかを解説。新規事業やAI開発の検証を検討中の方へ。">
+<meta name="description" content="PoCは「技術的に作れるか」、MVPは「ユーザーに使われるか」を確かめる検証です。目的・成果物・リリース前提の違いを比較表で整理し、社内問い合わせAIの具体例、PoCからMVPへ進む判断基準、進める順番を解説します。">
 <meta name="keywords" content="PoC,MVP,PoCとMVPの違い,概念実証,プロトタイプ,新規事業,検証,AI駆動開発,PMF,株式会社フリラン">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://www.fuliran.co.jp/column/poc-vs-mvp.html">
@@ -53,7 +53,7 @@
   "description": "PoCとMVPの違いを、目的・検証内容・成果物・進める順番の観点でわかりやすく解説します。",
   "inLanguage": "ja",
   "datePublished": "2026-06-23",
-  "dateModified": "2026-09-11",
+  "dateModified": "2026-09-28",
   "image": "https://www.fuliran.co.jp/ogp.png",
   "author": { "@type": "Organization", "name": "株式会社フリラン", "url": "https://www.fuliran.co.jp/" },
   "publisher": { "@type": "Organization", "name": "株式会社フリラン", "logo": { "@type": "ImageObject", "url": "https://www.fuliran.co.jp/ogp.png" } },
@@ -134,7 +134,8 @@
     <p class="article-meta">公開日:2026年6月23日 ・ 株式会社フリラン</p>
 
     <div class="article-body">
-      <p class="article-lead">新規事業やプロダクト開発でよく登場する「PoC」と「MVP」。似た文脈で使われますが、目的は異なります。本記事では、PoCとMVPの違い、使い分け、進める順番をわかりやすく解説します。</p>
+      <p class="article-lead">新規事業やプロダクト開発でよく登場する「PoC」と「MVP」。似た文脈で使われますが、目的は異なります。本記事では、PoCとMVPの違い、使い分け、進める順番を具体例つきで解説します。</p>
+      <p><strong>結論:PoCは「技術的に作れるか」を社内で確かめる検証で、リリースを前提にしません。MVPは「ユーザーに使われるか・お金を払ってもらえるか」を実際の市場で確かめる検証で、リリースして改善していくことが前提です。</strong>技術に不安があればPoCから、技術は問題なくニーズが不明ならMVPから始めます。</p>
 
       <h2>PoCとMVP、それぞれの意味</h2>
       <p><a href="poc.html">PoC(概念実証)</a>は、アイデアや技術が<strong>「実現できるか」</strong>を確かめる検証です。一方、<strong>MVP(Minimum Viable Product / 必要最小限の製品)</strong>は、最小限の機能を持つ製品を実際にユーザーに使ってもらい、<strong>「市場に受け入れられるか」</strong>を確かめる検証です。</p>
@@ -147,6 +148,7 @@
           <tr><td>確かめること</td><td>技術的に作れるか</td><td>ユーザーに使われるか</td></tr>
           <tr><td>対象</td><td>社内・技術検証が中心</td><td>実際のユーザー</td></tr>
           <tr><td>成果物</td><td>検証用の試作・データ</td><td>実際に使える最小限の製品</td></tr>
+          <tr><td>リリース</td><td>前提にしない(検証後は捨ててよい)</td><td>前提にする(改善しながら育てる)</td></tr>
         </tbody>
       </table>
       <p>ひとことで言えば、<strong>PoCは「作れるか」、MVPは「売れるか・使われるか」</strong>を検証するもの、という違いがあります。</p>
@@ -173,6 +175,28 @@
         <li><strong>本開発</strong>:検証結果をもとに、本格的に開発・改善していく。</li>
       </ol>
       <p>検証の対象が「実現性」から「市場性」へと移っていくイメージです。</p>
+
+      <h2>具体例:社内問い合わせAIの場合</h2>
+      <p>同じテーマでも、PoCとMVPでは確かめることがまったく違います。社内規程の問い合わせにAIが答える仕組みを例にすると、次のようになります。</p>
+      <table class="article-table">
+        <thead><tr><th>観点</th><th>PoC</th><th>MVP</th></tr></thead>
+        <tbody>
+          <tr><td>問い</td><td>自社の規程文書から、AIが正しく回答できるか</td><td>社員が実際に使い、問い合わせ対応が減るか</td></tr>
+          <tr><td>やること</td><td>過去の問い合わせ50件をAIに解かせ、正答率を測る</td><td>1部署に公開し、最低限の画面と回答機能だけで運用する</td></tr>
+          <tr><td>見る指標</td><td>正答率・回答時間・誤回答の傾向</td><td>利用者数・再利用率・担当者への問い合わせ件数の変化</td></tr>
+          <tr><td>終わった後</td><td>検証コードは捨ててよい。結果をもとにMVPへ進むか判断</td><td>フィードバックをもとに機能を足し、全社展開(本開発)へ</td></tr>
+        </tbody>
+      </table>
+
+      <h2>PoCからMVPへ進む判断基準</h2>
+      <p>PoCを終えてMVPに進むかどうかは、開始前に決めた基準で判断します。基準がないままだと、後述する「PoC疲れ」に陥りがちです。</p>
+      <ul>
+        <li><strong>技術的な目標値を満たしたか</strong>(例:正答率80%以上など、事前に決めた数値)</li>
+        <li><strong>本番で使うデータ・環境でも再現できる見込みがあるか</strong></li>
+        <li><strong>MVPで検証したい仮説(誰が・何のために使うか)が1つに絞れているか</strong></li>
+        <li><strong>MVPの期間・予算を関係者が合意しているか</strong></li>
+      </ul>
+      <p>目標値に届かなかった場合も、「何が足りなかったか」が分かればPoCとしては成功です。条件を変えて再検証するか、テーマを見直すかをその場で決めます。</p>
 
       <h2>どちらから始めるべき?</h2>
       <p>技術的な実現性に不安がある場合は<strong>PoCから</strong>、技術は問題なく「ニーズがあるか」を確かめたい場合は<strong>MVPから</strong>始めるのが基本です。両者は対立するものではなく、検証の目的に応じて使い分け・組み合わせるものです。</p>
