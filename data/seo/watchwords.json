@@ -186,6 +186,16 @@
       "keyword": "aiエージェント 開発 費用 効果",
       "targetPath": "/column/ai-agent-development-cost.html",
       "priority": "medium"
+    },
+    {
+      "keyword": "aiエージェント プロンプト",
+      "targetPath": "/column/how-to-build-ai-agent.html",
+      "priority": "high"
+    },
+    {
+      "keyword": "ai エージェント プロンプト",
+      "targetPath": "/column/how-to-build-ai-agent.html",
+      "priority": "medium"
     }
   ]
 }
