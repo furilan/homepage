@@ -79,5 +79,24 @@
       }
     ],
     "reviews": []
+  },
+  {
+    "keyword": "AIエージェント 導入",
+    "targetPath": "/column/ai-agent-implementation-guide.html",
+    "status": "observing",
+    "nextReviewDate": "2026-10-11",
+    "_note": "選定区分は「priority: high の rank: null」。2〜10位で impressions のあるクエリはすべて observing 中のページ（poc-vs-mvp / ai-agent-development-cost / how-to-build-ai-agent）に着地していたため外した。「poc とは」(2位, 28日 impr 1) は母数が小さく、表示も observing 中の poc-vs-mvp だったので外した。--discover (7日) で「aiエージェント 導入ガイド」が /download.html に 9位・impr 4 で出ており、本来の着地先の導入ガイドページが表示されていない。7日レビューでは「AIエージェント 導入」に加えて「aiエージェント 導入ガイド」の順位と着地ページも記録する。なお、2026-10-04 実行分の 28日測定は、スクリプトが UTC で日付を取るため rank-history に date \"2026-10-03\"（集計 09-03..09-30）として追記されている。",
+    "actions": [
+      {
+        "date": "2026-10-04",
+        "rankAtAction": null,
+        "impressions28d": 0,
+        "clicks28d": 0,
+        "needs": "AIエージェントの導入を任された企業の担当者が、何から始め、各段階にどれくらいの期間がかかり、最初にどの業務を対象にし、SaaSで済ませるか個別開発するかを判断したい",
+        "gap": "上位ページ（helpfeel / liber-craft / HP 等）は5ステップに期間（例: 棚卸し1〜2週間・試験運用2〜4週間）を付け、対象業務の選定基準（頻度・ルール化できるか・データで動くか・最終判断だけ人か）や、ツールの選定基準を示している。対象ページの5ステップは説明だけで、(1) 各ステップの期間と次に進む前にそろえるもの (2) 最初に任せる業務の具体的な選び方 (3) SaaSか個別開発かの判断材料 がなかった。上位ページで弱い「次に進む前にそろえるもの」と「最初の対象に向かない業務」を重点にした",
+        "done": "このページは初めての改善。#steps の後に、各ステップの期間の目安と次に進む前にそろえるものの表（5行）、h3「最初に任せる業務の選び方」(#first-task) のチェック項目5つと向かない業務、h3「SaaSで足りるか、個別開発が必要か」(#saas-or-custom) の判断表（4観点）を追加。/ai-check.html と /download.html への内部リンクを追加。FAQ（HTML と FAQPage 構造化データ）の先頭に「何から始めればいいか」を1問追加、description に追記、dateModified と表示上の最終更新日を 2026-10-04 に更新。期間は既存FAQの目安（PoC数週間〜・本格導入数か月）と矛盾しない範囲で記載し、新しい自社数値は作っていない。title・URL は変更なし"
+      }
+    ],
+    "reviews": []
   }
 ]
