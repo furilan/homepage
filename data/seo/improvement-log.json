@@ -27,7 +27,7 @@
     "keyword": "PoC MVP 違い",
     "targetPath": "/column/poc-vs-mvp.html",
     "status": "observing",
-    "nextReviewDate": "2026-10-05",
+    "nextReviewDate": "2026-10-12",
     "actions": [
       {
         "date": "2026-09-28",
@@ -38,9 +38,33 @@
         "needs": "新規事業・AI開発の担当者が、PoCとMVPの違いを一言で把握し、自分の案件ではどちらから始め、いつPoCを終えてMVPに進むかを判断したい",
         "gap": "上位ページ（GeNEE / Y's / co-well / astina 等）と比較表の内容はほぼ同等。不足は (1) 冒頭の結論（2〜4位で表示48回・クリック0）(2) 同じ案件でのPoC/MVPの具体例 (3) PoC→MVP移行の判断基準 (4) リリース前提の違い",
         "done": "前回（09-11: 3者比較表・失敗例・FAQ追加）とは違う手法。リード直後に結論文を追加、description を結論先出しに変更、比較表に「リリース」行を追加、「具体例:社内問い合わせAIの場合」比較表と「PoCからMVPへ進む判断基準」チェックリスト4項目を追加、dateModified を更新。title・URL は変更なし"
+      },
+      {
+        "date": "2026-10-05",
+        "rankAtAction": 3.9,
+        "rank7dAtAction": 3.8,
+        "impressions28d": 62,
+        "clicks28d": 0,
+        "needs": "新規事業・AI開発の担当者が、PoCとMVPの違いを一言でつかみ、自分の案件でどちらから進めるかを決めて、社内（決裁者）に説明して予算を通したい",
+        "gap": "上位ページ（imitsu / ysinc / sun-asterisk / co-well / astina / twostone 等）の比較表は対象ページとほぼ同じ内容。28日で約4位・表示62回なのにクリックは0。title は過去2回の改善で一度も変えておらず、上位ページと同じ「違いとは?〜をわかりやすく解説」の型だった。本文で足りないのは、上位ページでは twostone 以外ほとんど扱っていない「稟議でどう説明するか」",
+        "done": "前2回（09-11: 3者比較表・失敗例・FAQ / 09-28: 結論文・具体例・判断基準）とは違う手法。title・h1・og:title・twitter:title・Article headline を「PoCとMVPの違い|「作れるか」と「使われるか」を比較表・具体例・判断基準で解説」に変更した（結論を先に出し、本文にある比較表・具体例・判断基準を書いた）。h2「社内(稟議)でPoCとMVPを説明するときのポイント」を追加し、稟議に書く項目（目的・成功の基準・期間/予算・終わった後・失敗したときの扱い）をPoCとMVPで比べる表を置いた。FAQ（HTML と FAQPage 構造化データ）に稟議の問いを1問追加、description に追記、dateModified・表示上の最終更新日・sitemap の lastmod を 2026-10-05 に更新。新しい自社数値は作っていない。URL は変更なし。column/index.html のカード見出しは旧 title のまま"
       }
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "date": "2026-10-05",
+        "rank7d": 3.8,
+        "impressions7d": 17,
+        "clicks7d": 0,
+        "rankAtAction": 4.5,
+        "rank7dAtAction": 2.2,
+        "rank28d": 3.9,
+        "impressions28d": 62,
+        "clicks28d": 0,
+        "verdict": "no_effect",
+        "note": "7日GSC（2026-09-25..10-01）は 3.8位。28日の rankAtAction 4.5 よりは上だが、改善時の7日順位 2.2 より下。1位には届かず、クリックは0のまま。集計期間の前半3日（09-25..27）は改善前なので、効果は切り分けられない。同じページに着地する兄弟クエリ（7日）: 「mvp poc 違い」4.6 (impr 24)、「mvpとpocの違い」1 (impr 7)、「poc mvpとは」9 (impr 5)、「poc mvp」10.1 (impr 9)。明確な上昇とは言えないので no_effect とし、active に戻した。同日に、本文の追加ではなく、まだ一度も変えていない title の変更を行い observing にした"
+      }
+    ]
   },
   {
     "keyword": "aiエージェント 開発 費用 内訳",
