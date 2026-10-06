@@ -145,5 +145,25 @@
       }
     ],
     "reviews": []
+  },
+  {
+    "keyword": "ax レベル",
+    "targetPath": "/ai-check.html",
+    "status": "observing",
+    "nextReviewDate": "2026-10-14",
+    "_note": "2026-10-07 の --discover (7日) で見つけて watchwords に追加。表記ゆれ「axレベル」(7日 5位, impr 2) も同じページに着地しているので、7日レビューではあわせて記録する。2〜10位で impressions のある登録済みクエリはすべて observing 中のページ（poc-vs-mvp / ai-agent-development-cost / how-to-build-ai-agent）に着地していたため外した。28日の --discover 上位20件には出ておらず、28日順位は未取得。母数が小さいので判定は兄弟クエリと合わせて見る。",
+    "actions": [
+      {
+        "date": "2026-10-07",
+        "rankAtAction": null,
+        "rank7dAtAction": 10.3,
+        "impressions7d": 3,
+        "clicks7d": 0,
+        "needs": "AX（AIトランスフォーメーション）に取り組む企業の担当者が、AI活用の段階（レベル）にどんな区分があり、自社がどのレベルにいて次に何をすればよいかを知りたい",
+        "gap": "WebSearch の上位は「AX レベル」が測量機器のオートレベルと混在しており、AI 文脈の上位（softbank / ai-souken / dxmagazine / digital-gorilla 等、スニペットで確認）は AX の一般的な説明が中心で、レベルの区分と判定の目安を一覧で示したページは見当たらなかった。対象ページ（AI活用度診断）は5段階のレベル定義を持っているが、結果画面の JS の中にしかなく、診断前のページには「AXレベル」という語もレベルの一覧もなかった",
+        "done": "このページは初めての改善。診断の開始ボタンの下（#checkIntro 内。診断を始めると一緒に非表示になる）に h2「AXレベル(AX成熟度)の5段階」(#levels) を追加し、Lv.0〜Lv.4 の状態の目安と次の一手の表（5行）、Lv.2→3 が最大の壁であること、column/ax-guide.html#maturity への内部リンクを置いた。内容は既存の ai-check.js の LEVELS と ax-guide.html の成熟度表に合わせ、新しい数値や区分は作っていない。title・og:title・twitter:title を「AXレベル(成熟度)」を含む形に変更し、description・keywords に追記。css/style.css に .check-levels のスタイルを追加し、sitemap の lastmod を 2026-10-07 に更新。h1・URL は変更なし。WebFetch は使っていない"
+      }
+    ],
+    "reviews": []
   }
 ]
