@@ -165,5 +165,24 @@
       }
     ],
     "reviews": []
+  },
+  {
+    "keyword": "AIエージェント 開発会社",
+    "targetPath": "/column/ai-agent-development-company.html",
+    "status": "observing",
+    "nextReviewDate": "2026-10-15",
+    "_note": "選定区分は「priority: high の rank: null」。2〜10位・11〜20位で impressions のあるクエリは、すべて observing 中のページ（poc-vs-mvp / ai-agent-development-cost / how-to-build-ai-agent / ai-check）に着地していたか（「生成AI 社内導入」は 28日 impr 1、7日 impr 0 と母数が小さい）、未登録クエリだったため外した。priority: high の rank: null 4件（AIエージェント 開発会社 / AI駆動開発 / LINEミニアプリ 開発会社 / SES 会社 選び方）は rank-history で一度も表示がなく、事業の中心であるAIエージェント開発の発注検討者が検索する語を選んだ。--discover で未登録の「line 公式アカウント 審査」(12.6位, 28日・7日とも impr 5, 着地 /column/line-miniapp-guide.html) も見つかっており、次回以降の候補。site: 検索では対象ページは見つからなかった（WebSearch の site: 検索は精度が低いので、インデックスの有無は GSC の URL 検査で確認したい）。",
+    "actions": [
+      {
+        "date": "2026-10-08",
+        "rankAtAction": null,
+        "impressions28d": 0,
+        "clicks28d": 0,
+        "needs": "AIエージェント開発を外部に頼もうとしている企業の担当者が、候補になる開発会社を見つけて比べ、問い合わせから契約までをどう進めればよいかを知りたい",
+        "gap": "上位ページ（japan-ai / boxil / a-x / imitsu / funnel-ai / crystal-method 等、WebSearch のスニペットで確認）は会社の一覧と比較が中心で、選び方は一般論。依頼前に対象業務・権限・成果指標を決めることに触れているページはあるが、問い合わせ時に何を書いて渡すかを示したものは見当たらなかった。対象ページは選定基準・タイプ比較・質問リスト・契約形態がそろっている一方、(1) 問い合わせ前に整理すること (2) 問い合わせから契約までの流れ がなかった。会社一覧は自社ページなので載せない",
+        "done": "このページは初めての改善。#questions の前に h2「問い合わせ前に整理しておく5つのこと」(#prepare) を追加し、対象業務/今のやり方と困りごと/AIに任せる範囲/データとつなぐシステム/成功の基準と予算・時期 の3列表（5行）と、ai-agent-implementation-guide.html#first-task への内部リンクを置いた。h3「問い合わせから契約までの流れ」(#flow) に5段階の表を置き、#questions と ai-agent-development-cost.html#estimate-check へリンクした。目次に #prepare を追加。FAQ（HTML と FAQPage 構造化データ）に「問い合わせ前に何を準備すればいいか」を1問追加、description に追記、dateModified・表示上の最終更新日・sitemap の lastmod を 2026-10-08 に更新。期間や料金の新しい自社数値は作っていない（成功基準の「8割」は記入例）。title・h1・URL は変更なし。WebFetch は使っていない"
+      }
+    ],
+    "reviews": []
   }
 ]
