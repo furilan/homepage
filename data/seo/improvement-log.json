@@ -184,5 +184,25 @@
       }
     ],
     "reviews": []
+  },
+  {
+    "keyword": "line 公式アカウント 審査",
+    "targetPath": "/column/line-miniapp-guide.html",
+    "status": "observing",
+    "nextReviewDate": "2026-10-16",
+    "_note": "2026-10-09 の --discover（28日・7日とも 12.6位, impr 5）で見つけて watchwords に追加（10-08 の記録で次回候補としていたもの）。選定区分は「11〜20位 + impressions あり」。2〜10位で impressions のある登録済みクエリは、すべて observing 中のページ（poc-vs-mvp / ai-agent-development-cost / how-to-build-ai-agent / ai-check）に着地していた。11〜20位の登録済み「生成AI 社内導入」は 28日 impr 1 と母数が小さいので外した。検索意図は公式アカウントの認証審査が中心で、着地ページ（ミニアプリの解説）とずれている。より意図に近いのは /column/line-oa-vs-miniapp.html だが、GSC が表示しているページを改善した。着地先の変更やページ追加は行っていない。",
+    "actions": [
+      {
+        "date": "2026-10-09",
+        "rankAtAction": 12.6,
+        "rank7dAtAction": 12.6,
+        "impressions28d": 5,
+        "clicks28d": 0,
+        "needs": "LINE公式アカウントを運用する（またはミニアプリを検討している）店舗・企業の担当者が、LINEの審査（主に公式アカウントの認証済アカウント審査）が何のためのもので、何を見られ、通らないと何ができないのか、ミニアプリの審査とどう違うのかを知りたい",
+        "gap": "上位ページ（lycbiz の公式ガイドライン / linestep / lme 等、WebSearch のスニペットで確認）は公式アカウントの認証済アカウント審査の基準とメリットだけを説明しており、ミニアプリの審査との違いには触れていない。対象ページは審査について「公開にはLINEヤフー社の審査が必要」と書いていたが、LINE Developers では未認証ミニアプリは審査なしで公開でき、審査は認証済ミニアプリにするためのもの（1〜2週間程度）とされており、記述が古かった。公式アカウントの審査への言及はなかった",
+        "done": "このページは初めての改善。#steps の審査申請の記述を、未認証なら審査なしで公開でき、認証済にするときに審査（1〜2週間程度）を受ける内容に修正。h3「「審査」は2種類:公式アカウントの認証審査とミニアプリの審査」(#review-types) を追加し、目的/受けないとどうなるか/主に見られること/申請する場所/期間の目安 の比較表（5行）と、認証されなくても運用は続けられる旨、line-oa-vs-miniapp.html への内部リンク、LINEヤフー for Business と LINE Developers への出典リンクを置いた。要点の箇条を修正。FAQ（HTML と FAQPage 構造化データ）の審査の回答を修正し、「公式アカウントの審査とミニアプリの審査は違うか」を1問追加。description に追記、dateModified・表示上の最終更新日・sitemap の lastmod を 2026-10-09 に更新。公式アカウントの認証審査の期間は確認できなかったので数値を書いていない。title・h1・URL は変更なし。WebFetch は1件（LINE Developers の審査ガイド）"
+      }
+    ],
+    "reviews": []
   }
 ]

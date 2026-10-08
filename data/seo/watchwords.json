@@ -211,6 +211,11 @@
       "keyword": "axレベル",
       "targetPath": "/ai-check.html",
       "priority": "low"
+    },
+    {
+      "keyword": "line 公式アカウント 審査",
+      "targetPath": "/column/line-miniapp-guide.html",
+      "priority": "medium"
     }
   ]
 }
