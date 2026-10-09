@@ -12,20 +12,20 @@
   gtag('config', 'G-QM0EZRJ4LX');
 </script>
 
-<title>AIエージェントの作り方|初心者が無料で試す方法から本格開発までを解説 | 株式会社フリラン</title>
-<meta name="description" content="AIエージェントの作り方を初心者にもわかりやすく解説。個人がChatGPTなどで無料で試す方法から、LLM・プロンプト・RAGといった構成要素とエージェント用プロンプトの書き方、開発の5ステップ、業務用の本格開発まで。内製と外注の違いや品質・セキュリティの注意点も紹介します。">
+<title>AIエージェントの作り方|無料で試す方法・プロンプト例文から本格開発まで解説 | 株式会社フリラン</title>
+<meta name="description" content="AIエージェントの作り方を初心者にもわかりやすく解説。個人がChatGPTなどで無料で試す方法から、LLM・プロンプト・RAGといった構成要素、エージェント用プロンプトの書き方とそのまま使えるテンプレート(例文)、開発の5ステップ、業務用の本格開発まで。内製と外注の違いや品質・セキュリティの注意点も紹介します。">
 <meta name="keywords" content="AIエージェント,AIエージェント 作り方,初心者,個人,無料,ChatGPT,AIエージェント開発,LLM,RAG,プロンプト,ノーコード,自律型AI,株式会社フリラン">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://www.fuliran.co.jp/column/how-to-build-ai-agent.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="株式会社フリラン">
-<meta property="og:title" content="AIエージェントの作り方|初心者が無料で試す方法から本格開発までを解説">
+<meta property="og:title" content="AIエージェントの作り方|無料で試す方法・プロンプト例文から本格開発まで解説">
 <meta property="og:description" content="個人がChatGPTなどで無料で試す方法から、構成要素・開発5ステップ・業務用の本格開発まで。初心者にもわかりやすく解説します。">
 <meta property="og:url" content="https://www.fuliran.co.jp/column/how-to-build-ai-agent.html">
 <meta property="og:image" content="https://www.fuliran.co.jp/ogp.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AIエージェントの作り方|初心者が無料で試す方法から本格開発まで">
+<meta name="twitter:title" content="AIエージェントの作り方|無料で試す方法・プロンプト例文から本格開発まで">
 <meta name="twitter:description" content="ChatGPTで無料で試す方法から業務用の本格開発まで、初心者向けに解説。">
 <meta name="twitter:image" content="https://www.fuliran.co.jp/ogp.png">
 <meta name="theme-color" content="#06070d">
@@ -53,7 +53,7 @@
   "description": "AIエージェントの構成要素、開発の5ステップ、内製と外注の違い、注意点をわかりやすく解説します。",
   "inLanguage": "ja",
   "datePublished": "2026-06-23",
-  "dateModified": "2026-10-03",
+  "dateModified": "2026-10-10",
   "image": "https://www.fuliran.co.jp/ogp.png",
   "author": { "@type": "Organization", "name": "株式会社フリラン", "url": "https://www.fuliran.co.jp/" },
   "publisher": { "@type": "Organization", "name": "株式会社フリラン", "logo": { "@type": "ImageObject", "url": "https://www.fuliran.co.jp/ogp.png" } },
@@ -103,7 +103,7 @@
     </nav>
     <p class="article-cat">AI AGENT</p>
     <h1 class="article-title">AIエージェントの作り方|構成要素と開発ステップをわかりやすく解説</h1>
-    <p class="article-meta">公開日:2026年6月23日(最終更新:2026年10月3日)・ 株式会社フリラン</p>
+    <p class="article-meta">公開日:2026年6月23日(最終更新:2026年10月10日)・ 株式会社フリラン</p>
 
     <div class="article-body">
       <p class="article-lead">「AIエージェントを作ってみたいが、何が必要で、どう開発すればいいのか分からない」——本記事では、AIエージェントの構成要素、開発のステップ、内製と開発会社への依頼の違い、注意点までをわかりやすく解説します。</p>
@@ -147,12 +147,40 @@
           <tr><td>出力形式</td><td>返す形</td><td>回答文+参照したFAQのURL、または引き継ぎ票(要件・顧客名・経緯)</td></tr>
         </tbody>
       </table>
+      <h3 id="prompt-template">そのまま使えるプロンプトのテンプレート(例文つき)</h3>
+      <p>上の6要素を、問い合わせ一次対応エージェントのシステムプロンプトとして書いた例です。【】の中を自社の業務に置き換えれば、そのまま下書きとして使えます。</p>
+<pre class="article-prompt"># 役割
+あなたは【当社サポート窓口】の一次対応担当です。
+
+# 目的・完了条件
+お客様の問い合わせに回答します。次のどちらかができたら完了です。
+- 根拠のある回答を返した
+- 担当者への引き継ぎ票を作った
+
+# 使えるツールと使う場面
+- 【FAQ検索】:製品の使い方・仕様の質問で最初に使う
+- 【注文照会】:注文・配送の質問で最初に使う(注文番号がなければ先に聞く)
+
+# ルール・禁止事項
+- ツールの検索結果にない内容は答えない。推測で補わない
+- 【返金・値引き】を約束しない
+- 個人情報は、照会に必要な項目以外を聞かない
+
+# 人に引き継ぐ条件
+次の場合は自分で回答せず、引き継ぎ票を作って止まる。
+- 【クレーム・契約変更・解約】の相談
+- 2回検索しても根拠が見つからない
+
+# 出力形式
+- 回答する場合:回答文 + 参照したFAQのURL
+- 引き継ぐ場合:引き継ぎ票(要件 / 顧客名 / これまでの経緯 / 引き継ぐ理由)</pre>
+      <p>営業メールの下書きや経費チェックなど別の業務に使うときも、見出し(役割〜出力形式)はそのままにして中身だけを書き換えます。特に「人に引き継ぐ条件」は空欄にしないでください。ここが空だと、エージェントは判断に迷ったときも止まらずに作業を続けてしまいます。</p>
       <p>書いたプロンプトは、実際の問い合わせや業務データを10〜20件ほど流して、<strong>ツールの選び間違い・止まるべき場面で止まらない・形式の崩れ</strong>がないかを確認し、見つかった失敗をルールに追記していきます。最初から完璧なプロンプトを書こうとするより、この確認と追記を繰り返すほうが早く安定します。</p>
 
       <h2>AIエージェントの作り方(5ステップ)</h2>
       <ol>
         <li><strong>目的・業務を決める</strong>:どの業務を、どこまで任せたいかを明確にする。</li>
-        <li><strong>設計する</strong>:使うLLMの選定、<a href="#prompt">プロンプト設計</a>、必要なツール連携やRAGの構成を決める。</li>
+        <li><strong>設計する</strong>:使うLLMの選定、<a href="#prompt">プロンプト設計</a>(<a href="#prompt-template">テンプレート</a>)、必要なツール連携やRAGの構成を決める。</li>
         <li><strong>開発する</strong>:エージェントを実装し、ツールやデータと接続する。</li>
         <li><strong>評価・改善する</strong>:実際のタスクで精度を確認し、プロンプトや構成を調整する。</li>
         <li><strong>運用・監視する</strong>:本番で動かしながら、品質や安全性を継続的に見守る。</li>
