@@ -241,8 +241,8 @@
   {
     "keyword": "ax レベル",
     "targetPath": "/ai-check.html",
-    "status": "observing",
-    "nextReviewDate": "2026-10-14",
+    "status": "active",
+    "nextReviewDate": null,
     "_note": "2026-10-07 の --discover (7日) で見つけて watchwords に追加。表記ゆれ「axレベル」(7日 5位, impr 2) も同じページに着地しているので、7日レビューではあわせて記録する。2〜10位で impressions のある登録済みクエリはすべて observing 中のページ（poc-vs-mvp / ai-agent-development-cost / how-to-build-ai-agent）に着地していたため外した。28日の --discover 上位20件には出ておらず、28日順位は未取得。母数が小さいので判定は兄弟クエリと合わせて見る。",
     "actions": [
       {
@@ -256,7 +256,21 @@
         "done": "このページは初めての改善。診断の開始ボタンの下（#checkIntro 内。診断を始めると一緒に非表示になる）に h2「AXレベル(AX成熟度)の5段階」(#levels) を追加し、Lv.0〜Lv.4 の状態の目安と次の一手の表（5行）、Lv.2→3 が最大の壁であること、column/ax-guide.html#maturity への内部リンクを置いた。内容は既存の ai-check.js の LEVELS と ax-guide.html の成熟度表に合わせ、新しい数値や区分は作っていない。title・og:title・twitter:title を「AXレベル(成熟度)」を含む形に変更し、description・keywords に追記。css/style.css に .check-levels のスタイルを追加し、sitemap の lastmod を 2026-10-07 に更新。h1・URL は変更なし。WebFetch は使っていない"
       }
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "date": "2026-10-14",
+        "rank7d": null,
+        "impressions7d": 0,
+        "clicks7d": 0,
+        "rankAtAction": null,
+        "rank7dAtAction": 10.3,
+        "rank28d": 10.3,
+        "impressions28d": 3,
+        "clicks28d": 0,
+        "verdict": "no_effect",
+        "note": "7日GSC（2026-10-04..10-10）は「ax レベル」「axレベル」とも impressions 0 で順位が取れなかった。28日は ax レベル 10.3 (impr 3)、axレベル 5 (impr 2) で前回から変化なし。改善日 10-07 以降の GSC データは 10-08..10-10 の3日分しかなく、表示自体がないため効果は判定できない。上昇は確認できないので no_effect とし active に戻す。母数が極めて小さいので、次回以降も impressions が出るまでは改善対象にしない方がよい"
+      }
+    ]
   },
   {
     "keyword": "AIエージェント 開発会社",
@@ -293,6 +307,25 @@
         "needs": "LINE公式アカウントを運用する（またはミニアプリを検討している）店舗・企業の担当者が、LINEの審査（主に公式アカウントの認証済アカウント審査）が何のためのもので、何を見られ、通らないと何ができないのか、ミニアプリの審査とどう違うのかを知りたい",
         "gap": "上位ページ（lycbiz の公式ガイドライン / linestep / lme 等、WebSearch のスニペットで確認）は公式アカウントの認証済アカウント審査の基準とメリットだけを説明しており、ミニアプリの審査との違いには触れていない。対象ページは審査について「公開にはLINEヤフー社の審査が必要」と書いていたが、LINE Developers では未認証ミニアプリは審査なしで公開でき、審査は認証済ミニアプリにするためのもの（1〜2週間程度）とされており、記述が古かった。公式アカウントの審査への言及はなかった",
         "done": "このページは初めての改善。#steps の審査申請の記述を、未認証なら審査なしで公開でき、認証済にするときに審査（1〜2週間程度）を受ける内容に修正。h3「「審査」は2種類:公式アカウントの認証審査とミニアプリの審査」(#review-types) を追加し、目的/受けないとどうなるか/主に見られること/申請する場所/期間の目安 の比較表（5行）と、認証されなくても運用は続けられる旨、line-oa-vs-miniapp.html への内部リンク、LINEヤフー for Business と LINE Developers への出典リンクを置いた。要点の箇条を修正。FAQ（HTML と FAQPage 構造化データ）の審査の回答を修正し、「公式アカウントの審査とミニアプリの審査は違うか」を1問追加。description に追記、dateModified・表示上の最終更新日・sitemap の lastmod を 2026-10-09 に更新。公式アカウントの認証審査の期間は確認できなかったので数値を書いていない。title・h1・URL は変更なし。WebFetch は1件（LINE Developers の審査ガイド）"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "keyword": "ragとエージェント型aiの違いは何ですか？",
+    "targetPath": "/column/ai-glossary.html",
+    "status": "observing",
+    "nextReviewDate": "2026-10-21",
+    "_note": "2026-10-14 の --discover (28日) で見つけて watchwords に追加。登録済みで2〜10位・impressions ありのクエリは observing 中のページ（poc-vs-mvp / ai-agent-development-cost / how-to-build-ai-agent）に着地しており、「AIエージェント 導入」は 28日 impr 1 で別ページ（費用ページ）表示のため外した。母数が小さいので判定は7日と28日を並べて見る",
+    "actions": [
+      {
+        "date": "2026-10-14",
+        "rankAtAction": 5.5,
+        "impressions28d": 6,
+        "clicks28d": 0,
+        "needs": "RAGやAIエージェントの導入を検討している企業の担当者が、RAGとエージェント型AIが何が違うのか、自社の業務にはどちらが合うのか（両方必要なのか）を知りたい",
+        "gap": "WebSearch の上位（aiagent-navi.com、airbyte.com 等の英語記事、スニペットで確認）は目的・処理内容・活用範囲の比較表で「別物」として説明しており、両者を併用する構成や、具体的な業務でどちらを選ぶかの判断基準は薄かった。対象ページ（AI用語集）は RAG と AIエージェントを別々に定義しているだけで、両者の違いを直接答える箇所がなかった",
+        "done": "このページは初めての改善。「AIエージェント関連の用語」の末尾（ファインチューニングの後、「開発・推進に関する用語」の前）に h3「RAGとエージェント型AI(AIエージェント)の違いは?」(#rag-vs-agent) を追加し、結論文（RAG=調べてから答える仕組み、エージェント型AI=判断して作業を実行するAI、併用も多い）、役割/出力/動き方/向く業務の4行の比較表、社内問い合わせを例にした選び方、rag.html と ai-agent-vs-chatbot.html への内部リンクを置いた。sitemap の lastmod を 2026-10-14 に更新。title・description・h1・URL・構造化データは変更なし。WebFetch は使っていない"
       }
     ],
     "reviews": []

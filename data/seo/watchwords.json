@@ -216,6 +216,11 @@
       "keyword": "line 公式アカウント 審査",
       "targetPath": "/column/line-miniapp-guide.html",
       "priority": "medium"
+    },
+    {
+      "keyword": "ragとエージェント型aiの違いは何ですか？",
+      "targetPath": "/column/ai-glossary.html",
+      "priority": "medium"
     }
   ]
 }
