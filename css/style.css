@@ -1982,6 +1982,17 @@ img, svg { display: block; }
   transition: border-color 0.3s;
 }
 .dl-alt a:hover { border-bottom-color: var(--accent-2); }
+.dl-steps-lead {
+  color: var(--text-dim);
+  font-size: 0.93rem;
+  line-height: 1.9;
+  max-width: 760px;
+  margin: -14px auto 24px;
+  text-align: center;
+}
+.dl-steps { overflow-x: auto; }
+.dl-steps .article-table { min-width: 640px; font-size: 0.9rem; }
+.dl-steps a { color: var(--accent-2); }
 
 /* ---------- 404ページ ---------- */
 .notfound {
