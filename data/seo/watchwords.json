@@ -221,6 +221,11 @@
       "keyword": "ragとエージェント型aiの違いは何ですか？",
       "targetPath": "/column/ai-glossary.html",
       "priority": "medium"
+    },
+    {
+      "keyword": "aiエージェント 導入ガイド",
+      "targetPath": "/download.html",
+      "priority": "medium"
     }
   ]
 }

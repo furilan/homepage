@@ -275,8 +275,8 @@
   {
     "keyword": "AIエージェント 開発会社",
     "targetPath": "/column/ai-agent-development-company.html",
-    "status": "observing",
-    "nextReviewDate": "2026-10-15",
+    "status": "active",
+    "nextReviewDate": null,
     "_note": "選定区分は「priority: high の rank: null」。2〜10位・11〜20位で impressions のあるクエリは、すべて observing 中のページ（poc-vs-mvp / ai-agent-development-cost / how-to-build-ai-agent / ai-check）に着地していたか（「生成AI 社内導入」は 28日 impr 1、7日 impr 0 と母数が小さい）、未登録クエリだったため外した。priority: high の rank: null 4件（AIエージェント 開発会社 / AI駆動開発 / LINEミニアプリ 開発会社 / SES 会社 選び方）は rank-history で一度も表示がなく、事業の中心であるAIエージェント開発の発注検討者が検索する語を選んだ。--discover で未登録の「line 公式アカウント 審査」(12.6位, 28日・7日とも impr 5, 着地 /column/line-miniapp-guide.html) も見つかっており、次回以降の候補。site: 検索では対象ページは見つからなかった（WebSearch の site: 検索は精度が低いので、インデックスの有無は GSC の URL 検査で確認したい）。",
     "actions": [
       {
@@ -289,7 +289,20 @@
         "done": "このページは初めての改善。#questions の前に h2「問い合わせ前に整理しておく5つのこと」(#prepare) を追加し、対象業務/今のやり方と困りごと/AIに任せる範囲/データとつなぐシステム/成功の基準と予算・時期 の3列表（5行）と、ai-agent-implementation-guide.html#first-task への内部リンクを置いた。h3「問い合わせから契約までの流れ」(#flow) に5段階の表を置き、#questions と ai-agent-development-cost.html#estimate-check へリンクした。目次に #prepare を追加。FAQ（HTML と FAQPage 構造化データ）に「問い合わせ前に何を準備すればいいか」を1問追加、description に追記、dateModified・表示上の最終更新日・sitemap の lastmod を 2026-10-08 に更新。期間や料金の新しい自社数値は作っていない（成功基準の「8割」は記入例）。title・h1・URL は変更なし。WebFetch は使っていない"
       }
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "date": "2026-10-15",
+        "rank7d": null,
+        "impressions7d": 0,
+        "clicks7d": 0,
+        "rankAtAction": null,
+        "rank28d": null,
+        "impressions28d": 0,
+        "clicks28d": 0,
+        "verdict": "no_effect",
+        "note": "7日GSC（2026-10-05..10-11）・28日（09-14..10-11）とも impressions 0 で順位は取れなかった。改善日 10-08 以降の GSC データは 10-09..10-11 の3日分しかない。表示が確認できないので効果は判定できず、no_effect として active に戻した。インデックスの有無は GSC の URL 検査で確認したい（スクリプトでは確認できない）"
+      }
+    ]
   },
   {
     "keyword": "line 公式アカウント 審査",
@@ -326,6 +339,26 @@
         "needs": "RAGやAIエージェントの導入を検討している企業の担当者が、RAGとエージェント型AIが何が違うのか、自社の業務にはどちらが合うのか（両方必要なのか）を知りたい",
         "gap": "WebSearch の上位（aiagent-navi.com、airbyte.com 等の英語記事、スニペットで確認）は目的・処理内容・活用範囲の比較表で「別物」として説明しており、両者を併用する構成や、具体的な業務でどちらを選ぶかの判断基準は薄かった。対象ページ（AI用語集）は RAG と AIエージェントを別々に定義しているだけで、両者の違いを直接答える箇所がなかった",
         "done": "このページは初めての改善。「AIエージェント関連の用語」の末尾（ファインチューニングの後、「開発・推進に関する用語」の前）に h3「RAGとエージェント型AI(AIエージェント)の違いは?」(#rag-vs-agent) を追加し、結論文（RAG=調べてから答える仕組み、エージェント型AI=判断して作業を実行するAI、併用も多い）、役割/出力/動き方/向く業務の4行の比較表、社内問い合わせを例にした選び方、rag.html と ai-agent-vs-chatbot.html への内部リンクを置いた。sitemap の lastmod を 2026-10-14 に更新。title・description・h1・URL・構造化データは変更なし。WebFetch は使っていない"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "keyword": "aiエージェント 導入ガイド",
+    "targetPath": "/download.html",
+    "status": "observing",
+    "nextReviewDate": "2026-10-22",
+    "_note": "2026-10-15 の --discover（28日 8.2位 impr 5、7日 5位 impr 1、着地 /download.html）で見つけて watchwords に追加。選定区分は「GSC で見つかった有望な未登録クエリ」。登録済みで2〜10位・impressions ありのクエリは、すべて observing 中のページ（poc-vs-mvp / ai-agent-development-cost / how-to-build-ai-agent / ai-glossary）に着地しており、「ax レベル」系は 7日 impr 0。「AIエージェント 導入」(active) は 28日 impr 1 で費用ページ表示のため外した。10-12 のレビューで「AIエージェント 導入」の次の手としていた『資料ページとの役割分担と内部リンク』を、GSC が実際に表示している /download.html 側で行った。7日レビューでは「AIエージェント 導入」の順位と着地ページもあわせて記録する。母数が小さいので7日と28日を並べて見る",
+    "actions": [
+      {
+        "date": "2026-10-15",
+        "rankAtAction": 8.2,
+        "rank7dAtAction": 5,
+        "impressions28d": 5,
+        "clicks28d": 0,
+        "needs": "AIエージェントの導入を検討し始めた企業の担当者が、導入の進め方をまとめた資料（ガイド）を手に入れて、何から始め、各段階にどれくらいかかるかをつかみ、社内検討に使いたい",
+        "gap": "WebSearch の上位（AIsmiley の「AIエージェント導入の適否判断ガイド」のホワイトペーパー告知 / Hakky / a-x / aiagent-navi 等、スニペットで確認）は、ダウンロード資料の告知と、Web で読める導入解説の両方が混ざっている。対象ページ（資料DL）は収録内容の目次とフォームへのボタンだけで、フォームに入力しないと進め方も期間も分からず、同じ内容を Web で解説しているコラム（ai-agent-implementation-guide.html 等）へのリンクもなかった",
+        "done": "このページは初めての改善。「収録内容」の後に h2「先に読める:導入の進め方(5ステップ)の要点」(#steps) を追加し、ステップ/期間の目安/使う付録/Webで詳しく読む の4列表（5行）を置いた。期間は ai-agent-implementation-guide.html の既存表と同じ値で、新しい数値は作っていない。リンク先は implementation-guide#first-task・#failures・本体、ai-agent-development-cost.html#roi、poc.html、ai-agent-development-company.html#prepare。description に追記、css/style.css に .dl-steps-lead / .dl-steps を追加、sitemap の lastmod を 2026-10-15 に更新。title・h1・URL・構造化データ・フォームは変更なし。WebFetch は使っていない"
       }
     ],
     "reviews": []
