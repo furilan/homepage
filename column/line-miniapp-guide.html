@@ -53,7 +53,7 @@
   "description": "ネイティブアプリ・LINE公式アカウントとの違い、できること、開発の進め方と審査、費用の目安までを解説した完全ガイド。",
   "inLanguage": "ja",
   "datePublished": "2026-07-09",
-  "dateModified": "2026-10-09",
+  "dateModified": "2026-10-16",
   "image": "https://www.fuliran.co.jp/ogp.png",
   "author": { "@type": "Organization", "name": "株式会社フリラン", "url": "https://www.fuliran.co.jp/", "description": "LINEミニアプリ開発・AIエージェント開発を手がけるテクノロジーカンパニー" },
   "publisher": { "@type": "Organization", "name": "株式会社フリラン", "logo": { "@type": "ImageObject", "url": "https://www.fuliran.co.jp/ogp.png" } },
@@ -105,7 +105,7 @@
     </nav>
     <p class="article-cat">LINE MINI APP</p>
     <h1 class="article-title">LINEミニアプリとは?できること・公式アカウントとの違い・開発の進め方を解説</h1>
-    <p class="article-meta">公開日:2026年7月9日(最終更新:2026年10月9日)・株式会社フリラン(LINEミニアプリ開発会社)</p>
+    <p class="article-meta">公開日:2026年7月9日(最終更新:2026年10月16日)・株式会社フリラン(LINEミニアプリ開発会社)</p>
 
     <div class="article-body">
       <div class="article-summary">
@@ -127,6 +127,7 @@
           <li><a href="#features">できること(機能一覧)</a></li>
           <li><a href="#merits">導入メリット</a></li>
           <li><a href="#steps">開発の進め方と審査</a></li>
+          <li><a href="#review-types">LINEの審査は2種類(公式アカウントの認証審査・ミニアプリの審査)</a></li>
           <li><a href="#cost">費用の考え方</a></li>
           <li><a href="#failures">よくある失敗と対策</a></li>
           <li><a href="#faq">よくある質問</a></li>
@@ -198,6 +199,20 @@
       </table>
       <p>公式アカウントの認証審査で対象外になりやすいのは、法令で規制のある商材やサービス内容が確認できない場合などです。認証されなくても未認証アカウントとして運用は続けられるので、まずは配信とミニアプリの導線づくりを進め、認証は並行して申請するのが現実的です。公式アカウントでできることとミニアプリの役割分担は<a href="line-oa-vs-miniapp.html">LINE公式アカウントとLINEミニアプリの違い</a>で詳しく解説しています。</p>
       <p>※審査の要件・期間はプラットフォーム側の規定により変わるため、申請時点の<a href="https://www.lycbiz.com/jp/column/line-official-account/guideline/20240805/" target="_blank" rel="noopener">LINEヤフー for Business</a>・<a href="https://developers.line.biz/ja/docs/line-mini-app/submit/submission-guide/" target="_blank" rel="noopener">LINE Developers</a>の最新情報を確認してください。</p>
+
+      <h3 id="oa-review-check">公式アカウントの認証審査:申請の手順と、通らないときの見直しポイント</h3>
+      <p>認証審査は、LINE Official Account Managerの「設定」→「アカウント設定」→情報公開の認証ステータスにある「アカウント認証をリクエスト」から申請します。申込フォームに企業・店舗の情報を入力し、審査結果の連絡を待ちます。</p>
+      <p>審査に通らなかったときは、次の点を見直してから再申請してください。</p>
+      <table class="article-table">
+        <thead><tr><th>見直すところ</th><th>よくある不備</th></tr></thead>
+        <tbody>
+          <tr><td>アカウント名・申請者名</td><td>ホームページや他の媒体に載っている正式名称と違う。代表者・運営者以外の名前で登録している</td></tr>
+          <tr><td>申込フォームの入力内容</td><td>住所・電話番号・URLの入力漏れや誤り。ホームページの記載と一致していない</td></tr>
+          <tr><td>ホームページ・店舗情報</td><td>事業内容や所在地がWeb上で確認できない</td></tr>
+          <tr><td>業種・商材</td><td>ガイドラインで認証の対象外とされている業種・商材に当たる</td></tr>
+        </tbody>
+      </table>
+      <p>業種・商材が対象外の場合は、入力を直しても認証されません。その場合も未認証アカウントとして配信やミニアプリとの連携は使えるので、友だち集めはQRコードや店頭・Webサイトでの案内で補います。</p>
 
       <h2 id="cost">費用の考え方</h2>
       <p>費用は機能範囲と連携の複雑さで決まります。予約機能のみのシンプルな構成と、モバイルオーダー・会員基盤・外部システム連携を含む構成では、規模が大きく異なります。</p>
